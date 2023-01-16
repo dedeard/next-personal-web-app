@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
 import { Brand, UserIcon, ImageIcon, MailIcon, MoonIcon, SunIcon } from './Icons'
 
-const ModeToggle = ({ click, setClick }: { click: boolean; setClick: (click: boolean) => void }) => {
+const ModeToggle = memo(({ click, setClick }: { click: boolean; setClick: (click: boolean) => void }) => {
   const { theme, setTheme } = useTheme()
   const [dark, setDark] = React.useState(false)
   const [animate, setAnimate] = React.useState<{ translateY: string }>({ translateY: '-110vh' })
@@ -36,14 +36,9 @@ const ModeToggle = ({ click, setClick }: { click: boolean; setClick: (click: boo
   return (
     <>
       <motion.div
-        initial={{
-          translateY: '-110vh',
-        }}
+        initial={{ translateY: '-110vh' }}
         animate={animate}
-        transition={{
-          duration,
-          easings: ['easeIn', 'easeOut'],
-        }}
+        transition={{ duration, easings: ['easeIn', 'easeOut'] }}
         className="fixed top-0 left-0 right-0 bottom-0 z-[200] flex select-none items-center justify-center bg-white transition-colors duration-500 dark:bg-black"
       >
         {click && (
@@ -62,23 +57,18 @@ const ModeToggle = ({ click, setClick }: { click: boolean; setClick: (click: boo
       </motion.div>
     </>
   )
-}
+})
 
-const NavLink = (
-  props: LinkProps & {
-    children: React.ReactElement
-    className?: string
-  }
-) => {
+const NavLink = memo((props: LinkProps & { children: React.ReactElement; className?: string }) => {
   const router = useRouter()
   const active = props.href === router.pathname
   return (
     <Link href={props.href} className={props.className + ' relative flex h-16 w-16 items-center justify-center'}>
-      {active && <span className="absolute top-0 left-0 block h-[2px] w-full bg-black dark:bg-white md:h-full md:w-[2px]" />}
+      {active && <span className="absolute bottom-0 right-0 block h-[2px] w-full bg-black dark:bg-white md:h-full md:w-[2px]" />}
       {props.children}
     </Link>
   )
-}
+})
 
 const Navigation = React.forwardRef((props: {}, ref: React.ForwardedRef<HTMLDivElement>) => {
   const { theme } = useTheme()
@@ -116,4 +106,4 @@ const Navigation = React.forwardRef((props: {}, ref: React.ForwardedRef<HTMLDivE
   )
 })
 
-export default memo(Navigation)
+export default Navigation

@@ -8,7 +8,7 @@ html {
 }
 
 body {
-  @apply h-full w-full bg-white text-black dark:bg-black dark:text-white;
+  @apply h-full w-full bg-white text-black selection:bg-yellow-600 dark:bg-black dark:text-white;
 }
 
 #__next {

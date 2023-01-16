@@ -1,6 +1,5 @@
 import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useImage } from '../contexts/ImageContext'
 
 const ImageList = ({ image }: { image: string }) => {
   const [open, setOpen] = useState(false)
@@ -82,13 +81,14 @@ const ImageList = ({ image }: { image: string }) => {
   )
 }
 
-export default memo(function ImagePreviewer() {
-  const { images } = useImage()
+const ImagePreviewer = ({ images }: { images: string[] }) => {
   return (
     <>
-      {images.map((el, i) => (
-        <ImageList key={i} image={el} />
+      {images.map((img, i) => (
+        <ImageList key={i} image={img} />
       ))}
     </>
   )
-})
+}
+
+export default memo(ImagePreviewer)

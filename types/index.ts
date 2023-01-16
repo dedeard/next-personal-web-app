@@ -17,6 +17,8 @@ export interface IDataBackground {
 export interface IGlobalPage {
   body: {
     background: IDataBackground
+    noise?: boolean
+    cursor?: boolean
   }
 }
 

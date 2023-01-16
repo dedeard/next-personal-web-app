@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Head from 'next/head'
 import { IContactPage, IDataBackground } from '@/types'
 import { GetServerSideProps } from 'next'
@@ -11,6 +11,7 @@ const ContactPage = ({ head, body }: PropsType) => {
       <Head>
         <title>{head.title}</title>
         <meta name="description" content={head.description} />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + '/contact'} />
       </Head>
 
       <h1 className="page-title">

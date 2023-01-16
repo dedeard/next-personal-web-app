@@ -23,7 +23,9 @@ const Background = ({ image, video, title }: { image?: string; video?: string; t
         </span>
       </span>
       <div className="fixed left-0 top-0 -z-50 h-full w-full overflow-hidden bg-white dark:bg-black">
-        {image && <img src={image} alt={image} className={'block h-full w-full object-cover'} />}
+        {image && (
+          <img src={image} alt={process.env.NEXT_PUBLIC_HOST + ' backgroud image.'} className={'block h-full w-full object-cover'} />
+        )}
         {videoPlayed && video && <video src={video} loop autoPlay className={'absolute top-0 z-10 block h-full w-full object-cover'} />}
       </div>
     </>

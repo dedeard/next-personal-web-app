@@ -5,7 +5,7 @@ const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
   const [state, handleSubmit] = useForm(formspreeKey)
   return (
     <form className="grid grid-cols-1 gap-4" onSubmit={handleSubmit}>
-      {state.succeeded && <div className="alert-success">e-mail successfully sent!</div>}
+      {state.succeeded && <div className="alert-success">Email successfully sent!</div>}
       {state.errors[0] && state.errors[0].code === 'EMPTY' && <div className="alert-error">{state.errors[0].message}</div>}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>

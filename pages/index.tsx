@@ -1,7 +1,7 @@
-import { fakeGlobalPageProps, fakeHomePageProps } from '@/fakeProps'
-import { IDataBackground, IGlobalPage, IHomePage } from '@/types'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
+import { fakeGlobalPageProps, fakeHomePageProps } from '@/fakeProps'
+import { IDataBackground, IHomePage } from '@/types'
 
 const HomePage = ({ head, body }: PropsType) => {
   return (
@@ -9,6 +9,7 @@ const HomePage = ({ head, body }: PropsType) => {
       <Head>
         <title>{head.title}</title>
         <meta name="description" content={head.description} />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST} />
       </Head>
       <div className="relative flex min-h-full w-full flex-col items-center justify-center">
         <div className="relative flex items-center justify-center py-3">
@@ -27,7 +28,13 @@ const HomePage = ({ head, body }: PropsType) => {
           </p>
           <div className="absolute -bottom-1/4 mx-auto flex">
             {Object.keys(body.socials).map((key) => (
-              <a key={key} href={body.socials[key]} target="_blank" className="mx-2 block p-2 text-sm opacity-80 hover:opacity-95">
+              <a
+                key={key}
+                href={body.socials[key]}
+                target="_blank"
+                rel="nofollow"
+                className="mx-2 block p-2 text-sm opacity-80 hover:opacity-95"
+              >
                 {key}
               </a>
             ))}
