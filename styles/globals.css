@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-family: 'Lato', sans-serif;
+  @apply h-full w-full;
+}
+
+body {
+  @apply h-full w-full bg-white text-black dark:bg-black dark:text-white;
+}
+
+#__next {
+  @apply h-full w-full;
+}
+
+.page-title {
+  @apply relative my-[1em] text-[calc(1.825rem+6.9vw)] font-bold after:absolute after:left-0 after:top-0 after:z-[-1] after:block after:text-[1.4em] after:tracking-tighter after:opacity-5 md:after:text-[1.5em];
+}
+.page-title span {
+  @apply absolute left-0 top-0 z-[-1] block text-[1.4em] tracking-tighter opacity-5 md:text-[1.5em];
+}
+
+.input {
+  @apply block border-black/10 bg-white text-sm text-black placeholder-black/75 opacity-75 focus:border-black/10 focus:border-b-black focus:opacity-100 focus:ring-0 dark:border-white/10 dark:bg-black dark:text-white dark:placeholder-white/75 dark:focus:border-b-white;
+}
+
+.alert-error {
+  @apply border-l-4 border-red-500 bg-red-500/10 px-3 py-5;
+}
+
+.alert-success {
+  @apply border-l-4 border-green-500 bg-green-500/10 px-3 py-5;
+}
