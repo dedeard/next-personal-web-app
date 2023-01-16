@@ -56,9 +56,7 @@ export default function App({ Component, pageProps, router }: AppProps<PageProps
         </Head>
         <div
           className="w-full] pointer-events-none fixed top-0 left-0 right-0 bottom-0 z-[250] h-full opacity-5"
-          style={{
-            backgroundImage: "url('/media/noise2.gif')",
-          }}
+          style={{ backgroundImage: "url('/media/noise.gif')" }}
         />
         <CursorFollower />
         <BackgroundProvider>
