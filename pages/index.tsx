@@ -53,7 +53,7 @@ export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
   return {
     props: {
       ...data,
-      title: '',
+      title: '._',
     },
   }
 }
