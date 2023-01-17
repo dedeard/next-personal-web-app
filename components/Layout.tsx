@@ -1,7 +1,6 @@
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { Router } from 'next/router'
 import { AnimatePresence, domAnimation, LazyMotion, motion } from 'framer-motion'
-import { IDataBackground } from '@/types'
 import Background from './Background'
 import Navigation from './Navigation'
 import Copyright from './Copyright'
@@ -10,13 +9,12 @@ import NoiseFilter from './NoiseFilter'
 import Preloader from './Preloader'
 
 type PropsType = {
-  background: IDataBackground
   title: string
   router: Router
   children: ReactNode
 }
 
-export default function Layout({ background, title, router, children }: PropsType) {
+export default function Layout({ title, router, children }: PropsType) {
   const navRef = useRef<HTMLDivElement>(null)
   const [screen, setScreen] = useState({ w: 0, h: 0 })
 
@@ -47,7 +45,7 @@ export default function Layout({ background, title, router, children }: PropsTyp
       <NoiseFilter />
       <CursorFollower />
       <Preloader />
-      <Background {...background} title={title} />
+      <Background title={title} />
       <Navigation ref={navRef} />
       <Copyright />
       <LazyMotion features={domAnimation}>

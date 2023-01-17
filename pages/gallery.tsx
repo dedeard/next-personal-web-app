@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useImage } from '../contexts/ImageContext'
-import { GetServerSideProps } from 'next'
-import { IDataBackground, IGalleryPage } from '@/types'
-import { fakeGalleryPageProps, fakeGlobalPageProps } from '@/fakeProps'
+import { GetStaticProps } from 'next'
+import { IGalleryPage } from '@/types'
 
 const GalleryPage = ({ head, body }: PropsType) => {
   const { setImages } = useImage()
@@ -40,16 +39,15 @@ const GalleryPage = ({ head, body }: PropsType) => {
 }
 
 type PropsType = IGalleryPage & {
-  background: IDataBackground
   title: string
 }
 
-export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
+  const data: IGalleryPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/gallery.json').then((res) => res.json())
   return {
     props: {
-      ...fakeGalleryPageProps,
-      background: fakeGlobalPageProps.body.background,
-      title: 'Gallery',
+      ...data,
+      title: data?.body?.title || '',
     },
   }
 }

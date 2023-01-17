@@ -1,8 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import { IContactPage, IDataBackground } from '@/types'
-import { GetServerSideProps } from 'next'
-import { fakeContactPageProps, fakeGlobalPageProps } from '@/fakeProps'
+import { IContactPage } from '@/types'
+import { GetStaticProps } from 'next'
 import ContactForm from '@/components/ContactForm'
 
 const ContactPage = ({ head, body }: PropsType) => {
@@ -37,16 +36,15 @@ const ContactPage = ({ head, body }: PropsType) => {
 }
 
 type PropsType = IContactPage & {
-  background: IDataBackground
   title: string
 }
 
-export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
+  const data: IContactPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/contact.json').then((res) => res.json())
   return {
     props: {
-      ...fakeContactPageProps,
-      background: fakeGlobalPageProps.body.background,
-      title: 'Contact',
+      ...data,
+      title: data?.body?.title || '',
     },
   }
 }

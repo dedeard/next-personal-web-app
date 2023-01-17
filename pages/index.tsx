@@ -1,7 +1,6 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { fakeGlobalPageProps, fakeHomePageProps } from '@/fakeProps'
-import { IDataBackground, IHomePage } from '@/types'
+import { IHomePage } from '@/types'
 
 const HomePage = ({ head, body }: PropsType) => {
   return (
@@ -15,15 +14,15 @@ const HomePage = ({ head, body }: PropsType) => {
         <div className="relative flex items-center justify-center py-3">
           <p className="relative flex-1">
             <span className="grid grid-cols-2">
-              <span className="block text-center text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.p1 }} />
+              <span className="block text-center text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.P1 }} />
             </span>
             <span
               className=" z-10 block text-[calc(1.825rem+6.9vw)] font-bold leading-none"
-              dangerouslySetInnerHTML={{ __html: body.contents.p2 }}
+              dangerouslySetInnerHTML={{ __html: body.contents.P2 }}
             />
             <span className="grid grid-cols-2 justify-items-end">
               <span className="block"></span>
-              <span className="block text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.p3 }} />
+              <span className="block text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.P3 }} />
             </span>
           </p>
           <div className="absolute -bottom-1/4 mx-auto flex">
@@ -46,16 +45,15 @@ const HomePage = ({ head, body }: PropsType) => {
 }
 
 type PropsType = IHomePage & {
-  background: IDataBackground
   title: string
 }
 
-export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
+  const data: IHomePage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/home.json').then((res) => res.json())
   return {
     props: {
-      ...fakeHomePageProps,
-      background: fakeGlobalPageProps.body.background,
-      title: '._',
+      ...data,
+      title: '',
     },
   }
 }

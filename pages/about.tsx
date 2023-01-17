@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Empty from '@/components/Empty'
 import { useImage } from '@/contexts/ImageContext'
-import { IAboutPage, IDataBackground } from '@/types'
-import { fakeAboutPageProps, fakeGlobalPageProps } from '@/fakeProps'
+import { IAboutPage } from '@/types'
 
 const AboutPage = ({ head, body }: PropsType) => {
   const { setImages } = useImage()
@@ -55,16 +54,15 @@ const AboutPage = ({ head, body }: PropsType) => {
 }
 
 type PropsType = IAboutPage & {
-  background: IDataBackground
   title: string
 }
 
-export const getServerSideProps: GetServerSideProps<PropsType> = async (context) => {
+export const getStaticProps: GetStaticProps<PropsType> = async () => {
+  const data: IAboutPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/about.json').then((res) => res.json())
   return {
     props: {
-      ...fakeAboutPageProps,
-      background: fakeGlobalPageProps.body.background,
-      title: 'About',
+      ...data,
+      title: data?.body?.title || '',
     },
   }
 }
