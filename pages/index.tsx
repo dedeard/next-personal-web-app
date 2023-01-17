@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { IHomePage } from '@/types'
 
@@ -48,7 +48,7 @@ type PropsType = IHomePage & {
   title: string
 }
 
-export const getStaticProps: GetStaticProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
   const data: IHomePage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/home.json').then((res) => res.json())
   return {
     props: {

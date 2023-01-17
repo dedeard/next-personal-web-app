@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import Empty from '@/components/Empty'
@@ -57,7 +57,7 @@ type PropsType = IAboutPage & {
   title: string
 }
 
-export const getStaticProps: GetStaticProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
   const data: IAboutPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/about.json').then((res) => res.json())
   return {
     props: {

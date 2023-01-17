@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { IContactPage } from '@/types'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import ContactForm from '@/components/ContactForm'
 
 const ContactPage = ({ head, body }: PropsType) => {
@@ -39,7 +39,7 @@ type PropsType = IContactPage & {
   title: string
 }
 
-export const getStaticProps: GetStaticProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
   const data: IContactPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/contact.json').then((res) => res.json())
   return {
     props: {

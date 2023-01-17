@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useImage } from '../contexts/ImageContext'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { IGalleryPage } from '@/types'
 
 const GalleryPage = ({ head, body }: PropsType) => {
@@ -42,7 +42,7 @@ type PropsType = IGalleryPage & {
   title: string
 }
 
-export const getStaticProps: GetStaticProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
   const data: IGalleryPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/gallery.json').then((res) => res.json())
   return {
     props: {
