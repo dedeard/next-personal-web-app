@@ -12,7 +12,7 @@ const HomePage = ({ head, body }: PropsType) => {
       </Head>
       <div className="relative flex min-h-full w-full flex-col items-center justify-center">
         <div className="relative flex items-center justify-center py-3">
-          <p className="relative flex-1">
+          <h1 className="relative flex-1">
             <span className="grid grid-cols-2">
               <span className="block text-center text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.P1 }} />
             </span>
@@ -24,7 +24,7 @@ const HomePage = ({ head, body }: PropsType) => {
               <span className="block"></span>
               <span className="block text-sm opacity-90" dangerouslySetInnerHTML={{ __html: body.contents.P3 }} />
             </span>
-          </p>
+          </h1>
           <div className="absolute -bottom-1/4 mx-auto flex">
             {Object.keys(body.socials).map((key) => (
               <a
