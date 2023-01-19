@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 
-const Cursor = () => {
+const CursorFollower = memo(() => {
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
   const [zoom, setZoom] = useState(false)
@@ -46,21 +46,12 @@ const Cursor = () => {
           className={
             (zoom ? 'scale-150 ' : '') +
             (click ? 'bg-yellow-600' : '') +
-            ' pointer-events-none fixed top-1/2 left-1/2 z-[240] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 select-none rounded-full ring-2 ring-yellow-600   duration-[0.4s] ease-[cubic-bezier(0.18,0.89,0.32,1.28)] md:block'
+            ' pointer-events-none fixed top-1/2 left-1/2 z-[140] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 select-none rounded-full ring-2 ring-yellow-600   duration-[0.4s] ease-[cubic-bezier(0.18,0.89,0.32,1.28)] md:block'
           }
         />
       )}
     </>
   )
-}
+})
 
-const CursorFollower = () => {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-  if (!mounted) return <></>
-  return <Cursor />
-}
-
-export default memo(CursorFollower)
+export default CursorFollower

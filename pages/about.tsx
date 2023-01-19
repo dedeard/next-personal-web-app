@@ -1,12 +1,11 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import Empty from '@/components/Empty'
 import { useImage } from '@/contexts/ImageContext'
 import { IAboutPage } from '@/types'
 
-const AboutPage = ({ head, body }: PropsType) => {
+const AboutPage = ({ head, body }: IAboutPage) => {
   const { setImages } = useImage()
 
   useEffect(() => {
@@ -18,12 +17,13 @@ const AboutPage = ({ head, body }: PropsType) => {
       <Head>
         <title>{head.title}</title>
         <meta name="description" content={head.description} />
+        <meta name="og:title" content={head.title} />
+        <meta name="og:description" content={head.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + '/about'} />
       </Head>
 
-      <h1 className="page-title">
+      <h1 className="page-title" data-text={body.title}>
         {body.title}
-        <span>{body.title}</span>
       </h1>
       <div className="md:flex">
         <div className="mb-5 md:w-56">
@@ -33,12 +33,12 @@ const AboutPage = ({ head, body }: PropsType) => {
         </div>
         <div className="md:flex-1 md:pl-6">
           {Object.keys(body.contents).map((key) => (
-            <Empty key={key}>
+            <Fragment key={key}>
               <h5 className="mb-2 text-xl font-bold">{body.contents[key].title}</h5>
               <div className="mb-6">
                 <p className="mb-1" dangerouslySetInnerHTML={{ __html: body.contents[key].text }} />
               </div>
-            </Empty>
+            </Fragment>
           ))}
           <Link
             href="/contact"
@@ -53,16 +53,11 @@ const AboutPage = ({ head, body }: PropsType) => {
   )
 }
 
-type PropsType = IAboutPage & {
-  title: string
-}
-
-export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<IAboutPage> = async () => {
   const data: IAboutPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/about.json').then((res) => res.json())
   return {
     props: {
       ...data,
-      title: data?.body?.title || '',
     },
   }
 }

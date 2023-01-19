@@ -3,10 +3,10 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { GoogleAnalytics } from 'nextjs-google-analytics'
 import NextNProgress from 'nextjs-progressbar'
-import { ThemeProvider, useTheme } from 'next-themes'
-import { ImageProvider } from '@/contexts/ImageContext'
+import { ThemeProvider } from 'next-themes'
+import Layout from '@/components/layouts/Layout'
+import ContextProvider from '@/contexts/ContextProvider'
 import { IDataBackground } from '@/types'
-import Layout from '@/components/Layout'
 
 type PageProps = {
   background: IDataBackground
@@ -14,7 +14,6 @@ type PageProps = {
 }
 
 export default function App({ Component, pageProps, router }: AppProps<PageProps>) {
-  const { theme } = useTheme()
   return (
     <>
       <GoogleAnalytics trackPageViews />
@@ -26,13 +25,14 @@ export default function App({ Component, pageProps, router }: AppProps<PageProps
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" />
+          <meta name="og:image" content={process.env.NEXT_PUBLIC_HOST + '/media/poster.jpg'} />
         </Head>
         <NextNProgress options={{ showSpinner: false }} color="#ca8a04" />
-        <ImageProvider>
+        <ContextProvider>
           <Layout {...pageProps} router={router}>
             <Component {...pageProps} />
           </Layout>
-        </ImageProvider>
+        </ContextProvider>
       </ThemeProvider>
     </>
   )

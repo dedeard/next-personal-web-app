@@ -5,7 +5,7 @@ import { useImage } from '../contexts/ImageContext'
 import { GetServerSideProps } from 'next'
 import { IGalleryPage } from '@/types'
 
-const GalleryPage = ({ head, body }: PropsType) => {
+const GalleryPage = ({ head, body }: IGalleryPage) => {
   const { setImages } = useImage()
   useEffect(() => {
     setImages(Object.keys(body.images).map((key) => body.images[key].url))
@@ -16,11 +16,12 @@ const GalleryPage = ({ head, body }: PropsType) => {
       <Head>
         <title>{head.title}</title>
         <meta name="description" content={head.description} />
+        <meta name="og:title" content={head.title} />
+        <meta name="og:description" content={head.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + '/gallery'} />
       </Head>
-      <h1 className="page-title">
+      <h1 className="page-title" data-text={body.title}>
         {body.title}
-        <span>{body.title}</span>
       </h1>
       <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
         {Object.keys(body.images).map((key) => (
@@ -38,16 +39,11 @@ const GalleryPage = ({ head, body }: PropsType) => {
   )
 }
 
-type PropsType = IGalleryPage & {
-  title: string
-}
-
-export const getServerSideProps: GetServerSideProps<PropsType> = async () => {
+export const getServerSideProps: GetServerSideProps<IGalleryPage> = async () => {
   const data: IGalleryPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/gallery.json').then((res) => res.json())
   return {
     props: {
       ...data,
-      title: data?.body?.title || '',
     },
   }
 }

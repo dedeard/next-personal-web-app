@@ -16,7 +16,7 @@ body {
 }
 
 .page-title {
-  @apply relative my-[1em] text-[calc(1.825rem+6.9vw)] font-bold after:absolute after:left-0 after:top-0 after:z-[-1] after:block after:text-[1.4em] after:tracking-tighter after:opacity-5 md:after:text-[1.5em];
+  @apply relative my-[1em] text-[calc(1.825rem+6.9vw)] font-bold after:absolute after:left-0 after:top-0 after:z-[-1] after:block after:text-[1.4em] after:tracking-tighter after:opacity-5 after:content-[attr(data-text)] md:after:text-[1.5em];
 }
 .page-title span {
   @apply absolute left-0 top-0 z-[-1] block text-[1.4em] tracking-tighter opacity-5 md:text-[1.5em];
