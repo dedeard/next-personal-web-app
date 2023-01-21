@@ -14,7 +14,7 @@ const PageTitleAnimation = memo(() => {
         setTitle('._')
         break
       case '/about':
-        setTitle('About')
+        setTitle('About Me')
         break
       case '/gallery':
         setTitle('Gallery')
