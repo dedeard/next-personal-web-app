@@ -7,7 +7,7 @@ import { IAboutPage } from '@/types'
 
 const AboutPage = ({ head, body }: IAboutPage) => {
   const { setImages } = useImage()
-
+  const skills = ['HTML', 'CSS', 'PHP', 'JavaScript', 'Phyton', 'Laravel', 'Nodejs', 'Flask', 'Tailwind', 'Bootstrap', 'React', 'Vue']
   useEffect(() => {
     setImages([body.image.url])
   }, [])
@@ -21,7 +21,6 @@ const AboutPage = ({ head, body }: IAboutPage) => {
         <meta name="og:description" content={head.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + '/about'} />
       </Head>
-
       <h1 className="page-title" data-text={body.title}>
         {body.title}
       </h1>
@@ -40,6 +39,17 @@ const AboutPage = ({ head, body }: IAboutPage) => {
               </div>
             </Fragment>
           ))}
+          {body.resume && (
+            <a
+              download
+              target="_blank"
+              rel="nofollow"
+              href={body.resume}
+              className="mr-3 inline-block bg-white px-5 py-3 hover:bg-black hover:text-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
+            >
+              Resume
+            </a>
+          )}
           <Link
             href="/contact"
             rel="nofollow"

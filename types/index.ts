@@ -38,6 +38,7 @@ export interface IAboutPage {
   head: IDataHead
   body: {
     title: string
+    resume?: string
     image: IDataImage
     contents: {
       [key: string]: {
