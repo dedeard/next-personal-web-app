@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { GoogleAnalytics } from 'nextjs-google-analytics'
+import { Analytics } from '@vercel/analytics/react'
 import NextNProgress from 'nextjs-progressbar'
 import { ThemeProvider } from 'next-themes'
 import Layout from '@/components/layouts/Layout'
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps, router }: AppProps<PageProps
   return (
     <>
       <GoogleAnalytics trackPageViews />
+      <Analytics />
       <ThemeProvider attribute="class">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
