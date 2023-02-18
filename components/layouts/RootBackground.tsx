@@ -8,7 +8,7 @@ const RootBackground = memo(() => {
     <>
       <button
         onClick={() => setVideoPlayed(!videoPlayed)}
-        className="fixed top-16 right-0 z-[120] mr-3 mt-3 leading-none md:top-0 md:mt-5 md:mr-5 lg:mr-10 "
+        className="fixed top-0 right-0 z-[120] mr-3 mt-3 leading-none md:mt-5 md:mr-5 lg:mr-10 "
       >
         {videoPlayed ? <Volume2Icon width={18} height={18} /> : <VolumeXIcon width={18} height={18} />}
       </button>

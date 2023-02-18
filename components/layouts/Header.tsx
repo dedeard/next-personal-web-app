@@ -22,7 +22,7 @@ const Header = forwardRef((_, ref: React.ForwardedRef<HTMLDivElement>) => {
       {mounted && <ModeTransition click={click} setClick={setClick} />}
       <header
         ref={ref}
-        className="fixed top-0 left-0 right-0 z-[100] flex h-16 w-full flex-row overflow-hidden bg-white/90 dark:bg-black/90 md:top-0 md:right-auto md:h-full md:w-16 md:flex-col"
+        className="fixed bottom-0 left-0 right-0 z-[100] flex h-16 w-full flex-row overflow-hidden bg-white/90 dark:bg-black/90 md:top-0 md:right-auto md:h-full md:w-16 md:flex-col"
       >
         <div className="flex h-16 w-16">
           <Link href="/" title="Home" className="flex flex-1 items-center justify-center">
