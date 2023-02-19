@@ -2,30 +2,23 @@ import { useMounted } from '@/contexts/MountContext'
 import { useRouter } from 'next/router'
 import { memo, useEffect, useState } from 'react'
 import TextTransition, { presets } from 'react-text-transition'
+import * as pages from '@/constans/pages'
 
 const PageTitleAnimation = memo(() => {
   const [title, setTitle] = useState('')
   const { pathname } = useRouter()
   const mounted = useMounted()
 
+  const pagesTitles = {
+    [pages.HOME_PAGE.path]: pages.HOME_PAGE.h1,
+    [pages.ABOUT_PAGE.path]: pages.ABOUT_PAGE.h1,
+    [pages.PROJECTS_PAGE.path]: pages.PROJECTS_PAGE.h1,
+    [pages.CONTACT_PAGE.path]: pages.CONTACT_PAGE.h1,
+  }
+
   useEffect(() => {
-    switch (pathname) {
-      case '/':
-        setTitle('._')
-        break
-      case '/about':
-        setTitle('About')
-        break
-      case '/gallery':
-        setTitle('Gallery')
-        break
-      case '/contact':
-        setTitle('Contact')
-        break
-      default:
-        setTitle('404')
-        break
-    }
+    const titleToSet = pagesTitles[pathname] || '404'
+    setTitle(titleToSet)
   }, [pathname, mounted])
 
   return (
