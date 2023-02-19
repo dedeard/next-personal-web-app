@@ -9,7 +9,7 @@ const fetchOptions = {
   method: 'GET',
   headers: {
     Accept: 'application/vnd.github+json',
-    Authorization: 'Bearer' + process.env.GH_API_KEY,
+    Authorization: 'Bearer ' + process.env.GH_API_KEY,
     'X-GitHub-Api-Version': '2022-11-28',
   },
 }
