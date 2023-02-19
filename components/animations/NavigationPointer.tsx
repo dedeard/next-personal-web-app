@@ -2,31 +2,25 @@ import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { useMounted } from '@/contexts/MountContext'
+import * as pages from '@/constans/pages'
 
 const NavigationPointer = memo(() => {
   const [start, setStart] = useState(0)
   const { pathname } = useRouter()
   const mounted = useMounted()
 
+  const pageIndexMap = {
+    [pages.HOME_PAGE.path]: 0,
+    [pages.ABOUT_PAGE.path]: 1,
+    [pages.PROJECTS_PAGE.path]: 2,
+    [pages.CONTACT_PAGE.path]: 3,
+  }
+
   useEffect(() => {
-    switch (pathname) {
-      case '/':
-        setStart(0)
-        break
-      case '/about':
-        setStart(1)
-        break
-      case '/gallery':
-        setStart(2)
-        break
-      case '/contact':
-        setStart(3)
-        break
-      default:
-        setStart(-1)
-        break
-    }
+    const index = Object.entries(pageIndexMap).findIndex(([path]) => path === pathname)
+    setStart(index >= 0 ? index : -1)
   }, [pathname])
+
   return (
     <>
       {mounted && (
