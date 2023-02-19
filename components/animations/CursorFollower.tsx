@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 const CursorFollower = memo(() => {
   const [x, setX] = useState(0)
@@ -13,11 +13,7 @@ const CursorFollower = memo(() => {
       setY(e.clientY)
       setStart(true)
       // @ts-ignore
-      if (e.target?.closest('a') || e.target?.closest('button')) {
-        setZoom(true)
-      } else {
-        setZoom(false)
-      }
+      setZoom(e.target?.closest('a') || e.target?.closest('button') ? true : false)
     }
     const onClick = () => {
       if (!click) {
