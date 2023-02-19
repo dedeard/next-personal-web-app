@@ -83,9 +83,10 @@ export interface IRepository {
   homepage: string
   stargazers_count: number
   watchers_count: number
-  created_at: Date
-  updated_at: Date
-  pushed_at: Date
+  created_at: string
+  updated_at: string
+  pushed_at: string
+  last_commit_at: string
   languages: { name: string; size: number }[]
   topics: string[]
   license?: { key: string; name: string; spdx_id: string; url: string; node_id: string }
