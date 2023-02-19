@@ -17,7 +17,7 @@ export default function PageTransition({ width, height, router, children }: Prop
           <motion.main
             key={router.route}
             style={{ width, height }}
-            className="fixed bottom-16 left-0 overflow-y-scroll bg-white/60 px-3 pt-16 pb-10 dark:bg-black/75 md:left-16 md:bottom-0 md:px-5 lg:px-10"
+            className="fixed bottom-16 left-0 overflow-y-scroll bg-white/60 px-3 pb-16 dark:bg-black/75 md:left-16 md:bottom-0 md:px-5 lg:px-10"
             initial={{ translateY: '200vh' }}
             animate={{ translateY: '0vh' }}
             exit={{ translateY: '-120vh' }}
