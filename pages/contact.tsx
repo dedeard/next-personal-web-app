@@ -29,11 +29,11 @@ const ContactPage = () => {
           <div className="mb-8">
             <h5 className="mb-3 text-lg font-bold">EMAIL ADDRESS</h5>
             <p className="text-sm leading-5">
-              <a href="mailto:me@dedeard.my.id" className="hover:text-blue-600">
+              <a href="mailto:me@dedeard.my.id" className="hover:text-yellow-600">
                 me@dedeard.my.id
               </a>
               <br />
-              <a href="mailto:dedeariansya1@gmail.com" className="hover:text-blue-600">
+              <a href="mailto:dedeariansya1@gmail.com" className="hover:text-yellow-600">
                 dedeariansya1@gmail.com
               </a>
             </p>

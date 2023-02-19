@@ -18,7 +18,7 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
         <div className="mb-2 block text-xs font-bold ">
           <span className="opacity-80">{'Updated ' + repo.last_commit_at}.</span>
           <br />
-          <a href={repo.homepage} rel="noopener" className="hover:text-blue-600">
+          <a href={repo.homepage} rel="noopener" className="hover:text-yellow-600">
             {new URL(repo.homepage).host}
           </a>
         </div>
@@ -39,7 +39,7 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
           <div className="flex-1">
             <LangTextAnimation items={repo.languages.map(({ name }) => name)} />
           </div>
-          <a href={repo.stargazers_url} rel="noopener" className="font-sm flex items-center font-bold hover:text-blue-600">
+          <a href={repo.stargazers_url} rel="noopener" className="font-sm flex items-center font-bold hover:text-yellow-600">
             <span className="mr-1 mt-px block leading-none">{repo.stargazers_count}</span>
             <StarIcon width="1em" className="block" />
           </a>
