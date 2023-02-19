@@ -51,6 +51,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
       updated_at: moment(repo.updated_at).fromNow(),
       pushed_at: moment(repo.pushed_at).fromNow(),
       last_commit_at: moment(commits[0]?.commit?.committer?.date).fromNow(),
+      last_commit_date: commits[0]?.commit?.committer?.date,
       topics: repo.topics,
       languages: languages,
     }
@@ -58,7 +59,13 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     return repository
   })
 
-  const data = await Promise.all(promises)
+  const data = (await Promise.all(promises)).sort((a, b) => {
+    const dateA = new Date(a.last_commit_date)
+    const dateB = new Date(b.last_commit_date)
+    // @ts-expect-error
+    return dateB - dateA
+  })
+
   res.setHeader('cache-control', `public, max-age=${60 * 5}, must-revalidate`)
   res.status(200).json(data)
 }
