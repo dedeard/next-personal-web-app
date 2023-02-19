@@ -19,6 +19,13 @@ export const ABOUT_PAGE = {
   },
 }
 
+export const PROJECTS_PAGE = {
+  path: '/projects',
+  title: 'Projects - Dede Ardiansya',
+  description: 'I’m Dede Ardiansya, junior web developer based in Makassar, Indonesia.',
+  h1: 'Projects',
+}
+
 export const CONTACT_PAGE = {
   path: '/contact',
   title: 'Contact - Dede Ardiansya',
