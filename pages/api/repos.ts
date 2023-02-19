@@ -9,6 +9,6 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
       'X-GitHub-Api-Version': '2022-11-28',
     },
   }).then((res) => res.json())
-  res.setHeader('cache-control', 'public, max-age=10, must-revalidate')
+  res.setHeader('cache-control', `public, max-age=${60 * 60}, must-revalidate`)
   res.status(200).json(repos)
 }
