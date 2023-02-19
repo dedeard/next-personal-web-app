@@ -6,7 +6,7 @@ import langColors from '@/constans/langColors'
 import LangBar from '@/components/animations/LangBar'
 import LangTextAnimation from '@/components/animations/LangTextAnimation'
 import { StarIcon } from '@/components/icons/Feather'
-import { CONTACT_PAGE } from '@/constans/pages'
+import { PROJECTS_PAGE } from '@/constans/pages'
 
 const RepositoryCard = ({ repo }: { repo: IRepository }) => {
   return (
@@ -58,14 +58,14 @@ const ContactPage = ({ repositories }: { repositories: IRepository[] }) => {
   return (
     <>
       <Head>
-        <title>{CONTACT_PAGE.title}</title>
-        <meta name="description" content={CONTACT_PAGE.description} />
-        <meta name="og:title" content={CONTACT_PAGE.title} />
-        <meta name="og:description" content={CONTACT_PAGE.description} />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + CONTACT_PAGE.path} />
+        <title>{PROJECTS_PAGE.title}</title>
+        <meta name="description" content={PROJECTS_PAGE.description} />
+        <meta name="og:title" content={PROJECTS_PAGE.title} />
+        <meta name="og:description" content={PROJECTS_PAGE.description} />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + PROJECTS_PAGE.path} />
       </Head>
-      <h1 className="page-title" data-text={CONTACT_PAGE.h1}>
-        {CONTACT_PAGE.h1}
+      <h1 className="page-title" data-text={PROJECTS_PAGE.h1}>
+        {PROJECTS_PAGE.h1}
       </h1>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {repositories.map((repo, i) => (
