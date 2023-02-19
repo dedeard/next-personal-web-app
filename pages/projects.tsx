@@ -24,7 +24,7 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
             </a>
           )}
         </div>
-        <p className="opacity-80">{repo.description}</p>
+        <p className="opacity-80 md:line-clamp-3">{repo.description}</p>
       </div>
       <div className="mb-2 px-5">
         <ul className="mb-2 block truncate">
