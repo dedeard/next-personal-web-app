@@ -87,6 +87,7 @@ export interface IRepository {
   updated_at: string
   pushed_at: string
   last_commit_at: string
+  last_commit_date: Date
   languages: { name: string; size: number }[]
   topics: string[]
   license?: { key: string; name: string; spdx_id: string; url: string; node_id: string }
