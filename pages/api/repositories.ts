@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { IRepository } from '@/types'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -20,7 +21,6 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
 
   const promises = repositories.map(async (repo) => {
     const data = await fetch(repo.languages_url, fetchOptions).then((res) => res.json() as Promise<{ [key: string]: number }>)
-
     const names = Object.keys(data)
     const languages: { name: string; size: number }[] = []
     let total: number = 0
@@ -31,6 +31,10 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
         size: (data[name] / total) * 100,
       })
     }
+
+    const commits = await fetch(`https://api.github.com/repos/${repo.full_name}/commits?per_page=1`, fetchOptions).then(
+      (res) => res.json() as Promise<[any]>
+    )
 
     const repository: IRepository = {
       id: repo.id,
@@ -43,9 +47,10 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
       license: repo.license,
       stargazers_count: repo.stargazers_count,
       watchers_count: repo.watchers_count,
-      created_at: repo.created_at,
-      updated_at: repo.updated_at,
-      pushed_at: repo.pushed_at,
+      created_at: moment(repo.created_at).fromNow(),
+      updated_at: moment(repo.updated_at).fromNow(),
+      pushed_at: moment(repo.pushed_at).fromNow(),
+      last_commit_at: moment(commits[0]?.commit?.committer?.date).fromNow(),
       topics: repo.topics,
       languages: languages,
     }

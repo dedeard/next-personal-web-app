@@ -17,6 +17,7 @@
     "@types/react-dom": "18.0.10",
     "@vercel/analytics": "^0.1.8",
     "framer-motion": "^8.4.3",
+    "moment": "^2.29.4",
     "next": "13.1.2",
     "next-themes": "^0.2.1",
     "nextjs-google-analytics": "^2.2.2",
