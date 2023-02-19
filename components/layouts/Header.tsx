@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
 import Logo from '@/components/icons/Logo'
-import { UserIcon, ImageIcon, MailIcon, MoonIcon, SunIcon, HomeIcon } from '@/components/icons/Feather'
+import { UserIcon, ClipboardIcon, MailIcon, MoonIcon, SunIcon, HomeIcon } from '@/components/icons/Feather'
 import ModeTransition from '../animations/ModeTransiton'
 import NavigationPointer from '../animations/NavigationPointer'
 import { useMounted } from '@/contexts/MountContext'
@@ -43,8 +43,8 @@ const Header = forwardRef((_, ref: React.ForwardedRef<HTMLDivElement>) => {
               </Link>
             </li>
             <li>
-              <Link href="/gallery" title="Gallery" className="flex h-16 w-16 items-center justify-center">
-                <ImageIcon height={18} width={18} />
+              <Link href="/projects" title="Projects" className="flex h-16 w-16 items-center justify-center">
+                <ClipboardIcon height={18} width={18} />
               </Link>
             </li>
             <li>
