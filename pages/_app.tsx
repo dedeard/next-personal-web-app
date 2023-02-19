@@ -7,10 +7,8 @@ import NextNProgress from 'nextjs-progressbar'
 import { ThemeProvider } from 'next-themes'
 import Layout from '@/components/layouts/Layout'
 import ContextProvider from '@/contexts/ContextProvider'
-import { IDataBackground } from '@/types'
 
 type PageProps = {
-  background: IDataBackground
   title: string
 }
 
