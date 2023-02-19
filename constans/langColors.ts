@@ -189,7 +189,7 @@ const langColors: { [key: string]: string } = {
   VimL: '#199f4b',
   'Visual Basic': '#945db7',
   Volt: '#1F1F1F',
-  Vue: '#2c3e50',
+  Vue: '#42b883',
   'Web Ontology Language': '#9cc9dd',
   wisp: '#7582D1',
   X10: '#4B6BEF',
