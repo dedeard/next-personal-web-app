@@ -15,12 +15,14 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
         <a href={repo.html_url}>
           <h3 className="mb-1 items-center text-2xl font-bold capitalize">{repo.name.replaceAll('-', ' ')}</h3>
         </a>
-        <div className="mb-2 block text-xs font-bold ">
+        <div className="block h-10 text-xs font-bold">
           <span className="opacity-80">{'Updated ' + repo.last_commit_at}.</span>
           <br />
-          <a href={repo.homepage} rel="noopener" className="hover:text-yellow-600">
-            {new URL(repo.homepage).host}
-          </a>
+          {repo.homepage && (
+            <a href={repo.homepage} rel="noopener" className="hover:text-yellow-600">
+              {new URL(repo.homepage).host}
+            </a>
+          )}
         </div>
         <p className="opacity-80">{repo.description}</p>
       </div>

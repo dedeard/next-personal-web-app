@@ -7,7 +7,7 @@ export interface IRepository {
   html_url: string
   stargazers_url: string
   forks_url: string
-  homepage: string
+  homepage?: string
   stargazers_count: number
   watchers_count: number
   forks_count: number
