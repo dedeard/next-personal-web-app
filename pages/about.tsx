@@ -1,50 +1,49 @@
-import { Fragment, useEffect } from 'react'
-import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useImage } from '@/contexts/ImageContext'
-import { IAboutPage } from '@/types'
+import { ABOUT_PAGE } from '@/constans/pages'
 
-const AboutPage = ({ head, body }: IAboutPage) => {
-  const { setImages } = useImage()
-  const skills = ['HTML', 'CSS', 'PHP', 'JavaScript', 'Phyton', 'Laravel', 'Nodejs', 'Flask', 'Tailwind', 'Bootstrap', 'React', 'Vue']
-  useEffect(() => {
-    setImages([body.image.url])
-  }, [])
-
+const AboutPage = () => {
   return (
     <>
       <Head>
-        <title>{head.title}</title>
-        <meta name="description" content={head.description} />
-        <meta name="og:title" content={head.title} />
-        <meta name="og:description" content={head.description} />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + '/about'} />
+        <title>{ABOUT_PAGE.title}</title>
+        <meta name="description" content={ABOUT_PAGE.description} />
+        <meta name="og:title" content={ABOUT_PAGE.title} />
+        <meta name="og:description" content={ABOUT_PAGE.description} />
+        <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + ABOUT_PAGE.path} />
       </Head>
-      <h1 className="page-title" data-text={body.title}>
-        {body.title}
+      <h1 className="page-title" data-text={ABOUT_PAGE.h1}>
+        {ABOUT_PAGE.h1}
       </h1>
       <div className="md:flex">
         <div className="mb-5 md:w-56">
-          <Link href={'/about?img=' + body.image.url} shallow rel="nofollow">
-            <img id={body.image.url} src={body.image.sm_url} alt={body.image.alt} className="block w-full" />
-          </Link>
+          <img src={ABOUT_PAGE.body.image.url} alt={ABOUT_PAGE.body.image.alt} className="block w-full" />
         </div>
         <div className="md:flex-1 md:pl-6">
-          {Object.keys(body.contents).map((key) => (
-            <Fragment key={key}>
-              <h5 className="mb-2 text-xl font-bold">{body.contents[key].title}</h5>
-              <div className="mb-6">
-                <p className="mb-1" dangerouslySetInnerHTML={{ __html: body.contents[key].text }} />
-              </div>
-            </Fragment>
-          ))}
-          {body.resume && (
+          <h5 className="mb-2 text-xl font-bold">I’m Dede Ardiansya</h5>
+          <div className="mb-6">
+            <p className="mb-1">
+              Junior Web developer based in Makassar, Indonesia. <br />I try my best to make the code I write easy to read and understand.
+            </p>
+          </div>
+          <h5 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h5>
+          <div className="mb-6">
+            <p className="mb-1">
+              Pengembang web junior yang berbasis di Makassar, Indonesia.
+              <br />
+              Saya mencoba yang terbaik untuk membuat kode yang saya tulis mudah untuk dibaca dan dipahami.
+            </p>
+          </div>
+          <h5 className="mb-2 text-xl font-bold">Tech i love</h5>
+          <div className="mb-6">
+            <p className="mb-1">TypeScript, Express.js, Laravel, Tailwind, Bootstrap, Vue and React.</p>
+          </div>
+          {ABOUT_PAGE.body.resume_url && (
             <a
               download
               target="_blank"
               rel="nofollow"
-              href={body.resume}
+              href={ABOUT_PAGE.body.resume_url}
               className="mr-3 inline-block bg-white px-5 py-3 hover:bg-black hover:text-white dark:bg-black dark:hover:bg-white dark:hover:text-black"
             >
               Resume
@@ -61,15 +60,6 @@ const AboutPage = ({ head, body }: IAboutPage) => {
       </div>
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps<IAboutPage> = async () => {
-  const data: IAboutPage = await fetch(process.env.NEXT_PUBLIC_FB_DATABASE_URL + '/about.json').then((res) => res.json())
-  return {
-    props: {
-      ...data,
-    },
-  }
 }
 
 export default AboutPage
