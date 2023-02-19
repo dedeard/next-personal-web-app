@@ -72,3 +72,21 @@ export interface IContactPage {
     }
   }
 }
+
+export interface IRepository {
+  id: number
+  node_id: string
+  name: string
+  full_name: string
+  description: string
+  html_url: string
+  homepage: string
+  stargazers_count: number
+  watchers_count: number
+  created_at: Date
+  updated_at: Date
+  pushed_at: Date
+  languages: { name: string; size: number }[]
+  topics: string[]
+  license?: { key: string; name: string; spdx_id: string; url: string; node_id: string }
+}
