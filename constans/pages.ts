@@ -18,3 +18,13 @@ export const ABOUT_PAGE = {
     },
   },
 }
+
+export const CONTACT_PAGE = {
+  path: '/contact',
+  title: 'Contact - Dede Ardiansya',
+  description: 'I’m Dede Ardiansya, junior web developer based in Makassar, Indonesia.',
+  h1: 'Contact',
+  body: {
+    formspree_key: 'xoqyaqqe',
+  },
+}
