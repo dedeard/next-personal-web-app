@@ -198,6 +198,7 @@ const langColors: { [key: string]: string } = {
   XQuery: '#5232e7',
   Zephir: '#118f9e',
   Dockerfile: '#2496ed',
+  Blade: '#ff2d20',
 }
 
 export default langColors
