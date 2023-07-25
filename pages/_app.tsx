@@ -17,7 +17,7 @@ export default function App({ Component, pageProps, router }: AppProps<PageProps
     <>
       <GoogleAnalytics trackPageViews />
       <Analytics />
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark" storageKey="mode">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon-white.ico" media="(prefers-color-scheme: dark)" />
