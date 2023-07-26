@@ -1,4 +1,3 @@
-import React, { memo } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 
 const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
@@ -9,26 +8,34 @@ const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
       {state.errors[0] && state.errors[0].code === 'EMPTY' && <div className="alert-error">{state.errors[0].message}</div>}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <input type="text" required name="name" id="name" placeholder="Your Name" className="input h-14 w-full" />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
+          <div className="backdrop-blur-lg">
+            <input type="text" name="name" id="name" placeholder="Your Name" className="input h-14 w-full" />
+          </div>
+          <ValidationError prefix="Name" field="name" errors={state.errors} className="pt-1 text-xs leading-none text-red-600" />
         </div>
         <div>
-          <input type="text" required name="email" id="email" placeholder="Your Email" className="input h-14 w-full" />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <div className="backdrop-blur-lg">
+            <input type="text" name="email" id="email" placeholder="Your Email" className="input h-14 w-full" />
+          </div>
+          <ValidationError prefix="Email" field="email" errors={state.errors} className="pt-1 text-xs leading-none text-red-600" />
         </div>
       </div>
       <div>
-        <input type="text" required name="subject" id="subject" placeholder="Subject" className="input h-14 w-full" />
-        <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+        <div className="backdrop-blur-lg">
+          <input type="text" name="subject" id="subject" placeholder="Subject" className="input h-14 w-full" />
+        </div>
+        <ValidationError prefix="Subject" field="subject" errors={state.errors} className="pt-1 text-xs leading-none text-red-600" />
       </div>
       <div>
-        <textarea name="message" required minLength={10} id="message" rows={5} placeholder="Message" className="input w-full" />
-        <ValidationError prefix="Message" field="message" errors={state.errors} />
+        <div className="backdrop-blur-lg">
+          <textarea name="message" id="message" rows={5} placeholder="Message" className="input w-full" />
+        </div>
+        <ValidationError prefix="Message" field="message" errors={state.errors} className="pt-1 text-xs leading-none text-red-600" />
       </div>
-      <div>
+      <div className="mx-auto h-14 w-1/2 backdrop-blur-lg">
         <button
           disabled={state.submitting}
-          className=" mx-auto block h-14 w-1/2 bg-white font-bold opacity-75 hover:opacity-100 dark:bg-black"
+          className=" mx-auto block h-full w-full bg-white font-bold opacity-75 hover:opacity-100 dark:bg-black"
         >
           SEND MESSAGE
         </button>
@@ -37,4 +44,4 @@ const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
   )
 }
 
-export default memo(ContactForm)
+export default ContactForm

@@ -16,7 +16,7 @@ const fetchOptions = {
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const repositories = (await fetch(repositoriesUrl, fetchOptions).then((res) => res.json() as Promise<any[]>)).filter(
-    (r) => r.languages_url && r.description
+    (r) => r.languages_url && r.description,
   )
 
   const promises = repositories.map(async (repo) => {
@@ -33,7 +33,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     }
 
     const commits = await fetch(`https://api.github.com/repos/${repo.full_name}/commits?per_page=1`, fetchOptions).then(
-      (res) => res.json() as Promise<[any]>
+      (res) => res.json() as Promise<[any]>,
     )
 
     const repository: IRepository = {

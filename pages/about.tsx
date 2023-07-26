@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { ABOUT_PAGE } from '@/constans/pages'
+import Image from 'next/legacy/image'
+import dedeard from '@/public/media/dedeard.jpg'
 
 const AboutPage = () => {
   return (
@@ -17,16 +19,16 @@ const AboutPage = () => {
       </h1>
       <div className="md:flex">
         <div className="mb-5 md:w-56">
-          <img src={ABOUT_PAGE.body.image.url} alt={ABOUT_PAGE.body.image.alt} className="block w-full" />
+          <Image src={dedeard} alt={ABOUT_PAGE.body.image.alt} className="block w-full" placeholder="blur" />
         </div>
         <div className="md:flex-1 md:pl-6">
-          <h5 className="mb-2 text-xl font-bold">I’m Dede Ardiansya</h5>
+          <h2 className="mb-2 text-xl font-bold">I’m Dede Ardiansya</h2>
           <div className="mb-6">
             <p className="mb-1">
               Junior Web developer based in Makassar, Indonesia. <br />I try my best to make the code I write easy to read and understand.
             </p>
           </div>
-          <h5 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h5>
+          <h2 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h2>
           <div className="mb-6">
             <p className="mb-1">
               Pengembang web junior yang berbasis di Makassar, Indonesia.
@@ -34,7 +36,7 @@ const AboutPage = () => {
               Saya mencoba yang terbaik untuk membuat kode yang saya tulis mudah untuk dibaca dan dipahami.
             </p>
           </div>
-          <h5 className="mb-2 text-xl font-bold">Tech i love</h5>
+          <h2 className="mb-2 text-xl font-bold">Tech i love</h2>
           <div className="mb-6">
             <p className="mb-1">TypeScript, Express.js, Laravel, Tailwind, Bootstrap, Vue and React.</p>
           </div>

@@ -1,13 +1,13 @@
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
-import { useMounted } from '@/contexts/MountContext'
+import { useMount } from '@/util/mount'
 import * as pages from '@/constans/pages'
 
-const NavigationPointer = memo(() => {
+const NavigationPointer = () => {
   const [start, setStart] = useState(0)
   const { pathname } = useRouter()
-  const mounted = useMounted()
+  const mounted = useMount()
 
   const pageIndexMap = {
     [pages.HOME_PAGE.path]: 0,
@@ -27,7 +27,7 @@ const NavigationPointer = memo(() => {
         <>
           <motion.div
             animate={{ translateY: start * 64 }}
-            className="z-1 absolute top-0 right-0 hidden h-16 w-[2px] bg-black dark:bg-white md:block"
+            className="z-1 absolute right-0 top-0 hidden h-16 w-[2px] bg-black dark:bg-white md:block"
           />
           <motion.div
             animate={{ translateX: start * 64 }}
@@ -37,6 +37,6 @@ const NavigationPointer = memo(() => {
       )}
     </>
   )
-})
+}
 
 export default NavigationPointer

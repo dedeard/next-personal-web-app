@@ -41,7 +41,7 @@ export default function Layout({ router, children }: PropsType) {
 
   return (
     <>
-      <NoiseFilter />
+      {/* <NoiseFilter /> */}
       <CursorFollower />
       <Preloader />
       <Header ref={navRef} />

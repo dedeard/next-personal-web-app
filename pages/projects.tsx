@@ -13,7 +13,7 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
     <div className="relative flex flex-col overflow-hidden bg-white/50 dark:bg-black/80">
       <div className="flex-1 p-5">
         <a href={repo.html_url}>
-          <h3 className="mb-1 items-center text-2xl font-bold capitalize">{repo.name.replaceAll('-', ' ')}</h3>
+          <h2 className="mb-1 items-center text-2xl font-bold capitalize">{repo.name.replaceAll('-', ' ')}</h2>
         </a>
         <div className="block h-10 text-xs font-bold">
           <span className="opacity-80">{'Updated ' + repo.last_commit_at}.</span>
@@ -31,7 +31,7 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
           {repo.topics.map((topic) => (
             <li
               key={topic}
-              className="mr-1 mb-1 inline-block border bg-gray-100/50 p-1 text-xs leading-none dark:border-gray-800 dark:bg-gray-900/50"
+              className="mb-1 mr-1 inline-block border bg-gray-100/50 p-1 text-xs leading-none dark:border-gray-800 dark:bg-gray-900/50"
             >
               {topic}
             </li>
@@ -41,10 +41,10 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
           <div className="flex-1">
             <LangTextAnimation items={repo.languages.map(({ name }) => name)} />
           </div>
-          <a href={repo.stargazers_url} rel="noopener" className="font-sm flex items-center font-bold hover:text-yellow-600">
+          <span className="font-sm flex items-center font-bold">
             <span className="mr-1 mt-px block leading-none">{repo.stargazers_count}</span>
             <StarIcon width="1em" className="block" />
-          </a>
+          </span>
         </div>
       </div>
       <div className="flex h-2 w-full bg-white dark:bg-black">

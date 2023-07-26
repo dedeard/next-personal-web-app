@@ -1,20 +1,20 @@
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
-import { useMounted } from '@/contexts/MountContext'
-import { MoonIcon, SunIcon } from '../icons/Feather'
+import { useMount } from '@/util/mount'
+import { MoonIcon, SunIcon } from '@/components/icons/Feather'
 
 type ModeTransitonTypes = {
   click: boolean
   setClick: (click: boolean) => void
 }
 
-const ModeTransition = memo(({ click, setClick }: ModeTransitonTypes) => {
+const ModeTransition = ({ click, setClick }: ModeTransitonTypes) => {
   const { theme, setTheme } = useTheme()
   const [dark, setDark] = useState(false)
   const [animate, setAnimate] = useState({ translateY: '-110vh' })
   const [duration, setDuration] = useState(0.75)
-  const mounted = useMounted()
+  const mounted = useMount()
 
   useEffect(() => setDark(theme !== 'light'), [theme])
 
@@ -43,7 +43,7 @@ const ModeTransition = memo(({ click, setClick }: ModeTransitonTypes) => {
           initial={{ translateY: '-110vh' }}
           animate={animate}
           transition={{ duration, easings: ['easeIn', 'easeOut'] }}
-          className="fixed top-0 left-0 right-0 bottom-0 z-[200] flex select-none items-center justify-center bg-white transition-colors duration-500 dark:bg-black"
+          className="fixed bottom-0 left-0 right-0 top-0 z-[200] flex select-none items-center justify-center bg-white transition-colors duration-500 dark:bg-black"
         >
           {click && (
             <div className="relative grid h-14 w-36 grid-cols-2 rounded-full bg-black transition-all duration-500 dark:bg-white">
@@ -62,6 +62,6 @@ const ModeTransition = memo(({ click, setClick }: ModeTransitonTypes) => {
       )}
     </>
   )
-})
+}
 
 export default ModeTransition

@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 html {
-  font-family: 'Lato', sans-serif;
   @apply h-full w-full;
 }
 
@@ -24,12 +23,12 @@ body {
 }
 
 .input {
-  @apply block border-black/10 bg-white text-sm text-black placeholder-black/75 opacity-75 focus:border-black/10 focus:border-b-black focus:opacity-100 focus:ring-0 dark:border-white/10 dark:bg-black dark:text-white dark:placeholder-white/75 dark:focus:border-b-white;
+  @apply block border-black/10 bg-white text-sm text-black placeholder-black/60 opacity-60 focus:border-black/10 focus:border-b-black focus:opacity-100 focus:ring-0 dark:border-white/10 dark:bg-black dark:text-white dark:placeholder-white/60 dark:focus:border-b-white;
 }
 
 .alert-error,
 .alert-success {
-  @apply border-l-4 px-3 py-5 text-lg font-bold;
+  @apply border-l-4 px-3 py-5 text-lg font-bold backdrop-blur-lg;
 }
 
 .alert-error {
