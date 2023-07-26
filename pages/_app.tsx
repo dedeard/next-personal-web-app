@@ -36,6 +36,8 @@ export default function App({ Component, pageProps, router }: AppProps<PageProps
           <link rel="icon" href="/favicon-white.ico" media="(prefers-color-scheme: dark)" />
           <link rel="icon" href="/favicon.ico" media="(prefers-color-scheme: light)" />
           <meta name="og:image" content={process.env.NEXT_PUBLIC_HOST + '/media/poster.jpg'} />
+          <meta property="twitter:image" content={process.env.NEXT_PUBLIC_HOST + '/media/poster.jpg'} />
+          <meta property="twitter:card" content="summary" />
         </Head>
         <NextNProgress options={{ showSpinner: false }} color="#ca8a04" />
         <Layout {...pageProps} router={router}>

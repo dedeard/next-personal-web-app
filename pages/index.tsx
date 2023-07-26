@@ -11,6 +11,9 @@ const HomePage = () => {
         <meta name="description" content={HOME_PAGE.description} />
         <meta name="og:title" content={HOME_PAGE.title} />
         <meta name="og:description" content={HOME_PAGE.description} />
+        <meta name="og:url" content={process.env.NEXT_PUBLIC_HOST + HOME_PAGE.path} />
+        <meta name="twitter:title" content={HOME_PAGE.title} />
+        <meta name="twitter:description" content={HOME_PAGE.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST} />
       </Head>
       <div className="relative flex min-h-full w-full flex-col items-center justify-center">

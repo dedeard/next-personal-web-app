@@ -64,6 +64,9 @@ const ContactPage = ({ repositories }: { repositories: IRepository[] }) => {
         <meta name="description" content={PROJECTS_PAGE.description} />
         <meta name="og:title" content={PROJECTS_PAGE.title} />
         <meta name="og:description" content={PROJECTS_PAGE.description} />
+        <meta name="og:url" content={process.env.NEXT_PUBLIC_HOST + PROJECTS_PAGE.path} />
+        <meta name="twitter:title" content={PROJECTS_PAGE.title} />
+        <meta name="twitter:description" content={PROJECTS_PAGE.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + PROJECTS_PAGE.path} />
       </Head>
       <h1 className="page-title" data-text={PROJECTS_PAGE.h1}>

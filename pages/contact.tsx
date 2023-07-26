@@ -12,6 +12,9 @@ const ContactPage = () => {
         <meta name="description" content={CONTACT_PAGE.description} />
         <meta name="og:title" content={CONTACT_PAGE.title} />
         <meta name="og:description" content={CONTACT_PAGE.description} />
+        <meta name="og:url" content={process.env.NEXT_PUBLIC_HOST + CONTACT_PAGE.path} />
+        <meta name="twitter:title" content={CONTACT_PAGE.title} />
+        <meta name="twitter:description" content={CONTACT_PAGE.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + CONTACT_PAGE.path} />
       </Head>
 

@@ -12,6 +12,9 @@ const AboutPage = () => {
         <meta name="description" content={ABOUT_PAGE.description} />
         <meta name="og:title" content={ABOUT_PAGE.title} />
         <meta name="og:description" content={ABOUT_PAGE.description} />
+        <meta name="og:url" content={process.env.NEXT_PUBLIC_HOST + ABOUT_PAGE.path} />
+        <meta name="twitter:title" content={ABOUT_PAGE.title} />
+        <meta name="twitter:description" content={ABOUT_PAGE.description} />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_HOST + ABOUT_PAGE.path} />
       </Head>
       <h1 className="page-title" data-text={ABOUT_PAGE.h1}>
