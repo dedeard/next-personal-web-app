@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useMousePosition } from '@/util/mouse'
 
 const CursorFollower = () => {
-  const { x, y, moved } = useMousePosition()
+  const [{ x, y }, setPosition] = useState({ x: 0, y: 0 })
+  const [start, setStart] = useState(false)
   const [zoom, setZoom] = useState(false)
   const [click, setClick] = useState(false)
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
+      setPosition({ x: e.clientX, y: e.clientY })
+      if (!start) setStart(true)
       // @ts-ignore
       setZoom(e.target?.closest('a') || e.target?.closest('button') ? true : false)
     }
@@ -16,7 +18,7 @@ const CursorFollower = () => {
         setClick(true)
         setTimeout(() => {
           setClick(false)
-        }, 50)
+        }, 100)
       }
     }
     window.addEventListener('mousemove', onMouseMove)
@@ -29,7 +31,7 @@ const CursorFollower = () => {
 
   return (
     <>
-      {moved && (
+      {start && (
         <span
           style={{ top: y, left: x }}
           className={
