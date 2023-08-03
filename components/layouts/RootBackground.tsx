@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import PageTitleAnimation from '../animations/PageTitleAnimation'
 import { Volume2Icon, VolumeXIcon } from '../icons/Feather'
 
-const RootBackground = () => {
+const RootBackground = memo(() => {
   const [videoPlayed, setVideoPlayed] = useState(false)
   return (
     <>
@@ -27,6 +27,6 @@ const RootBackground = () => {
       </div>
     </>
   )
-}
+})
 
 export default RootBackground

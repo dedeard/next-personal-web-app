@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import { useMount } from '@/util/mount'
 
-const LangBar = ({ size, color, className }: { size: number; color?: string; className?: string }) => {
+const LangBar = memo(({ size, color, className }: { size: number; color?: string; className?: string }) => {
   const mount = useMount()
   if (!mount) return <></>
   return (
@@ -13,6 +14,6 @@ const LangBar = ({ size, color, className }: { size: number; color?: string; cla
       style={{ backgroundColor: color }}
     />
   )
-}
+})
 
 export default LangBar

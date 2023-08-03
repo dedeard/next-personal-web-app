@@ -1,10 +1,10 @@
-import { useMount } from '@/util/mount'
+import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 import TextTransition, { presets } from 'react-text-transition'
+import { useMount } from '@/util/mount'
 import * as pages from '@/constans/pages'
 
-const PageTitleAnimation = () => {
+const PageTitleAnimation = memo(() => {
   const [title, setTitle] = useState('')
   const { pathname } = useRouter()
   const mounted = useMount()
@@ -35,6 +35,6 @@ const PageTitleAnimation = () => {
       )}
     </>
   )
-}
+})
 
 export default PageTitleAnimation
