@@ -26,7 +26,7 @@ const HomePage = () => {
             <span className="grid grid-cols-2 justify-items-end">
               <span className="block"></span>
               <span className="block text-sm opacity-90">
-                A JUNIOR
+                A FULL STACK
                 <br /> WEB DEVELOPER
               </span>
             </span>
