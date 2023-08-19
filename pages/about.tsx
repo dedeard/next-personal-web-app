@@ -34,7 +34,7 @@ const AboutPage = () => {
           <h2 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h2>
           <div className="mb-6">
             <p className="mb-1">
-              Pengembang web junior yang berbasis di Makassar, Indonesia.
+              Full Stack Web Developer berbasis di Makassar, Indonesia.
               <br />
               Saya mencoba yang terbaik untuk membuat kode yang saya tulis mudah untuk dibaca dan dipahami.
             </p>
