@@ -37,7 +37,7 @@ const CursorFollower = memo(() => {
           className={
             (zoom ? 'scale-150 ' : '') +
             (click ? 'bg-yellow-600' : '') +
-            ' pointer-events-none fixed left-1/2 top-1/2 z-[140] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 select-none rounded-full ring-2 ring-yellow-600   duration-[0.4s] ease-[cubic-bezier(0.18,0.89,0.32,1.28)] md:block'
+            ' pointer-events-none fixed left-1/2 top-1/2 z-[140] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 select-none rounded-full ring-2 ring-yellow-600  duration-[1s] ease-[cubic-bezier(0.18,0.89,0.32,1.28)] md:block'
           }
         />
       )}
