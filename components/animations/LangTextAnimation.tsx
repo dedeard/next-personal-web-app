@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import TextTransition, { presets } from 'react-text-transition'
 import langColors from '@/constans/langColors'
-import { useMount } from '@/util/mount'
+import { useMount } from '@/utils/mount'
 
 const LangTextAnimation = memo(({ items }: { items: string[] }) => {
   const mounted = useMount()

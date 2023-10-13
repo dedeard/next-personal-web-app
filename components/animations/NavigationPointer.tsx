@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
-import { useMount } from '@/util/mount'
+import { useMount } from '@/utils/mount'
 import * as pages from '@/constans/pages'
 
 const NavigationPointer = memo(() => {

@@ -5,7 +5,7 @@ import Logo from '@/components/icons/Logo'
 import { UserIcon, ClipboardIcon, MailIcon, MoonIcon, SunIcon, HomeIcon } from '@/components/icons/Feather'
 import ModeTransition from '../animations/ModeTransiton'
 import NavigationPointer from '../animations/NavigationPointer'
-import { useMount } from '@/util/mount'
+import { useMount } from '@/utils/mount'
 
 const Header = forwardRef((_, ref: React.ForwardedRef<HTMLDivElement>) => {
   const { theme } = useTheme()

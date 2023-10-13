@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
-import { useMount } from '@/util/mount'
+import { useMount } from '@/utils/mount'
 import { MoonIcon, SunIcon } from '@/components/icons/Feather'
 
 type ModeTransitonTypes = {

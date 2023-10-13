@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import TextTransition, { presets } from 'react-text-transition'
-import { useMount } from '@/util/mount'
+import { useMount } from '@/utils/mount'
 import * as pages from '@/constans/pages'
 
 const PageTitleAnimation = memo(() => {
