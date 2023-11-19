@@ -1,18 +1,21 @@
 import { memo, useEffect, useState } from 'react'
+import { animated, useSpring } from '@react-spring/web'
+import cn from 'classnames'
 
 const CursorFollower = () => {
-  const [{ x, y }, setPosition] = useState({ x: 0, y: 0 })
   const [start, setStart] = useState(false)
-  const [zoom, setZoom] = useState(false)
+  const [scaling, setScaling] = useState(false)
   const [click, setClick] = useState(false)
+  const [circle, setCircle] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    const onMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-      if (!start) setStart(true)
+    const mousemove = (e: MouseEvent) => {
+      setStart(true)
+      setCircle({ x: e.clientX, y: e.clientY })
       // @ts-ignore
-      setZoom(e.target?.closest('a') || e.target?.closest('button') ? true : false)
+      setScaling(e.target?.closest('a') || e.target?.closest('button') ? true : false)
     }
+
     const onClick = () => {
       if (!click) {
         setClick(true)
@@ -21,26 +24,47 @@ const CursorFollower = () => {
         }, 100)
       }
     }
-    window.addEventListener('mousemove', onMouseMove)
+
+    window.addEventListener('mousemove', mousemove)
     window.addEventListener('click', onClick)
     return () => {
-      window.removeEventListener('mousemove', onMouseMove)
+      window.removeEventListener('mousemove', mousemove)
       window.removeEventListener('click', onClick)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const wrapperStyles = useSpring({
+    to: { x: circle.x - 16, y: circle.y - 16 },
+    config: {
+      mass: 3,
+    },
+  })
+
+  const circleStyles = useSpring({
+    to: { scale: scaling ? 1.5 : 1 },
+    config: {
+      mass: 3,
+      duration: 100,
+    },
+  })
+
   return (
     <>
       {start && (
-        <span
-          style={{ top: y, left: x }}
-          className={
-            (zoom ? 'scale-150 ' : '') +
-            (click ? 'bg-yellow-600' : '') +
-            ' pointer-events-none fixed left-1/2 top-1/2 z-[140] hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 select-none rounded-full ring-2 ring-yellow-600  duration-[1s] ease-[cubic-bezier(0.18,0.89,0.32,1.28)] md:block'
-          }
-        />
+        <animated.div
+          style={{
+            ...wrapperStyles,
+          }}
+          className="pointer-events-none fixed left-0 top-0 z-[140] hidden h-8 w-8 select-none md:block"
+        >
+          <animated.div
+            style={{
+              ...circleStyles,
+            }}
+            className={cn(click ? ' bg-opacity-50' : ' bg-opacity-0', 'h-full w-full rounded-full bg-yellow-600 ring-2 ring-yellow-600')}
+          ></animated.div>
+        </animated.div>
       )}
     </>
   )
