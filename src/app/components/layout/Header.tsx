@@ -65,4 +65,6 @@ const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props
   )
 })
 
+Header.displayName = 'Header'
+
 export default Header

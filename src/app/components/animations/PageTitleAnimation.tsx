@@ -10,14 +10,13 @@ const PageTitleAnimation = () => {
   const pathname = usePathname()
   const mounted = useMount()
 
-  const pagesTitles = {
-    [pages.HOME_PAGE.path]: pages.HOME_PAGE.h1,
-    [pages.ABOUT_PAGE.path]: pages.ABOUT_PAGE.h1,
-    [pages.PROJECTS_PAGE.path]: pages.PROJECTS_PAGE.h1,
-    [pages.CONTACT_PAGE.path]: pages.CONTACT_PAGE.h1,
-  }
-
   useEffect(() => {
+    const pagesTitles = {
+      [pages.HOME_PAGE.path]: pages.HOME_PAGE.h1,
+      [pages.ABOUT_PAGE.path]: pages.ABOUT_PAGE.h1,
+      [pages.PROJECTS_PAGE.path]: pages.PROJECTS_PAGE.h1,
+      [pages.CONTACT_PAGE.path]: pages.CONTACT_PAGE.h1,
+    }
     const titleToSet = pagesTitles[pathname] || '404'
     setTitle(titleToSet)
   }, [pathname, mounted])

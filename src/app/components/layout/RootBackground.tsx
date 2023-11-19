@@ -1,6 +1,8 @@
 import { memo, useState } from 'react'
+import Image from 'next/image'
 import PageTitleAnimation from '../animations/PageTitleAnimation'
 import { Volume2Icon, VolumeXIcon } from '../icons/Feather'
+import background from '@/media/background.webp'
 
 const RootBackground = memo(() => {
   const [videoPlayed, setVideoPlayed] = useState(false)
@@ -16,11 +18,7 @@ const RootBackground = memo(() => {
       </button>
       <PageTitleAnimation />
       <div className="fixed left-0 top-0 -z-50 h-full w-full overflow-hidden bg-white dark:bg-black">
-        <img
-          src="/media/background.webp"
-          alt={process.env.NEXT_PUBLIC_HOST + ' backgroud image.'}
-          className={'block h-full w-full object-cover'}
-        />
+        <Image src={background} alt={process.env.NEXT_PUBLIC_HOST + ' backgroud image.'} className={'block h-full w-full object-cover'} />
         {videoPlayed && (
           <video src="/media/background.webm" loop autoPlay className={'absolute top-0 z-10 block h-full w-full object-cover'} />
         )}

@@ -2,6 +2,10 @@ import { PROJECTS_PAGE } from '@/constans/pages'
 import getProjects from './getProjects'
 import RepositoryCard from './RepositoryCard'
 
+export const dynamic = 'force-dynamic'
+
+export const revalidate = 3600
+
 export default async function ProjectsPage() {
   let repositories = await getProjects()
   return (

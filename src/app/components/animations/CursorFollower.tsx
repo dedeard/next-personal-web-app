@@ -27,6 +27,7 @@ const CursorFollower = () => {
       window.removeEventListener('mousemove', onMouseMove)
       window.removeEventListener('click', onClick)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
