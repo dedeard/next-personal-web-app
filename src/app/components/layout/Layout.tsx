@@ -5,7 +5,6 @@ import Preloader from '../animations/Preloader'
 import CursorFollower from '../animations/CursorFollower'
 import Header from './Header'
 import RootBackground from './RootBackground'
-import PageTransition from '../animations/PageTransition'
 import Footer from './Footer'
 
 type PropsType = {
@@ -44,9 +43,7 @@ export default function Layout({ children }: PropsType) {
       <CursorFollower />
       <Preloader />
       <Header ref={navRef} />
-      <PageTransition width={screen.w} height={screen.h}>
-        {children}
-      </PageTransition>
+      <main className="relative flex-1 bg-white/60 p-3 dark:bg-black/75 md:px-5 lg:px-10">{children}</main>
       <Footer />
       <RootBackground />
     </>

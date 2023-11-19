@@ -13,7 +13,7 @@ const lato = Lato({
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={'dark h-full w-full ' + lato.className} style={{ colorScheme: 'dark' }}>
-      <body className="h-full w-full bg-white text-black antialiased selection:bg-yellow-600 dark:bg-black dark:text-white">
+      <body className="flex min-h-full w-full overflow-y-scroll bg-white pb-16 text-black antialiased selection:bg-yellow-600 dark:bg-black  dark:text-white md:pb-0 md:pl-16">
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

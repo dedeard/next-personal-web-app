@@ -2,29 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .page-title {
-    @apply relative my-[1em] text-[calc(1.825rem+6.9vw)] font-bold after:absolute after:left-0 after:top-0 after:z-[-1] after:block after:text-[1.4em] after:tracking-tighter after:opacity-5 after:content-[attr(data-text)] md:after:text-[1.5em];
+    @apply relative my-[1em] text-[calc(1.825rem+6.9vw)] font-bold after:absolute after:left-0 after:top-0 after:z-10 after:block after:text-[1.4em] after:tracking-tighter after:opacity-5 after:content-[attr(data-text)] md:after:text-[1.5em];
   }
-  
-  .page-title span {
-    @apply absolute left-0 top-0 z-[-1] block text-[1.4em] tracking-tighter opacity-5 md:text-[1.5em];
-  }
-  
+
   .input {
     @apply block border-black/10 bg-white text-sm text-black placeholder-black/60 opacity-60 focus:border-black/10 focus:border-b-black focus:opacity-100 focus:ring-0 dark:border-white/10 dark:bg-black dark:text-white dark:placeholder-white/60 dark:focus:border-b-white;
   }
-  
+
   .alert-error,
   .alert-success {
     @apply border-l-4 px-3 py-5 text-lg font-bold backdrop-blur-lg;
   }
-  
+
   .alert-error {
     @apply border-red-500 bg-red-500/10;
   }
-  
+
   .alert-success {
     @apply border-green-500 bg-green-500/10;
   }
