@@ -1,10 +1,11 @@
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import TextTransition, { presets } from 'react-text-transition'
 import { useMount } from '@/hooks/mount'
 import * as pages from '@/constans/pages'
+import { config } from '@react-spring/web'
+import TextTransition from './TextTransition'
 
-const PageTitleAnimation = memo(() => {
+const PageTitleAnimation = () => {
   const [title, setTitle] = useState('')
   const pathname = usePathname()
   const mounted = useMount()
@@ -26,7 +27,7 @@ const PageTitleAnimation = memo(() => {
       {mounted && (
         <span className="fixed top-0 -z-40 block select-none px-3 text-[calc(2rem+6.9vw)] md:left-16 md:px-5 lg:px-10 ">
           <span className="block text-[1.5em] font-bold md:text-[1.6em]">
-            <TextTransition springConfig={presets.wobbly} inline delay={400}>
+            <TextTransition springConfig={config.wobbly} inline delay={400}>
               <span data-text={title} className="after:content-[attr(data-text)]" />
             </TextTransition>
             <span data-text="." className="after:content-[attr(data-text)]" />
@@ -35,6 +36,6 @@ const PageTitleAnimation = memo(() => {
       )}
     </>
   )
-})
+}
 
-export default PageTitleAnimation
+export default memo(PageTitleAnimation)

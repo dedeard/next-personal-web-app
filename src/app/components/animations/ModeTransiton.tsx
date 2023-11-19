@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import { motion } from 'framer-motion'
+import { useSpring, animated } from '@react-spring/web'
 import { useMount } from '@/hooks/mount'
 import { MoonIcon, SunIcon } from '../icons/Feather'
 
@@ -9,40 +9,32 @@ type ModeTransitonTypes = {
   setClick: (click: boolean) => void
 }
 
-const ModeTransition = memo(({ click, setClick }: ModeTransitonTypes) => {
+const ModeTransition = ({ click, setClick }: ModeTransitonTypes) => {
   const { theme, setTheme } = useTheme()
   const [dark, setDark] = useState(false)
-  const [animate, setAnimate] = useState({ translateY: '-110vh' })
-  const [duration, setDuration] = useState(0.75)
   const mounted = useMount()
 
   useEffect(() => setDark(theme !== 'light'), [theme])
 
-  useEffect(() => {
-    if (click) {
-      setDuration(0.75)
-      setAnimate({ translateY: '0vh' })
-      setTimeout(() => {
+  const { y } = useSpring({
+    to: async (next, cancel) => {
+      if (click) {
+        await next({ y: '0vh' })
         setTheme(dark ? 'light' : 'dark')
-        setTimeout(() => {
-          setAnimate({ translateY: '110vh' })
-          setTimeout(() => {
-            setClick(false)
-            setDuration(0)
-            setAnimate({ translateY: '-110vh' })
-          }, 750)
-        }, 500)
-      }, 750)
-    }
-  }, [click])
+        await next({ y: '110vh' })
+        setClick(false)
+      } else {
+        await next({ y: '-110vh' })
+      }
+    },
+    from: { y: '-110vh' },
+  })
 
   return (
     <>
       {mounted && (
-        <motion.div
-          initial={{ translateY: '-110vh' }}
-          animate={animate}
-          transition={{ duration, easings: ['easeIn', 'easeOut'] }}
+        <animated.div
+          style={{ transform: y.to((v) => `translateY(${v})`) }}
           className="fixed bottom-0 left-0 right-0 top-0 z-[200] flex select-none items-center justify-center bg-white transition-colors duration-500 dark:bg-black"
         >
           {click && (
@@ -58,10 +50,10 @@ const ModeTransition = memo(({ click, setClick }: ModeTransitonTypes) => {
               </div>
             </div>
           )}
-        </motion.div>
+        </animated.div>
       )}
     </>
   )
-})
+}
 
-export default ModeTransition
+export default memo(ModeTransition)

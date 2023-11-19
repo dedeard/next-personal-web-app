@@ -1,19 +1,19 @@
 import { memo } from 'react'
-import { motion } from 'framer-motion'
 import { useMount } from '@/hooks/mount'
+import { useSpring, animated } from '@react-spring/web'
 
-const LangBar = memo(({ size, color, className }: { size: number; color?: string; className?: string }) => {
+const LangBar: React.FC<{ size: number; color?: string; className?: string }> = ({ size, color, className }) => {
   const mount = useMount()
-  if (!mount) return <></>
-  return (
-    <motion.div
-      initial={{ width: '0px' }}
-      animate={{ width: size + '%' }}
-      transition={{ delay: 1, duration: 1 }}
-      className={className}
-      style={{ backgroundColor: color }}
-    />
-  )
-})
 
-export default LangBar
+  const props = useSpring({
+    from: { width: '0px' },
+    to: { width: `${size}%` },
+    config: { delay: 1000, duration: 1000 },
+  })
+
+  if (!mount) return null
+
+  return <animated.div style={{ ...props, backgroundColor: color }} className={className} />
+}
+
+export default memo(LangBar)

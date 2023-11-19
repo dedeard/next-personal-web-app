@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from 'react'
 
-const CursorFollower = memo(() => {
+const CursorFollower = () => {
   const [{ x, y }, setPosition] = useState({ x: 0, y: 0 })
   const [start, setStart] = useState(false)
   const [zoom, setZoom] = useState(false)
@@ -43,6 +43,6 @@ const CursorFollower = memo(() => {
       )}
     </>
   )
-})
+}
 
-export default CursorFollower
+export default memo(CursorFollower)

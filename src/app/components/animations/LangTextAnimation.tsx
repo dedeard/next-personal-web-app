@@ -1,10 +1,11 @@
 'use client'
 import { memo, useEffect, useState } from 'react'
-import TextTransition, { presets } from 'react-text-transition'
 import langColors from '@/constans/langColors'
 import { useMount } from '@/hooks/mount'
+import { config } from '@react-spring/web'
+import TextTransition from './TextTransition'
 
-const LangTextAnimation = memo(({ items }: { items: string[] }) => {
+const LangTextAnimation = ({ items }: { items: string[] }) => {
   const mounted = useMount()
   const [index, setIndex] = useState(0)
 
@@ -17,7 +18,7 @@ const LangTextAnimation = memo(({ items }: { items: string[] }) => {
     <>
       {mounted && (
         <div className="relative inline-block text-sm font-bold">
-          <TextTransition springConfig={presets.wobbly} inline>
+          <TextTransition springConfig={config.wobbly} inline>
             {items[index]}
           </TextTransition>
           <span
@@ -28,8 +29,6 @@ const LangTextAnimation = memo(({ items }: { items: string[] }) => {
       )}
     </>
   )
-})
+}
 
-LangTextAnimation.displayName = 'LangTextAnimation'
-
-export default LangTextAnimation
+export default memo(LangTextAnimation)
