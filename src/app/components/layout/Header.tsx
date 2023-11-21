@@ -1,25 +1,18 @@
-import { forwardRef, useEffect, useState } from 'react'
-import Link from 'next/link'
+import { forwardRef } from 'react'
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
 import { useMount } from '@/hooks/mount'
 import Logo from '../icons/Logo'
 import { UserIcon, ClipboardIcon, MailIcon, MoonIcon, SunIcon, HomeIcon } from '../icons/Feather'
-import ModeTransition from '../animations/ModeTransiton'
 import NavigationPointer from '../animations/NavigationPointer'
 
 const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props, ref) => {
-  const { theme } = useTheme()
-  const [dark, setDark] = useState(false)
-  const [click, setClick] = useState(false)
+  const { theme, setTheme } = useTheme()
   const mounted = useMount()
-
-  useEffect(() => {
-    setDark(theme !== 'light')
-  }, [theme])
+  const dark = theme === 'dark'
 
   return (
     <>
-      {mounted && <ModeTransition click={click} setClick={setClick} />}
       <header
         ref={ref}
         className="fixed bottom-0 left-0 right-0 z-[100] flex h-16 w-full flex-row overflow-hidden bg-white/80 backdrop-blur-xl dark:bg-black/80 md:right-auto md:top-0 md:h-full md:w-16 md:flex-col"
@@ -56,7 +49,12 @@ const Header = forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((props
           </ul>
         </nav>
         <div className="flex h-16 w-16">
-          <button type="button" title="Dark mode toggle" className="flex flex-1 items-center justify-center" onClick={() => setClick(true)}>
+          <button
+            type="button"
+            title="Dark mode toggle"
+            className="flex flex-1 items-center justify-center"
+            onClick={() => setTheme(dark ? 'light' : 'dark')}
+          >
             {dark ? <SunIcon height={18} width={18} /> : <MoonIcon height={18} width={18} />}
           </button>
         </div>
