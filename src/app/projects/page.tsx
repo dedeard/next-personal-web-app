@@ -1,6 +1,6 @@
 import { PROJECTS_PAGE } from '@/constans/pages'
 import getProjects from './getProjects'
-import RepositoryCard from './RepositoryCard'
+import RepositoryCard from './components/RepositoryCard'
 
 export const dynamic = 'force-dynamic'
 

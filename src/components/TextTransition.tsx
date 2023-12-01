@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+'use client'
 import type { CSSProperties, PropsWithChildren } from 'react'
 import React, { useState, useRef, useEffect } from 'react'
 import { useSpring, useTransition, animated, config, SpringConfig } from '@react-spring/web'

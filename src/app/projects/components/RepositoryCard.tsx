@@ -1,8 +1,8 @@
 'use client'
 import langColors from '@/constans/langColors'
-import LangBar from '../components/animations/LangBar'
-import LangTextAnimation from '../components/animations/LangTextAnimation'
-import { StarIcon } from '../components/icons/Feather'
+import LangBar from './LangBar'
+import LangTextAnimation from './LangTextAnimation'
+import { StarIcon } from '@/components/Feather'
 import { IRepository } from '@/types'
 
 const RepositoryCard = ({ repo }: { repo: IRepository }) => {

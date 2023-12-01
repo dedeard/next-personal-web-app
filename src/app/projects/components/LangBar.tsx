@@ -1,3 +1,4 @@
+'use client'
 import { memo } from 'react'
 import { useMount } from '@/hooks/mount'
 import { useSpring, animated } from '@react-spring/web'

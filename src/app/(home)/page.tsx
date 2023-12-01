@@ -1,5 +1,5 @@
 import { SOCIALS } from '@/constans/common'
-import { GitHubIcon, InstagramIcon, WhatsAppIcon } from '../components/icons/SocialIcons'
+import { GitHubIcon, InstagramIcon, WhatsAppIcon } from '@/components/SocialIcons'
 
 export default function HomePage() {
   return (

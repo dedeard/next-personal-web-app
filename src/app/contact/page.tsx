@@ -1,6 +1,6 @@
 import { SOCIALS } from '@/constans/common'
 import { CONTACT_PAGE } from '@/constans/pages'
-import ContactForm from '../components/forms/ContactForm'
+import ContactForm from './components/ContactForm'
 
 export default function NamePage() {
   return (

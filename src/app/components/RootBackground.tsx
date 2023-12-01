@@ -1,7 +1,8 @@
+'use client'
 import { memo, useState } from 'react'
 import Image from 'next/image'
-import PageTitleAnimation from '../animations/PageTitleAnimation'
-import { Volume2Icon, VolumeXIcon } from '../icons/Feather'
+import PageTitleAnimation from './PageTitleAnimation'
+import { Volume2Icon, VolumeXIcon } from '@/components/Feather'
 import background from '@/media/background.webp'
 
 const RootBackground = memo(() => {
