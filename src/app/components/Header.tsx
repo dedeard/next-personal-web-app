@@ -4,6 +4,7 @@ import { useMount } from '@/hooks/mount'
 import { UserIcon, ClipboardIcon, MailIcon, MoonIcon, SunIcon, HomeIcon } from '@/components/Feather'
 import Logo from '@/components/Logo'
 import NavigationPointer from './NavigationPointer'
+import { memo } from 'react'
 
 const Header: React.FC = () => {
   const { theme, setTheme } = useTheme()
@@ -56,4 +57,4 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+export default memo(Header)

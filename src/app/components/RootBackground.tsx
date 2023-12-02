@@ -1,11 +1,10 @@
-'use client'
-import { memo, useState } from 'react'
+import React, { memo, useState } from 'react'
 import Image from 'next/image'
 import PageTitleAnimation from './PageTitleAnimation'
 import { Volume2Icon, VolumeXIcon } from '@/components/Feather'
 import background from '@/media/background.webp'
 
-const RootBackground = memo(() => {
+const RootBackground: React.FC = () => {
   const [videoPlayed, setVideoPlayed] = useState(false)
   return (
     <>
@@ -26,8 +25,6 @@ const RootBackground = memo(() => {
       </div>
     </>
   )
-})
+}
 
-RootBackground.displayName = 'RootBackground'
-
-export default RootBackground
+export default memo(RootBackground)

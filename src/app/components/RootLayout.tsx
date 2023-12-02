@@ -1,4 +1,5 @@
 'use client'
+import { memo } from 'react'
 import { ThemeProvider } from 'next-themes'
 import CursorFollower from './CursorFollower'
 import NoiseFilter from './NoiseFilter'
@@ -19,4 +20,4 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   )
 }
 
-export default RootLayout
+export default memo(RootLayout)

@@ -4,7 +4,7 @@ import { useSpring, animated } from '@react-spring/web'
 import { useMount } from '@/hooks/mount'
 import * as pages from '@/constans/pages'
 
-const NavigationPointer = () => {
+const NavigationPointer: React.FC = () => {
   const [start, setStart] = useState(0)
   const pathname = usePathname()
   const mounted = useMount()

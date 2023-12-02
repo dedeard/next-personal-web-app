@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import cn from 'classnames'
 
-const CursorFollower = () => {
+const CursorFollower: React.FC = () => {
   const [start, setStart] = useState(false)
   const [scaling, setScaling] = useState(false)
   const [click, setClick] = useState(false)

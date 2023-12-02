@@ -1,4 +1,3 @@
-'use client'
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useMount } from '@/hooks/mount'
@@ -6,7 +5,7 @@ import * as pages from '@/constans/pages'
 import { config } from '@react-spring/web'
 import TextTransition from '@/components/TextTransition'
 
-const PageTitleAnimation = () => {
+const PageTitleAnimation: React.FC = () => {
   const [title, setTitle] = useState('')
   const pathname = usePathname()
   const mounted = useMount()
