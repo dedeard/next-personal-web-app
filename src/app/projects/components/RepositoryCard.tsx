@@ -1,11 +1,12 @@
 'use client'
+import { memo } from 'react'
 import langColors from '@/constans/langColors'
 import LangBar from './LangBar'
 import LangTextAnimation from './LangTextAnimation'
 import { StarIcon } from '@/components/Feather'
 import { IRepository } from '@/types'
 
-const RepositoryCard = ({ repo }: { repo: IRepository }) => {
+const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
   return (
     <div className="relative flex flex-col overflow-hidden bg-white/50 dark:bg-black/80">
       <div className="flex-1 p-5">
@@ -53,4 +54,4 @@ const RepositoryCard = ({ repo }: { repo: IRepository }) => {
   )
 }
 
-export default RepositoryCard
+export default memo(RepositoryCard)

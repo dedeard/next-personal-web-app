@@ -5,7 +5,7 @@ import { useMount } from '@/hooks/mount'
 import { config } from '@react-spring/web'
 import TextTransition from '@/components/TextTransition'
 
-const LangTextAnimation = ({ items }: { items: string[] }) => {
+const LangTextAnimation: React.FC<{ items: string[] }> = ({ items }) => {
   const mounted = useMount()
   const [index, setIndex] = useState(0)
 
