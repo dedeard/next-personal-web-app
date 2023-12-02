@@ -1,7 +1,8 @@
 'use client'
+import { memo } from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 
-const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
+const ContactForm: React.FC<{ formspreeKey: string }> = ({ formspreeKey }) => {
   const [state, handleSubmit] = useForm(formspreeKey)
   const formErrors = state.errors?.getFormErrors()
 
@@ -47,4 +48,4 @@ const ContactForm = ({ formspreeKey }: { formspreeKey: string }) => {
   )
 }
 
-export default ContactForm
+export default memo(ContactForm)
