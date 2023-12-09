@@ -20,8 +20,6 @@
     "moment": "^2.29.4",
     "next": "^14.0.2",
     "next-themes": "^0.2.1",
-    "nextjs-google-analytics": "^2.3.3",
-    "nextjs-progressbar": "^0.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0"
