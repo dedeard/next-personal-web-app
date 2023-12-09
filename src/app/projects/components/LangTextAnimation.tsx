@@ -3,7 +3,7 @@ import { memo, useEffect, useState } from 'react'
 import langColors from '@/constans/langColors'
 import { useMount } from '@/hooks/mount'
 import { config } from '@react-spring/web'
-import TextTransition from '@/components/TextTransition'
+import TextTransition from '@/app/components/TextTransition'
 
 const LangTextAnimation: React.FC<{ items: string[] }> = ({ items }) => {
   const mounted = useMount()

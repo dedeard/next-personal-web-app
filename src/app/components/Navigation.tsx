@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { FiHome, FiUser, FiClipboard, FiMail, FiMoon, FiSun } from 'react-icons/fi'
-import Logo from '@/components/Logo'
+import Logo from './Logo'
 import { useMount } from '@/hooks/mount'
 import NavigationPointer from './NavigationPointer'
 

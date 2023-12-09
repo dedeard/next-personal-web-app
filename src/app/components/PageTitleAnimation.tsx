@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation'
 import { useMount } from '@/hooks/mount'
 import * as pages from '@/constans/pages'
 import { config } from '@react-spring/web'
-import TextTransition from '@/components/TextTransition'
+import TextTransition from '@/app/components/TextTransition'
 
 const PageTitleAnimation: React.FC = () => {
   const [title, setTitle] = useState('')
