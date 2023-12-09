@@ -4,17 +4,10 @@ import { useSpring, animated } from '@react-spring/web'
 import { useMount } from '@/hooks/mount'
 import * as pages from '@/constans/pages'
 
-const NavigationPointer: React.FC = () => {
+const NavigationPointer: React.FC<{ pageIndexMap: Record<string, number> }> = ({ pageIndexMap }) => {
   const [start, setStart] = useState(0)
   const pathname = usePathname()
   const mounted = useMount()
-
-  const pageIndexMap = {
-    [pages.HOME_PAGE.path]: 0,
-    [pages.ABOUT_PAGE.path]: 1,
-    [pages.PROJECTS_PAGE.path]: 2,
-    [pages.CONTACT_PAGE.path]: 3,
-  }
 
   useEffect(() => {
     const index = Object.entries(pageIndexMap).findIndex(([path]) => path === pathname)

@@ -3,7 +3,7 @@ import { memo } from 'react'
 import langColors from '@/constans/langColors'
 import LangBar from './LangBar'
 import LangTextAnimation from './LangTextAnimation'
-import { StarIcon } from '@/components/Feather'
+import { FiStar } from 'react-icons/fi'
 import { IRepository } from '@/types'
 
 const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
@@ -41,7 +41,7 @@ const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
           </div>
           <span className="font-sm flex items-center font-bold">
             <span className="mr-1 mt-px block leading-none">{repo.stargazers_count}</span>
-            <StarIcon width="1em" className="block" />
+            <FiStar width="1em" className="block" />
           </span>
         </div>
       </div>

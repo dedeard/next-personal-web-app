@@ -1,5 +1,5 @@
 import { SOCIALS } from '@/constans/common'
-import { GitHubIcon, InstagramIcon, WhatsAppIcon } from '@/components/SocialIcons'
+import { FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa'
 
 export default function HomePage() {
   return (
@@ -20,13 +20,13 @@ export default function HomePage() {
         </h1>
         <div className="absolute -bottom-1/4 mx-auto flex">
           <a href={SOCIALS.IG} aria-label="Instagram" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
-            <InstagramIcon />
+            <FaInstagram size={20} />
           </a>
           <a href={SOCIALS.GH} aria-label="GitHub" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
-            <GitHubIcon />
+            <FaGithub size={20} />
           </a>
           <a href={SOCIALS.WA} aria-label="WhatsApp" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
-            <WhatsAppIcon />
+            <FaWhatsapp size={20} />
           </a>
         </div>
       </div>

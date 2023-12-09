@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react'
 import Image from 'next/image'
 import PageTitleAnimation from './PageTitleAnimation'
-import { Volume2Icon, VolumeXIcon } from '@/components/Feather'
+import { FiVolume2, FiVolumeX } from 'react-icons/fi'
 import background from '@/media/background.webp'
 
 const RootBackground: React.FC = () => {
@@ -14,7 +14,7 @@ const RootBackground: React.FC = () => {
         className="fixed right-0 top-0 z-[120] mr-3 mt-3 leading-none md:mr-5 md:mt-5 lg:mr-10"
         onClick={() => setVideoPlayed(!videoPlayed)}
       >
-        {videoPlayed ? <Volume2Icon width={18} height={18} /> : <VolumeXIcon width={18} height={18} />}
+        {videoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}
       </button>
       <PageTitleAnimation />
       <div className="fixed left-0 top-0 -z-50 h-full w-full overflow-hidden bg-white dark:bg-black">
