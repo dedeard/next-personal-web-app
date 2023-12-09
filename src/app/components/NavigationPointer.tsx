@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useSpring, animated } from '@react-spring/web'
-import { useMount } from '@/hooks/mount'
+import { useMount } from '@/contexts/MountContext'
 import * as pages from '@/constans/pages'
 
 const NavigationPointer: React.FC<{ pageIndexMap: Record<string, number> }> = ({ pageIndexMap }) => {

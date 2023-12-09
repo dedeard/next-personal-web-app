@@ -1,6 +1,6 @@
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { useMount } from '@/hooks/mount'
+import { useMount } from '@/contexts/MountContext'
 import * as pages from '@/constans/pages'
 import { config } from '@react-spring/web'
 import TextTransition from '@/app/components/TextTransition'

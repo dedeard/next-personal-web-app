@@ -1,7 +1,7 @@
 'use client'
 import { memo, useEffect, useState } from 'react'
 import langColors from '@/constans/langColors'
-import { useMount } from '@/hooks/mount'
+import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
 import TextTransition from '@/app/components/TextTransition'
 
