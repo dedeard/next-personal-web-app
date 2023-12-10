@@ -1,14 +1,12 @@
 'use client'
 
-import { ThemeProvider } from 'next-themes'
 import { MountProvider } from '@/contexts/MountContext'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 
 const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <MountProvider>
-      <ThemeProvider attribute="class" defaultTheme="dark">
-        {children}
-      </ThemeProvider>
+      <ThemeProvider defaultDark>{children}</ThemeProvider>
     </MountProvider>
   )
 }
