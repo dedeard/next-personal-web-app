@@ -16,9 +16,11 @@ const Navigation: React.FC = () => (
       <ul className="flex flex-row md:flex-col">
         {NAV_ITEMS.map(({ path, Icon, label }) => (
           <li key={path}>
-            <Link href={path} title={label} className="relative flex h-16 w-16 items-center justify-center">
+            <Link href={path} title={label} className="relative flex h-16 w-16 flex-col items-center justify-center md:pt-1">
               <Icon size={18} />
-              <span className="absolute bottom-1 left-0 right-0 block text-center text-[0.5em]">{label}</span>
+              <span className="absolute bottom-1 left-0 right-0 block text-center text-[0.5em] md:relative md:bottom-0 md:mt-1">
+                {label}
+              </span>
             </Link>
           </li>
         ))}
