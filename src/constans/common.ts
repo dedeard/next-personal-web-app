@@ -1,7 +1,8 @@
-import { FiHome, FiGlobe, FiClipboard, FiMail } from 'react-icons/fi'
+import { FiHome, FiGlobe, FiClipboard, FiMail, FiUser } from 'react-icons/fi'
 
 export const NAV_ITEMS = [
   { path: '/', label: 'Home', Icon: FiHome },
+  { path: '/about', label: 'About', Icon: FiUser },
   { path: '/blog', label: 'Blog', Icon: FiGlobe },
   { path: '/projects', label: 'Projects', Icon: FiClipboard },
   { path: '/contact', label: 'Contact', Icon: FiMail },
@@ -9,6 +10,7 @@ export const NAV_ITEMS = [
 
 export const PAGE_TITLES = {
   '/': '._',
+  '/about': 'About',
   '/blog': 'Blog',
   '/projects': 'Projects',
   '/contact': 'Contact',
