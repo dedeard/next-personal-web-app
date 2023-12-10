@@ -1,3 +1,19 @@
+import { FiHome, FiGlobe, FiClipboard, FiMail } from 'react-icons/fi'
+
+export const NAV_ITEMS = [
+  { path: '/', label: 'Home', Icon: FiHome },
+  { path: '/blog', label: 'Blog', Icon: FiGlobe },
+  { path: '/projects', label: 'Projects', Icon: FiClipboard },
+  { path: '/contact', label: 'Contact', Icon: FiMail },
+]
+
+export const PAGE_TITLES = {
+  '/': '._',
+  '/blog': 'Blog',
+  '/projects': 'Projects',
+  '/contact': 'Contact',
+}
+
 export const SOCIALS = {
   GH: 'https://github.com/dedeard',
   IG: 'https://www.instagram.com/dedeard.js',

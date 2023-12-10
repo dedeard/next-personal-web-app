@@ -1,9 +1,9 @@
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useMount } from '@/contexts/MountContext'
-import * as pages from '@/constans/pages'
 import { config } from '@react-spring/web'
 import TextTransition from '@/app/components/TextTransition'
+import { PAGE_TITLES } from '@/constans/common'
 
 const PageTitleAnimation: React.FC = () => {
   const [title, setTitle] = useState('')
@@ -11,14 +11,8 @@ const PageTitleAnimation: React.FC = () => {
   const mounted = useMount()
 
   useEffect(() => {
-    const pagesTitles = {
-      [pages.HOME_PAGE.path]: pages.HOME_PAGE.h1,
-      [pages.ABOUT_PAGE.path]: pages.ABOUT_PAGE.h1,
-      [pages.PROJECTS_PAGE.path]: pages.PROJECTS_PAGE.h1,
-      [pages.CONTACT_PAGE.path]: pages.CONTACT_PAGE.h1,
-    }
-    const titleToSet = pagesTitles[pathname] || '404'
-    setTitle(titleToSet)
+    // @ts-expect-error
+    setTitle(PAGE_TITLES[pathname] || '404')
   }, [pathname, mounted])
 
   return (

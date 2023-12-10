@@ -1,15 +1,18 @@
+'use client'
+
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useSpring, animated } from '@react-spring/web'
 import { useMount } from '@/contexts/MountContext'
-import * as pages from '@/constans/pages'
+import { NAV_ITEMS } from '@/constans/common'
 
-const NavigationPointer: React.FC<{ pageIndexMap: Record<string, number> }> = ({ pageIndexMap }) => {
+const NavigationPointer: React.FC = () => {
   const [start, setStart] = useState(0)
   const pathname = usePathname()
   const mounted = useMount()
 
   useEffect(() => {
+    const pageIndexMap = Object.fromEntries(NAV_ITEMS.map((item, index) => [item.path, index]))
     const index = Object.entries(pageIndexMap).findIndex(([path]) => path === pathname)
     setStart(index >= 0 ? index : -1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
