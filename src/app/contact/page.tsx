@@ -1,6 +1,18 @@
+import type { Metadata } from 'next'
 import { FORMSPREE_KEY, SOCIALS } from '@/constans/common'
 import ContactForm from './components/ContactForm'
 import PageTitle from '../components/PageTitle'
+
+export const metadata: Metadata = {
+  title: 'Contact - Dede Ariansya',
+  openGraph: {
+    title: 'Contact - Dede Ariansya',
+    url: '/contact',
+  },
+  alternates: {
+    canonical: '/contact',
+  },
+}
 
 export default function ContactPage() {
   return (

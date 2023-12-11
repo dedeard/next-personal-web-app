@@ -1,10 +1,20 @@
+import type { Metadata } from 'next'
 import getProjects from './getProjects'
 import RepositoryCard from './components/RepositoryCard'
 import PageTitle from '../components/PageTitle'
 
-export const dynamic = 'force-dynamic'
-
 export const revalidate = 3600
+
+export const metadata: Metadata = {
+  title: 'Projects - Dede Ariansya',
+  openGraph: {
+    title: 'Projects - Dede Ariansya',
+    url: '/projects',
+  },
+  alternates: {
+    canonical: '/projects',
+  },
+}
 
 export default async function ProjectsPage() {
   let repositories = await getProjects()

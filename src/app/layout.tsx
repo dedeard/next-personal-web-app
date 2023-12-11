@@ -1,4 +1,5 @@
 import './globals.css'
+import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { Lato } from 'next/font/google'
 import cn from 'classnames'
@@ -12,6 +13,21 @@ const lato = Lato({
   subsets: ['latin'],
   display: 'swap',
 })
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.VERCEL_URL || 'http://localhsot:3000'),
+  title: 'Dede Ariansya',
+  description: 'I’m Dede Ariansya, Full Stack Web Developer based in Makassar, Indonesia.',
+  openGraph: {
+    images: '/media/poster.jpg',
+    title: 'Dede Ariansya',
+    description: 'I’m Dede Ariansya, Full Stack Web Developer based in Makassar, Indonesia.',
+    url: '/',
+  },
+  alternates: {
+    canonical: '/',
+  },
+}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
