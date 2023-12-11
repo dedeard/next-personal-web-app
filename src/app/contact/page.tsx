@@ -1,13 +1,11 @@
-import { SOCIALS } from '@/constans/common'
-import { CONTACT_PAGE } from '@/constans/pages'
+import { FORMSPREE_KEY, SOCIALS } from '@/constans/common'
 import ContactForm from './components/ContactForm'
+import PageTitle from '../components/PageTitle'
 
-export default function NamePage() {
+export default function ContactPage() {
   return (
     <>
-      <h1 className="page-title" data-text={CONTACT_PAGE.h1}>
-        {CONTACT_PAGE.h1}
-      </h1>
+      <PageTitle title="Contact" />
       <div className="flex flex-col lg:flex-row">
         <div className="mb-4 w-full text-center lg:w-[480px] lg:text-left">
           <div className="mb-8">
@@ -45,7 +43,7 @@ export default function NamePage() {
           </div>
         </div>
         <div className="lg:flex-1">
-          <ContactForm formspreeKey={CONTACT_PAGE.body.formspree_key} />
+          <ContactForm formspreeKey={FORMSPREE_KEY} />
         </div>
       </div>
     </>

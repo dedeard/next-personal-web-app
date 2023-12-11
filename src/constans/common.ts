@@ -21,3 +21,7 @@ export const SOCIALS = {
   IG: 'https://www.instagram.com/dedeard.js',
   WA: 'https://api.whatsapp.com/send?phone=6281343912883&text=%3CChatMe%20%2F%3E',
 }
+
+export const RESUME_URL = 'https://drive.google.com/file/d/1ytO7InWLVjJGryqRC0QZdc60bU1iesph/view?usp=sharing'
+
+export const FORMSPREE_KEY = 'xoqyaqqe'
