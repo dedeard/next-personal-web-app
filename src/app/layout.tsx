@@ -7,6 +7,7 @@ import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
 import RootBackground from './components/RootBackground'
 import Navigation from './components/Navigation'
+import { HOST } from '@/constans/common'
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -15,7 +16,7 @@ const lato = Lato({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_URL || 'http://localhsot:3000'),
+  metadataBase: new URL(HOST),
   title: 'Dede Ariansya',
   description: 'I’m Dede Ariansya, Full Stack Web Developer based in Makassar, Indonesia.',
   openGraph: {
