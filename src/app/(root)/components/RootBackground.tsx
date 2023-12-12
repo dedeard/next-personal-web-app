@@ -2,7 +2,6 @@
 
 import React, { memo, useState } from 'react'
 import Image from 'next/image'
-import PageTitleAnimation from './PageTitleAnimation'
 import { FiVolume2, FiVolumeX } from 'react-icons/fi'
 import background from '@/media/background.webp'
 
@@ -18,7 +17,6 @@ const RootBackground: React.FC = () => {
       >
         {videoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}
       </button>
-      <PageTitleAnimation />
       <div className="fixed left-0 top-0 -z-50 h-full w-full overflow-hidden bg-white dark:bg-black">
         <Image src={background} alt={process.env.NEXT_PUBLIC_HOST + ' backgroud image.'} className={'block h-full w-full object-cover'} />
         {videoPlayed && (

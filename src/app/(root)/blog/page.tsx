@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import PageTitle from '../(root)/components/PageTitle'
+import PageTitle from '../components/PageTitle'
 import { getBlogPosts } from '@/utils/blog'
 import Link from 'next/link'
 

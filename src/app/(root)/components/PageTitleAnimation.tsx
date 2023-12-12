@@ -1,9 +1,11 @@
+'use client'
+
 import { memo, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
-import TextTransition from '@/app/components/TextTransition'
 import { PAGE_TITLES } from '@/constans/common'
+import TextTransition from '../../components/TextTransition'
 
 const PageTitleAnimation: React.FC = () => {
   const [title, setTitle] = useState('')
@@ -12,7 +14,7 @@ const PageTitleAnimation: React.FC = () => {
 
   useEffect(() => {
     // @ts-expect-error
-    setTitle(PAGE_TITLES[pathname] || '404')
+    setTitle(PAGE_TITLES[pathname] || '')
   }, [pathname, mounted])
 
   return (

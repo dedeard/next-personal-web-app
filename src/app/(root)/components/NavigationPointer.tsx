@@ -13,7 +13,11 @@ const NavigationPointer: React.FC = () => {
 
   useEffect(() => {
     const pageIndexMap = Object.fromEntries(NAV_ITEMS.map((item, index) => [item.path, index]))
-    const index = Object.entries(pageIndexMap).findIndex(([path]) => path === pathname)
+    let indexName = pathname
+    if (pathname.startsWith('/blog')) {
+      indexName = '/blog'
+    }
+    const index = Object.entries(pageIndexMap).findIndex(([path]) => path === indexName)
     setStart(index >= 0 ? index : -1)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
