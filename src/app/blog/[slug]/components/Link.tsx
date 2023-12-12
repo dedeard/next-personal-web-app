@@ -20,7 +20,7 @@ const Link: React.FC<LinkProps> = ({ href, children, ...props }) => {
   }
 
   return (
-    <a target="_blank" rel="noopener noreferrer" {...props}>
+    <a target="_blank" rel="noopener noreferrer" href={href} {...props}>
       {children}
     </a>
   )
