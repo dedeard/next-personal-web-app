@@ -28,11 +28,6 @@
           "title": "Summary",
           "name": "summary",
           "type": "string"
-        },
-        {
-          "title": "Image",
-          "name": "image",
-          "type": "string"
         }
       ]
     }
