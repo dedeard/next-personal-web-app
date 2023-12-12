@@ -1,5 +1,5 @@
 import { IRepository } from '@/types'
-import moment from 'moment'
+import timeFromNow from '@/utils/time-from-now'
 import 'server-only'
 
 const username = process.env.GH_USERNAME || 'dedeard'
@@ -51,10 +51,10 @@ const getProjects = async () => {
       stargazers_count: repo.stargazers_count,
       watchers_count: repo.watchers_count,
       forks_count: repo.forks_count,
-      created_at: moment(repo.created_at).fromNow(),
-      updated_at: moment(repo.updated_at).fromNow(),
-      pushed_at: moment(repo.pushed_at).fromNow(),
-      last_commit_at: moment(commits[0]?.commit?.committer?.date).fromNow(),
+      created_at: timeFromNow(repo.created_at),
+      updated_at: timeFromNow(repo.updated_at),
+      pushed_at: timeFromNow(repo.pushed_at),
+      last_commit_at: timeFromNow(commits[0]?.commit?.committer?.date),
       last_commit_date: commits[0]?.commit?.committer?.date,
       topics: repo.topics,
       languages: languages,
