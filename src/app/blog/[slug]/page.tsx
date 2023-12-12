@@ -79,7 +79,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
       <div className="mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
       </div>
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article className="prose prose-neutral dark:prose-invert">
         <MDX source={post.content} />
       </article>
     </div>
