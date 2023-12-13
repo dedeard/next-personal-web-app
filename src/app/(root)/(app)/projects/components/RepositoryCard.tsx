@@ -8,7 +8,7 @@ import { IRepository } from '@/types'
 
 const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
   return (
-    <div className="relative flex flex-col overflow-hidden bg-white/50 dark:bg-black/80">
+    <div className="relative flex flex-col overflow-hidden bg-white/50 backdrop-blur dark:bg-black/80">
       <div className="flex-1 p-5">
         <a href={repo.html_url}>
           <h2 className="mb-1 items-center text-2xl font-bold capitalize">{repo.name.replaceAll('-', ' ')}</h2>
