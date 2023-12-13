@@ -1,13 +1,16 @@
 'use client'
 
 import { MountProvider } from '@/contexts/MountContext'
+import { ProgressBarProvider } from '@/contexts/ProgressBarContext'
 import { ThemeProvider } from '@/contexts/ThemeContext'
 
 const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <MountProvider>
-      <ThemeProvider defaultDark>{children}</ThemeProvider>
-    </MountProvider>
+    <ProgressBarProvider>
+      <MountProvider>
+        <ThemeProvider defaultDark>{children}</ThemeProvider>
+      </MountProvider>
+    </ProgressBarProvider>
   )
 }
 
