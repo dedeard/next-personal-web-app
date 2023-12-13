@@ -6,7 +6,7 @@ import { useMount } from '@/contexts/MountContext'
 
 const Preloader: React.FC = () => {
   const mounted = useMount()
-  const props = useSpring({ opacity: mounted ? 0 : 1 })
+  const props = useSpring({ opacity: mounted ? 0 : 1, delay: 500 })
 
   return (
     <animated.div
