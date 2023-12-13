@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { Lato } from 'next/font/google'
-import cn from 'classnames'
 import { HOST } from '@/constans/common'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={cn('h-full w-full', lato.className)}>
+    <html lang="en" className={'h-full w-full ' + lato.className}>
       <body className="flex min-h-full w-full overflow-y-scroll bg-white text-black antialiased selection:bg-yellow-600 dark:bg-black dark:text-white">
         <i
           aria-hidden="true"

@@ -2,7 +2,6 @@
 
 import { memo, useEffect, useState } from 'react'
 import { animated, useSpring } from '@react-spring/web'
-import cn from 'classnames'
 
 const CursorFollower: React.FC = () => {
   const [start, setStart] = useState(false)
@@ -64,7 +63,7 @@ const CursorFollower: React.FC = () => {
             style={{
               ...circleStyles,
             }}
-            className={cn(click ? ' bg-opacity-50' : ' bg-opacity-0', 'h-full w-full rounded-full bg-yellow-600 ring-2 ring-yellow-600')}
+            className={`${click ? 'bg-opacity-50' : 'bg-opacity-0'} h-full w-full rounded-full bg-yellow-600 ring-2 ring-yellow-600`}
           ></animated.div>
         </animated.div>
       )}
