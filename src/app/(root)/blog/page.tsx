@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import PageTitle from '../components/PageTitle'
-import { getBlogPosts } from '@/utils/blog'
+import { getBlogPosts } from '@/utils/get-blog-posts'
 import Link from 'next/link'
 
 export const metadata: Metadata = {

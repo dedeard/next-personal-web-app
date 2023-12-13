@@ -1,48 +1,44 @@
 import type { Metadata } from 'next'
-import { getBlogPosts } from '@/utils/blog'
-import MDX from './components/MDX'
 import { notFound } from 'next/navigation'
+import { getBlogPosts } from '@/utils/get-blog-posts'
+import timeFromNow from '@/utils/time-from-now'
+import { HOST } from '@/constans/common'
+import MDX from './components/MDX'
 
 export const revalidate = 3600
 
-export const metadata: Metadata = {
-  title: 'Blog - Dede Ariansya',
-  openGraph: {
-    title: 'Blog - Dede Ariansya',
-    url: '/blog',
-  },
-  alternates: {
-    canonical: '/blog',
-  },
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const post = getBlogPosts().find((post) => post.slug === params.slug)
+  if (!post) return {}
+  return {
+    title: post.metadata.title,
+    description: post.metadata.summary,
+    authors: {
+      name: 'Dede Ariansya',
+    },
+    robots: 'index, follow',
+    openGraph: {
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      url: `/blog/${post.slug}`,
+      images: `/og?title=${post.metadata.title}`,
+    },
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+  }
 }
 
 function formatDate(date: string) {
-  let currentDate = new Date()
-  let targetDate = new Date(date)
+  let datetime = new Date(date)
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
-
-  let formattedDate = ''
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
-    formattedDate = 'Today'
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
+  let fullDate = datetime.toLocaleString('en-us', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
   })
 
-  return `${fullDate} (${formattedDate})`
+  return `${fullDate} (${timeFromNow(date)})`
 }
 
 export default async function BlogDetailPage({ params }: { params: { slug: string } }) {
@@ -64,13 +60,11 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `https://dedeard.my.id${post.metadata.image}`
-              : `https://dedeard.my.id/og?title=${post.metadata.title}`,
-            url: `https://dedeard.my.id/blog/${post.slug}`,
+            image: `${HOST}/og?title=${post.metadata.title}`,
+            url: `${HOST}/blog/${post.slug}`,
             author: {
               '@type': 'Person',
-              name: 'Dede Ardiansya',
+              name: 'Dede Ariansya',
             },
           }),
         }}

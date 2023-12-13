@@ -5,7 +5,6 @@ type Metadata = {
   title: string
   publishedAt: string
   summary: string
-  image?: string
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -35,21 +34,14 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor) {
   return parseFrontmatter(rawContent)
 }
 
-function extractTweetIds(content: string) {
-  let tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g)
-  return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)?.[0]) || []
-}
-
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
     let slug = path.basename(file, path.extname(file))
-    let tweetIds = extractTweetIds(content)
     return {
       metadata,
       slug,
-      tweetIds,
       content,
     }
   })
