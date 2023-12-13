@@ -48,7 +48,7 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
   }
 
   return (
-    <div>
+    <main className="relative z-10 flex-1 p-3 md:px-5 lg:px-10">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -76,6 +76,6 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
       <article className="prose prose-neutral dark:prose-invert">
         <MDX source={post.content} />
       </article>
-    </div>
+    </main>
   )
 }
