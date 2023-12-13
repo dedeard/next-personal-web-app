@@ -7,7 +7,7 @@ export const runtime = 'edge'
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
   const postTitle = searchParams.get('title')
-  const fontData = await fetch(new URL('fonts/Lato-Bold.ttf', HOST)).then((res) => res.arrayBuffer())
+  const fontData = await fetch(new URL('../../../public/fonts/Lato-Bold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
     (
