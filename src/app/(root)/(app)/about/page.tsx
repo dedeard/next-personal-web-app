@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import dedeard from '@/media/dedeard.jpg'
+import dedeard from '@/assets/dedeard.jpg'
 import { RESUME_URL } from '@/constans/common'
 import PageTitle from '../components/PageTitle'
 

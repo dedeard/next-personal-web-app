@@ -3,7 +3,7 @@
 import React, { memo, useState } from 'react'
 import Image from 'next/image'
 import { FiVolume2, FiVolumeX } from 'react-icons/fi'
-import background from '@/media/background.webp'
+import background from '@/assets/background.webp'
 
 const RootBackground: React.FC = () => {
   const [videoPlayed, setVideoPlayed] = useState(false)

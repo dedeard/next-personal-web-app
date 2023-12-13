@@ -5,6 +5,7 @@ import { Lato } from 'next/font/google'
 import { HOST } from '@/constans/common'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
+import noise from '@/assets/noise.gif'
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -35,7 +36,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <i
           aria-hidden="true"
           className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-[150] hidden h-full w-full opacity-5 md:block"
-          style={{ backgroundImage: "url('/media/noise.gif')" }}
+          style={{ backgroundImage: `url(${noise.src})` }}
         />
         <Providers>
           <CursorFollower />
