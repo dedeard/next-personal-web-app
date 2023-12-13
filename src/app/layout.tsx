@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Lato } from 'next/font/google'
 import { HOST } from '@/constans/common'
 import Providers from './Providers'
@@ -43,6 +44,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
