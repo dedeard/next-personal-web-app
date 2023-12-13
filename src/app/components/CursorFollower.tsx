@@ -1,39 +1,11 @@
 'use client'
 
-import { memo, useEffect, useState } from 'react'
+import { memo } from 'react'
 import { animated, useSpring } from '@react-spring/web'
+import { useCursorFollower } from '@/contexts/CursorFollowerContext'
 
 const CursorFollower: React.FC = () => {
-  const [start, setStart] = useState(false)
-  const [scaling, setScaling] = useState(false)
-  const [click, setClick] = useState(false)
-  const [circle, setCircle] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const mousemove = (e: MouseEvent) => {
-      setStart(true)
-      setCircle({ x: e.clientX, y: e.clientY })
-      // @ts-ignore
-      setScaling(e.target?.closest('a') || e.target?.closest('button') ? true : false)
-    }
-
-    const onClick = () => {
-      if (!click) {
-        setClick(true)
-        setTimeout(() => {
-          setClick(false)
-        }, 100)
-      }
-    }
-
-    window.addEventListener('mousemove', mousemove)
-    window.addEventListener('click', onClick)
-    return () => {
-      window.removeEventListener('mousemove', mousemove)
-      window.removeEventListener('click', onClick)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const { circle, start, scaling, click } = useCursorFollower()
 
   const wrapperStyles = useSpring({
     to: { x: circle.x - 16, y: circle.y - 16 },
