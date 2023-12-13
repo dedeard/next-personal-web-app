@@ -4,9 +4,10 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Lato } from 'next/font/google'
 import { HOST } from '@/constans/common'
+import noise from '@/assets/noise.gif'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
-import noise from '@/assets/noise.gif'
+import Preloader from './components/Preloader'
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           style={{ backgroundImage: `url(${noise.src})` }}
         />
         <Providers>
+          <Preloader />
           <CursorFollower />
           {children}
         </Providers>
