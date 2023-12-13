@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <RootBackground />
       <PageTitleAnimation />
-      <main className="relative z-10 flex-1 bg-white/60 p-3 dark:bg-black/75 md:px-5 lg:px-10">{children}</main>
+      <main className="relative z-10 flex-1 bg-white/60 p-3 dark:bg-black/75 md:px-5 md:pb-5 lg:px-10 lg:pb-10">{children}</main>
     </>
   )
 }

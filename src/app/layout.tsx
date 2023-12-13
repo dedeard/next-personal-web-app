@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={'h-full w-full ' + lato.className}>
-      <body className="flex min-h-full w-full overflow-y-scroll bg-white text-black antialiased selection:bg-yellow-600 dark:bg-black dark:text-white">
+      <body className="flex min-h-full w-full bg-white text-black antialiased selection:bg-yellow-600 dark:bg-black dark:text-white">
         <i
           aria-hidden="true"
           className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-[150] hidden h-full w-full opacity-5 md:block"
