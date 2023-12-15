@@ -7,7 +7,6 @@ import { HOST } from '@/constans/common'
 import noise from '@/assets/noise.gif'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
-import Preloader from './components/Preloader'
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -41,7 +40,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           style={{ backgroundImage: `url(${noise.src})` }}
         />
         <Providers>
-          <Preloader />
           <CursorFollower />
           {children}
         </Providers>
