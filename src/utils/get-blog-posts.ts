@@ -1,11 +1,6 @@
+import type { IMetadata, IPost } from '@/types'
 import fs from 'fs'
 import path from 'path'
-
-type Metadata = {
-  title: string
-  publishedAt: string
-  summary: string
-}
 
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
@@ -13,16 +8,16 @@ function parseFrontmatter(fileContent: string) {
   let frontMatterBlock = match![1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
   let frontMatterLines = frontMatterBlock.trim().split('\n')
-  let metadata: Partial<Metadata> = {}
+  let metadata: Partial<IMetadata> = {}
 
   frontMatterLines.forEach((line) => {
     let [key, ...valueArr] = line.split(': ')
     let value = valueArr.join(': ').trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    metadata[key.trim() as keyof IMetadata] = value
   })
 
-  return { metadata: metadata as Metadata, content }
+  return { metadata: metadata as IMetadata, content }
 }
 
 function getMDXFiles(dir: fs.PathLike) {
@@ -34,7 +29,7 @@ function readMDXFile(filePath: fs.PathOrFileDescriptor) {
   return parseFrontmatter(rawContent)
 }
 
-function getMDXData(dir: string) {
+function getMDXData(dir: string): IPost[] {
   let mdxFiles = getMDXFiles(dir)
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file))
@@ -47,6 +42,6 @@ function getMDXData(dir: string) {
   })
 }
 
-export function getBlogPosts() {
+export function getBlogPosts(): IPost[] {
   return getMDXData(path.join(process.cwd(), 'content'))
 }

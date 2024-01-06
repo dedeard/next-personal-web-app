@@ -20,3 +20,15 @@ export interface IRepository {
   topics: string[]
   license?: { key: string; name: string; spdx_id: string; url: string; node_id: string }
 }
+
+export interface IMetadata {
+  title: string
+  publishedAt: string
+  summary: string
+}
+
+export interface IPost {
+  metadata: IMetadata
+  slug: string
+  content: string
+}
