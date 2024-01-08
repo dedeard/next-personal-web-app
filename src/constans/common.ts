@@ -19,11 +19,11 @@ export const PAGE_TITLES = {
 }
 
 export const SOCIALS = {
-  GH: 'https://github.com/dedeard',
-  IG: 'https://www.instagram.com/dedeard.js',
-  WA: 'https://api.whatsapp.com/send?phone=6281343912883&text=%3CChatMe%20%2F%3E',
+  GH: 'https://github.com/AnaIsaPN',
+  IG: 'https://www.instagram.com/artbyartisa/',
+  WA: 'https://wa.me/+351939528317',
 }
 
-export const RESUME_URL = 'https://drive.google.com/file/d/1ytO7InWLVjJGryqRC0QZdc60bU1iesph/view?usp=sharing'
+export const RESUME_URL = 'https://drive.google.com/file/d/1sYecEzBqfz6NbPoZoQxk3qlJhsMxcT0V/view?usp=sharing'
 
 export const FORMSPREE_KEY = 'xoqyaqqe'

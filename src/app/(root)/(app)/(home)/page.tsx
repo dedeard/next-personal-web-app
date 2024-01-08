@@ -9,11 +9,11 @@ export default function HomePage() {
           <span className="grid grid-cols-2">
             <span className="block text-center text-sm opacity-90">I AM</span>
           </span>{' '}
-          <span className=" z-10 block text-[calc(1.825rem+6.9vw)] font-bold leading-none">Dede Ard</span>{' '}
+          <span className=" z-10 block text-[calc(1.825rem+6.9vw)] font-bold leading-none">Ana Isa</span>{' '}
           <span className="grid grid-cols-2 justify-items-end">
             <span className="block"></span>
             <span className="block text-sm opacity-90">
-              A FULL STACK
+              A Creative DESIGNER and
               <br /> WEB DEVELOPER
             </span>
           </span>

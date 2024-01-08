@@ -23,19 +23,16 @@ export default function ContactPage() {
           <div className="mb-8">
             <h2 className="mb-3 text-lg font-bold">STREET ADDRESS</h2>
             <p className="text-sm leading-5">
-              Royal Sentraland BTP Cluster Sunderland E05/01. <br />
-              Maros, Sulawesi Selatan.
+              Sintra <br />
+              Lisbon, Portugal
             </p>
           </div>
           <div className="mb-8">
             <h2 className="mb-3 text-lg font-bold">EMAIL ADDRESS</h2>
             <p className="text-sm leading-5">
-              <a href="mailto:me@dedeard.my.id" rel="noopener" className="hover:text-yellow-600">
-                me@dedeard.my.id
-              </a>
-              <br />
-              <a href="mailto:dedeariansya1@gmail.com" rel="noopener" className="hover:text-yellow-600">
-                dedeariansya1@gmail.com
+            
+              <a href="mailto:anaisapnogueira@gmail.com" rel="noopener" className="hover:text-yellow-600">
+              anaisapnogueira@gmail.com
               </a>
             </p>
           </div>
@@ -43,13 +40,13 @@ export default function ContactPage() {
             <h2 className="mb-3 text-lg font-bold">MOBILE PHONE</h2>
             <p className="text-sm leading-5">
               <span>Call: </span>
-              <a href="tel:+6281343912883" target="_blank" rel="noopener" className="hover:text-yellow-600">
-                +62 813-4391-2883
+              <a href="tel:+351939528317" target="_blank" rel="noopener" className="hover:text-yellow-600">
+              +351 939 528 317
               </a>
               <br />
               <span>WhatsApp: </span>
               <a href={SOCIALS.WA} target="_blank" rel="noopener" className="hover:text-yellow-600">
-                +62 813-4391-2883
+              +351 939 528 317
               </a>
             </p>
           </div>
