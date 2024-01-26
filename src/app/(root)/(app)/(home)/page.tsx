@@ -1,5 +1,5 @@
 import { SOCIALS } from '@/constans/common'
-import { FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa'
+import { FaGithub, FaInstagram, FaWhatsapp, FaLinkedin } from 'react-icons/fa'
 
 export default function HomePage() {
   return (
@@ -24,6 +24,9 @@ export default function HomePage() {
           </a>
           <a href={SOCIALS.GH} aria-label="GitHub" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
             <FaGithub size={20} />
+          </a>
+          <a href={SOCIALS.IN} aria-label="Linkedin" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
+            <FaLinkedin size={20} />
           </a>
           <a href={SOCIALS.WA} aria-label="WhatsApp" target="_blank" rel="noopener" className="mx-2 block p-2 opacity-80 hover:opacity-95">
             <FaWhatsapp size={20} />

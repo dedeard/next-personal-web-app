@@ -21,6 +21,7 @@ export const PAGE_TITLES = {
 export const SOCIALS = {
   GH: 'https://github.com/dedeard',
   IG: 'https://www.instagram.com/dedeard.js',
+  IN: 'https://www.linkedin.com/in/dedeard/',
   WA: 'https://api.whatsapp.com/send?phone=6281343912883&text=%3CChatMe%20%2F%3E',
 }
 
