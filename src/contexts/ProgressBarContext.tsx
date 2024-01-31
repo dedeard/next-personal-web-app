@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, createContext, useContext, useCallback } from 'react'
-import { usePathname, useSearchParams, useRouter as useNextRouter } from 'next/navigation'
+import { usePathname, useRouter as useNextRouter } from 'next/navigation'
 import { AppRouterInstance, NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 interface ProgressBarContextProps extends AppRouterInstance {
@@ -22,7 +22,6 @@ export const ProgressBarProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [width, setWidth] = useState(0)
 
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const router = useNextRouter()
 
   const isSameURL = (target: URL, current: URL) => {
@@ -63,7 +62,7 @@ export const ProgressBarProvider: React.FC<{ children: React.ReactNode }> = ({ c
     setTimeout(() => {
       setWidth(0)
     }, 300)
-  }, [pathname, searchParams])
+  }, [pathname])
 
   useEffect(() => {
     const handleAnchorClick = (event: MouseEvent) => {
