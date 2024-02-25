@@ -21,10 +21,10 @@ export default function ContactPage() {
       <div className="flex flex-col lg:flex-row">
         <div className="mb-4 w-full text-center lg:w-[480px] lg:text-left">
           <div className="mb-8">
-            <h2 className="mb-3 text-lg font-bold">STREET ADDRESS</h2>
+            <h2 className="mb-3 text-lg font-bold">TEMPORARY ADDRESS</h2>
             <p className="text-sm leading-5">
-              Royal Sentraland BTP Cluster Sunderland E05/01. <br />
-              Maros, Sulawesi Selatan.
+              Bali, Indonesia. <br />
+              80361
             </p>
           </div>
           <div className="mb-8">
