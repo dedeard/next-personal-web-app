@@ -1,3 +1,5 @@
+import type { Timestamp } from 'firebase/firestore'
+
 export interface IRepository {
   id: number
   node_id: string
@@ -31,4 +33,11 @@ export interface IPost {
   metadata: IMetadata
   slug: string
   content: string
+}
+
+export interface IGuestbookMessage {
+  _id: string
+  name: string
+  message: string
+  createdAt?: Timestamp
 }
