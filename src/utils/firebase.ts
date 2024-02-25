@@ -9,8 +9,8 @@ export const auth = getAuth(app)
 
 export const db = getDatabase(app)
 
-export const getProviderById = (method: 'github.com' | 'google.com') => {
-  switch (method) {
+export const getProviderById = (id: 'github.com' | 'google.com') => {
+  switch (id) {
     case 'github.com':
       return new GithubAuthProvider()
     case 'google.com':
