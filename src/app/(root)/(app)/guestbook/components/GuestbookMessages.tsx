@@ -1,9 +1,10 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Timestamp, collection, limit, onSnapshot, orderBy, query } from 'firebase/firestore'
+import { Timestamp, collection, limit, onSnapshot, orderBy, query, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '@/utils/firebase'
 import { IGuestbookMessage } from '@/types'
+import { useAuthIsAdmin } from '@/contexts/AuthContext'
 
 function formatDate(date: Date) {
   const formatter = new Intl.DateTimeFormat('en-US', {
@@ -19,6 +20,8 @@ function formatDate(date: Date) {
 }
 
 const GuestbookMessages: React.FC<{ initialMessages: string }> = ({ initialMessages }) => {
+  const isAdmin = useAuthIsAdmin()
+
   const [messages, setMessages] = useState<IGuestbookMessage[]>(() => {
     return JSON.parse(initialMessages).map((el: IGuestbookMessage) => ({
       ...el,
@@ -41,6 +44,12 @@ const GuestbookMessages: React.FC<{ initialMessages: string }> = ({ initialMessa
     return () => unsub()
   }, [])
 
+  const handleDelete = async (id: string) => {
+    if (confirm('Are you sure want to delete this message?')) {
+      await deleteDoc(doc(db, 'guestbook', id))
+    }
+  }
+
   return (
     <div className="border border-black/5 bg-white/30 backdrop-blur dark:border-white/5 dark:bg-black/30">
       <div className="divide-y">
@@ -60,6 +69,14 @@ const GuestbookMessages: React.FC<{ initialMessages: string }> = ({ initialMessa
             <span className="hidden shrink-0 items-center justify-center gap-x-2 text-xs opacity-75 lg:flex">
               {formatDate(message.createdAt?.toDate() || new Date())}
             </span>
+            {isAdmin && (
+              <button
+                className="mt-3 flex shrink-0 items-center justify-center gap-x-2 text-xs text-red-600 opacity-75 lg:mt-0"
+                onClick={() => handleDelete(message._id)}
+              >
+                DELETE
+              </button>
+            )}
           </p>
         ))}
       </div>

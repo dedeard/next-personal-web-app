@@ -64,3 +64,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 }
 
 export const useAuth = () => React.useContext(AuthContext)
+
+export const useAuthIsAdmin = () => {
+  const auth = useAuth()
+  if (auth.user?.email === 'me@dedeard.my.id' || auth.user?.email === 'dedeariansya1@gmail.com') return true
+  return false
+}
