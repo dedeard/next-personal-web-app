@@ -15,7 +15,7 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@react-spring/web": "^9.7.3",
-    "@vercel/analytics": "^1.1.1",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.0.1",
     "firebase": "^10.8.0",
     "next": "^14.0.2",
