@@ -20,7 +20,7 @@
     "firebase": "^11.0.0",
     "next": "^14.0.2",
     "next-mdx-remote": "^4.4.1",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "sugar-high": "^0.5.6"
