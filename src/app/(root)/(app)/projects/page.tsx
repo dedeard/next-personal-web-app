@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import getProjects from './getProjects'
-import RepositoryCard from './components/RepositoryCard'
 import PageTitle from '../components/PageTitle'
+import RepositoryCard from './components/RepositoryCard'
+import getProjects from './getProjects'
 
 export const revalidate = 3600
 

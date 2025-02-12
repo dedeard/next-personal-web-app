@@ -1,8 +1,8 @@
 'use client'
 
-import { memo } from 'react'
 import { useMount } from '@/contexts/MountContext'
 import { useNavigationIndex } from '@/contexts/NavigationContext'
+import { memo } from 'react'
 
 const NavigationPointer: React.FC = () => {
   const mounted = useMount()

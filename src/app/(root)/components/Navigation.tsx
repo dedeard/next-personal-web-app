@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import NavigationPointer from './NavigationPointer'
-import DarkModeToggle from './DarkModeToggle'
-import { NAV_ITEMS } from '@/constans/common'
 import Logo from '@/app/components/Logo'
+import { NAV_ITEMS } from '@/constans/common'
+import Link from 'next/link'
+import DarkModeToggle from './DarkModeToggle'
+import NavigationPointer from './NavigationPointer'
 
 const Navigation: React.FC = () => (
   <header className="fixed bottom-0 left-0 right-0 z-[100] flex h-16 w-full flex-row overflow-hidden bg-white/80 backdrop-blur-xl dark:bg-black/80 md:right-auto md:top-0 md:h-full md:w-16 md:flex-col">

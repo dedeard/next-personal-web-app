@@ -1,7 +1,7 @@
-import React from 'react'
-import { User, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
-import { auth, getProviderById } from '@/utils/firebase'
 import FIREBASE_ERRORS from '@/constans/firebase-errors'
+import { auth, getProviderById } from '@/utils/firebase'
+import { User, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
+import React from 'react'
 
 interface AuthContextProps {
   user: User | null

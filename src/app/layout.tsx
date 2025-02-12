@@ -1,12 +1,12 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import noise from '@/assets/noise.gif'
+import { HOST } from '@/constans/common'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import type { Metadata } from 'next'
 import { Lato } from 'next/font/google'
-import { HOST } from '@/constans/common'
-import noise from '@/assets/noise.gif'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
+import './globals.css'
 
 const lato = Lato({
   weight: ['400', '700'],

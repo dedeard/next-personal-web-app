@@ -1,9 +1,9 @@
 'use client'
 
 import type { IPost } from '@/types'
-import React from 'react'
-import Link from 'next/link'
 import formatDate from '@/utils/format-date'
+import Link from 'next/link'
+import React from 'react'
 
 const BlogPostItem: React.FC<{ post: IPost }> = ({ post }) => {
   return (

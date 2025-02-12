@@ -1,6 +1,6 @@
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Logo from './components/Logo'
-import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: '404 - Not found',

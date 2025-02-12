@@ -22,9 +22,9 @@
  */
 
 'use client'
+import { SpringConfig, animated, config, useSpring, useTransition } from '@react-spring/web'
 import type { CSSProperties, PropsWithChildren } from 'react'
-import React, { useState, useRef, useEffect } from 'react'
-import { useSpring, useTransition, animated, config, SpringConfig } from '@react-spring/web'
+import React, { useEffect, useRef, useState } from 'react'
 
 export interface TextTransitionProps {
   className?: string

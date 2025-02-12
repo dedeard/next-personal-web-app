@@ -1,10 +1,10 @@
 'use client'
-import { memo } from 'react'
 import langColors from '@/constans/langColors'
+import { IRepository } from '@/types'
+import { memo } from 'react'
+import { FiStar } from 'react-icons/fi'
 import LangBar from './LangBar'
 import LangTextAnimation from './LangTextAnimation'
-import { FiStar } from 'react-icons/fi'
-import { IRepository } from '@/types'
 
 const RepositoryCard: React.FC<{ repo: IRepository }> = ({ repo }) => {
   return (

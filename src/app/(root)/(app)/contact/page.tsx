@@ -1,7 +1,7 @@
-import type { Metadata } from 'next'
 import { FORMSPREE_KEY, SOCIALS } from '@/constans/common'
-import ContactForm from './components/ContactForm'
+import type { Metadata } from 'next'
 import PageTitle from '../components/PageTitle'
+import ContactForm from './components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact - Dede Ariansya',

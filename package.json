@@ -15,6 +15,8 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@react-spring/web": "^9.7.3",
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.0.1",
     "firebase": "^11.0.0",
@@ -23,7 +25,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
-    "sugar-high": "^0.5.6"
+    "sugar-high": "^0.5.6",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.4",
@@ -36,8 +39,10 @@
     "eslint-config-next": "^14.0.2",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "leva": "^0.10.0",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"

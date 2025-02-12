@@ -1,11 +1,11 @@
 'use client'
 
-import { memo, useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+import TextTransition from '@/app/components/TextTransition'
+import { PAGE_TITLES } from '@/constans/common'
 import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
-import { PAGE_TITLES } from '@/constans/common'
-import TextTransition from '@/app/components/TextTransition'
+import { usePathname } from 'next/navigation'
+import { memo, useEffect, useState } from 'react'
 
 const PageTitleAnimation: React.FC = () => {
   const [title, setTitle] = useState('')
