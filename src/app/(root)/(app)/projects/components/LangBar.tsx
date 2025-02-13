@@ -1,6 +1,6 @@
 'use client'
+import { animated, useSpring } from '@react-spring/web'
 import { memo } from 'react'
-import { useSpring, animated } from '@react-spring/web'
 
 const LangBar: React.FC<{ size: number; color?: string; className?: string }> = ({ size, color, className }) => {
   const props = useSpring({

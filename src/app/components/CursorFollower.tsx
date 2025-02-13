@@ -1,8 +1,8 @@
 'use client'
 
-import { memo } from 'react'
-import { animated, useSpring } from '@react-spring/web'
 import { useCursorFollower } from '@/contexts/CursorFollowerContext'
+import { animated, useSpring } from '@react-spring/web'
+import { memo } from 'react'
 
 const CursorFollower: React.FC = () => {
   const { circle, start, scaling, click } = useCursorFollower()

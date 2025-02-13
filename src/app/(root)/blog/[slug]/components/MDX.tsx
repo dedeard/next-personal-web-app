@@ -1,8 +1,8 @@
-import React from 'react'
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
+import React from 'react'
+import Code from './Code'
 import Image from './Image'
 import Link from './Link'
-import Code from './Code'
 import Table from './Table'
 
 const MDX: React.FC<MDXRemoteProps> = (props) => {

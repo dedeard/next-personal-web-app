@@ -1,6 +1,6 @@
+import { HOST } from '@/constans/common'
 import { ImageResponse } from 'next/og'
 import { NextRequest } from 'next/server'
-import { HOST } from '@/constans/common'
 
 export const runtime = 'edge'
 

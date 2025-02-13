@@ -1,9 +1,9 @@
 'use client'
-import { memo, useEffect, useState } from 'react'
+import TextTransition from '@/app/components/TextTransition'
 import langColors from '@/constans/langColors'
 import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
-import TextTransition from '@/app/components/TextTransition'
+import { memo, useEffect, useState } from 'react'
 
 const LangTextAnimation: React.FC<{ items: string[] }> = ({ items }) => {
   const mounted = useMount()

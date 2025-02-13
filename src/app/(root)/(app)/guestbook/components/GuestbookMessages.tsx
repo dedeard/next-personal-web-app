@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { Timestamp, collection, limit, onSnapshot, orderBy, query, deleteDoc, doc } from 'firebase/firestore'
-import { db } from '@/utils/firebase'
-import { IGuestbookMessage } from '@/types'
 import { useAuthIsAdmin } from '@/contexts/AuthContext'
+import { IGuestbookMessage } from '@/types'
+import { db } from '@/utils/firebase'
+import { Timestamp, collection, deleteDoc, doc, limit, onSnapshot, orderBy, query } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
 
 function formatDate(date: Date) {
   const formatter = new Intl.DateTimeFormat('en-US', {

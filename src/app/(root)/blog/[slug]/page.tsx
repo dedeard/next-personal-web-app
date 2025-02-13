@@ -1,8 +1,8 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import { getBlogPosts } from '@/utils/get-blog-posts'
 import { HOST } from '@/constans/common'
 import formatDate from '@/utils/format-date'
+import { getBlogPosts } from '@/utils/get-blog-posts'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import MDX from './components/MDX'
 
 export const revalidate = 3600

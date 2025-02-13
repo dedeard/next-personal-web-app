@@ -1,10 +1,10 @@
 'use client'
 
-import React, { memo } from 'react'
-import Image from 'next/image'
-import { FiVolume2, FiVolumeX } from 'react-icons/fi'
 import background from '@/assets/background.webp'
 import { useRootBackground } from '@/contexts/RootBackgroundContext'
+import Image from 'next/image'
+import React, { memo } from 'react'
+import { FiVolume2, FiVolumeX } from 'react-icons/fi'
 
 const RootBackground: React.FC = () => {
   const { isVideoPlayed, toggleVideo } = useRootBackground()

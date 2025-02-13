@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState, createContext, useContext, useCallback } from 'react'
-import { usePathname, useRouter as useNextRouter } from 'next/navigation'
 import { AppRouterInstance, NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import { useRouter as useNextRouter, usePathname } from 'next/navigation'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 
 interface ProgressBarContextProps extends AppRouterInstance {
   back(disableProgress?: boolean): void

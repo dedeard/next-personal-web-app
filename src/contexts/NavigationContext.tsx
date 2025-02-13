@@ -1,7 +1,7 @@
 // NavigationContext.tsx
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
 import { NAV_ITEMS } from '@/constans/common'
+import { usePathname } from 'next/navigation'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 type NavigationContextType = {
   index: number

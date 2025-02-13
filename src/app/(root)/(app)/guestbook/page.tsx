@@ -1,10 +1,10 @@
+import { IGuestbookMessage } from '@/types'
+import { db } from '@/utils/firebase'
+import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
 import type { Metadata } from 'next'
 import PageTitle from '../components/PageTitle'
 import FormSignGuestbook from './components/FormSignGuestbook'
 import GuestbookMessages from './components/GuestbookMessages'
-import { collection, limit, getDocs, orderBy, query } from 'firebase/firestore'
-import { db } from '@/utils/firebase'
-import { IGuestbookMessage } from '@/types'
 
 export const dynamic = 'force-dynamic'
 
