@@ -3983,10 +3983,10 @@ sucrase@^3.32.0:
     pirates "^4.0.1"
     ts-interface-checker "^0.1.9"
 
-sugar-high@^0.5.6:
-  version "0.5.6"
-  resolved "https://registry.npmjs.org/sugar-high/-/sugar-high-0.5.6.tgz"
-  integrity sha512-VfBxzjVfnYuiYpsjCKp8Jp9zE4pz15eBgMF4wROppvEumQobGIYyKSUaF14Fax4W3KMFZenIg6gAVM3LQZcb3A==
+sugar-high@^0.8.2:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/sugar-high/-/sugar-high-0.8.4.tgz#63c3448f1cb58d3e49c20eca6dfe14787bc29bcd"
+  integrity sha512-A/oWx/LxaZHccNCasj+DdMJXy2Cqi/x8CZja8t+jYvTdSCp2fDG57zOPi/EnLYH05uGzdMprsHDGfyW3qf59sg==
 
 supports-color@^7.1.0:
   version "7.2.0"
