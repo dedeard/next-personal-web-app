@@ -30,8 +30,8 @@ export default function AboutPage() {
           <h2 className="mb-2 text-xl font-bold">I’m Dede Ariansya</h2>
           <div className="mb-6">
             <p className="mb-1">
-              Pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia. <br />I build polished interfaces,
-              practical backends, and AI-assisted workflows while keeping code easy to read and understand.
+              Pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia. <br />I build polished interfaces, practical
+              backends, and AI-assisted workflows while keeping code easy to read and understand.
             </p>
           </div>
           <h2 className="mb-2 text-xl font-bold">Saya Dede Ariansya</h2>
@@ -39,8 +39,7 @@ export default function AboutPage() {
             <p className="mb-1">
               Pixel-perfect prompter dan full-stack web developer berbasis di Makassar, Indonesia.
               <br />
-              Saya membangun interface yang rapi, backend yang praktis, dan workflow berbantuan AI sambil tetap menjaga kode mudah
-              dibaca.
+              Saya membangun interface yang rapi, backend yang praktis, dan workflow berbantuan AI sambil tetap menjaga kode mudah dibaca.
             </p>
           </div>
           <h2 className="mb-2 text-xl font-bold">Skills from my GitHub work</h2>

@@ -1,10 +1,9 @@
 ---
-title: "Building Scalable SaaS with AWS Serverless: Lambda, Cognito, API Gateway, and MongoDB"
+title: 'Building Scalable SaaS with AWS Serverless: Lambda, Cognito, API Gateway, and MongoDB'
 publishedAt: 2026-02-19
-summary: "A practical guide to building multi-tenant SaaS platforms using AWS serverless architecture—combining Lambda, Cognito, API Gateway, MongoDB, and SNS/SQS/SES for a scalable, cost-efficient system that handles traffic spikes automatically."
+summary: 'A practical guide to building multi-tenant SaaS platforms using AWS serverless architecture—combining Lambda, Cognito, API Gateway, MongoDB, and SNS/SQS/SES for a scalable, cost-efficient system that handles traffic spikes automatically.'
 slug: building-scalable-saas-aws-serverless-lambda-cognito-api-gateway-mongodb
 ---
-
 
 When building a multi-tenant SaaS platform, the architecture decisions you make early determine whether you'll be firefighting at 3am or sleeping peacefully while your system handles traffic spikes automatically.
 
@@ -43,11 +42,11 @@ let cachedServer: any
 
 async function bootstrap() {
   if (cachedServer) return cachedServer
-  
+
   const expressApp = express()
   const adapter = new ExpressAdapter(expressApp)
   const app = await NestFactory.create(AppModule, adapter)
-  
+
   await app.init()
   cachedServer = serverlessExpress({ app: expressApp })
   return cachedServer
@@ -75,12 +74,12 @@ The integration pattern I use:
 // Lambda Authorizer - validates Cognito JWT
 export const handler = async (event) => {
   const token = extractToken(event.headers.authorization)
-  
+
   const decoded = await verifyToken(token, {
     userPoolId: process.env.COGNITO_USER_POOL_ID,
     clientId: process.env.COGNITO_CLIENT_ID,
   })
-  
+
   return {
     principalId: decoded.sub,
     policyDocument: generatePolicy('Allow', event.methodArn),
@@ -124,12 +123,12 @@ let cachedConnection: Connection | null = null
 
 async function getConnection(): Promise<Connection> {
   if (cachedConnection) return cachedConnection
-  
+
   cachedConnection = await mongoose.createConnection(process.env.MONGODB_URI, {
     maxPoolSize: 10,
     serverSelectionTimeoutMS: 5000,
   })
-  
+
   return cachedConnection
 }
 ```
@@ -180,7 +179,7 @@ await sns.publish({
 export const handler = async (event) => {
   for (const record of event.Records) {
     const message = JSON.parse(record.body)
-    
+
     if (message.type === 'APPLICATION_SUBMITTED') {
       await ses.sendTemplatedEmail({
         Source: 'notifications@yourapp.com',
