@@ -13,8 +13,8 @@ export default function HomePage() {
           <span className="grid grid-cols-2 justify-items-end">
             <span className="block"></span>
             <span className="block text-sm opacity-90">
-              A FULL STACK
-              <br /> WEB DEVELOPER
+              PIXEL-PERFECT PROMPTER
+              <br /> FULL-STACK WEB DEV
             </span>
           </span>
         </h1>

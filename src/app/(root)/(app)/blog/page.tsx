@@ -5,10 +5,12 @@ import BlogPostItem from './components/BlogPostItem'
 
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'Articles by Dede Ariansya about web development, AI tooling, cloud architecture, and practical software engineering.',
+  description:
+    'Articles by Dede Ariansya about full-stack web development, AI prompting, cloud architecture, and practical software engineering.',
   openGraph: {
     title: 'Blog by Dede Ariansya',
-    description: 'Articles by Dede Ariansya about web development, AI tooling, cloud architecture, and practical software engineering.',
+    description:
+      'Articles by Dede Ariansya about full-stack web development, AI prompting, cloud architecture, and practical software engineering.',
     url: '/blog',
   },
   alternates: {

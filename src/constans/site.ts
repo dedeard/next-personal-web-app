@@ -4,7 +4,7 @@ export const SITE_URL = (rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://$
 export const HOST = SITE_URL
 export const SITE_NAME = 'Dede Ariansya'
 export const SITE_DESCRIPTION =
-  'Full Stack Web Developer based in Makassar, Indonesia, writing about web development, AI tooling, and practical software engineering.'
+  'Pixel-perfect prompter and full-stack web developer building polished interfaces, practical backends, serverless systems, and AI-assisted workflows.'
 export const DEFAULT_OG_IMAGE = '/media/poster.jpg'
 
 export function absoluteUrl(path = '/') {

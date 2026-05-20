@@ -7,10 +7,10 @@ import PageTitle from '../components/PageTitle'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn more about Dede Ariansya, a Full Stack Web Developer based in Makassar, Indonesia.',
+  description: 'Learn more about Dede Ariansya, a pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia.',
   openGraph: {
     title: 'About Dede Ariansya',
-    description: 'Learn more about Dede Ariansya, a Full Stack Web Developer based in Makassar, Indonesia.',
+    description: 'Learn more about Dede Ariansya, a pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia.',
     url: '/about',
   },
   alternates: {
@@ -27,24 +27,31 @@ export default function AboutPage() {
           <Image src={dedeard} alt="Foto dede ariansya" className="block w-full" placeholder="blur" />
         </div>
         <div className="md:flex-1 md:pl-6">
-          <h2 className="mb-2 text-xl font-bold">I’m Dede Ardiansya</h2>
+          <h2 className="mb-2 text-xl font-bold">I’m Dede Ariansya</h2>
           <div className="mb-6">
             <p className="mb-1">
-              Full Stack Web Developer based in Makassar, Indonesia. <br />I try my best to make the code I write easy to read and
-              understand.
+              Pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia. <br />I build polished interfaces,
+              practical backends, and AI-assisted workflows while keeping code easy to read and understand.
             </p>
           </div>
-          <h2 className="mb-2 text-xl font-bold">Saya Dede Ardiansya</h2>
+          <h2 className="mb-2 text-xl font-bold">Saya Dede Ariansya</h2>
           <div className="mb-6">
             <p className="mb-1">
-              Full Stack Web Developer berbasis di Makassar, Indonesia.
+              Pixel-perfect prompter dan full-stack web developer berbasis di Makassar, Indonesia.
               <br />
-              Saya mencoba yang terbaik untuk membuat kode yang saya tulis mudah untuk dibaca dan dipahami.
+              Saya membangun interface yang rapi, backend yang praktis, dan workflow berbantuan AI sambil tetap menjaga kode mudah
+              dibaca.
             </p>
           </div>
-          <h2 className="mb-2 text-xl font-bold">Tech i love</h2>
+          <h2 className="mb-2 text-xl font-bold">Skills from my GitHub work</h2>
           <div className="mb-6">
-            <p className="mb-1">TypeScript, Express.js, Laravel, Tailwind, Bootstrap, Vue and React.</p>
+            <p className="mb-1">
+              Frontend: Next.js, React, TypeScript, Tailwind CSS, MDX, Vite, Alpine.js.
+              <br />
+              Backend: Node.js, NestJS, Express.js, Laravel, Firebase, MongoDB, MySQL.
+              <br />
+              Cloud & workflow: AWS Lambda, API Gateway, serverless HTTP, Docker, SEO metadata, AI prompting, and content systems.
+            </p>
           </div>
           <a
             download
