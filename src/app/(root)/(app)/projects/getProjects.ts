@@ -18,28 +18,35 @@ const fetchOptions: RequestInit = {
 }
 
 const getProjects = async (): Promise<IRepository[]> => {
-  const response = await fetch(repositoriesUrl, fetchOptions)
-  if (!response.ok) {
-    throw new Error(`Failed to fetch repositories: ${response.statusText}`)
+  let repositories: any[] = []
+
+  try {
+    const response = await fetch(repositoriesUrl, fetchOptions)
+    if (!response.ok) return []
+    repositories = (await response.json()) as any[]
+  } catch {
+    return []
   }
-  let repositories = (await response.json()) as any[]
 
   repositories = repositories.filter((repo) => repo.description && repo.languages_url)
 
   const promises = repositories.map(async (repo) => {
-    const [languagesRes, commitsRes] = await Promise.all([
+    const [languagesRes, commitsRes] = await Promise.allSettled([
       fetch(repo.languages_url, fetchOptions),
       fetch(`https://api.github.com/repos/${repo.full_name}/commits?per_page=1`, fetchOptions),
     ])
 
-    const languagesData = (await languagesRes.json()) as { [key: string]: number }
+    const languagesResponse = languagesRes.status === 'fulfilled' && languagesRes.value.ok ? languagesRes.value : null
+    const commitsResponse = commitsRes.status === 'fulfilled' && commitsRes.value.ok ? commitsRes.value : null
+
+    const languagesData = languagesResponse ? ((await languagesResponse.json()) as { [key: string]: number }) : {}
     const totalSize = Object.values(languagesData).reduce((acc, size) => acc + size, 0)
     const languages = Object.entries(languagesData).map(([name, size]) => ({
       name,
-      size: (size / totalSize) * 100,
+      size: totalSize ? (size / totalSize) * 100 : 0,
     }))
 
-    const commitsData = (await commitsRes.json()) as [any]
+    const commitsData = commitsResponse ? ((await commitsResponse.json()) as [any]) : []
     const lastCommit = commitsData[0]
     const lastCommitDate = lastCommit?.commit?.committer?.date
 
