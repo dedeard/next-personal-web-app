@@ -1,43 +1,43 @@
+import { SITE_URL } from '@/constans/site'
 import { getBlogPosts } from '@/utils/get-blog-posts'
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://dedeard.my.id'
   const posts = getBlogPosts()
 
   const staticRoutes = [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${SITE_URL}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${SITE_URL}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${SITE_URL}/projects`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${SITE_URL}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/guestbook`,
+      url: `${SITE_URL}/guestbook`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.6,
@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const blogRoutes = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.metadata.publishedAt),
     changeFrequency: 'monthly' as const,
     priority: 0.7,

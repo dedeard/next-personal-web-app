@@ -19,8 +19,8 @@ const RootBackground: React.FC = () => {
       >
         {isVideoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}
       </button>
-      <div className="fixed left-0 top-0 h-full w-full overflow-hidden bg-white dark:bg-black">
-        <Image src={background} alt={process.env.NEXT_PUBLIC_HOST + ' backgroud image.'} className={'block h-full w-full object-cover'} />
+      <div aria-hidden="true" className="fixed left-0 top-0 h-full w-full overflow-hidden bg-white dark:bg-black">
+        <Image src={background} alt="" className={'block h-full w-full object-cover'} />
         {isVideoPlayed && (
           <video src="/media/background.webm" loop autoPlay className={'absolute top-0 z-10 block h-full w-full object-cover'} />
         )}

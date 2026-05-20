@@ -1,4 +1,4 @@
-import { HOST } from '@/constans/common'
+import { SITE_NAME, absoluteUrl } from '@/constans/site'
 import formatDate from '@/utils/format-date'
 import { getBlogPosts } from '@/utils/get-blog-posts'
 import type { Metadata } from 'next'
@@ -7,20 +7,44 @@ import MDX from './components/MDX'
 
 export const revalidate = 3600
 
+export function generateStaticParams() {
+  return getBlogPosts().map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const post = getBlogPosts().find((post) => post.slug === params.slug)
   if (!post) return {}
+  const imageUrl = `/og?title=${encodeURIComponent(post.metadata.title)}`
   return {
     title: post.metadata.title,
     description: post.metadata.summary,
     authors: {
-      name: 'Dede Ariansya',
+      name: SITE_NAME,
+      url: absoluteUrl('/about'),
     },
     openGraph: {
+      type: 'article',
       title: post.metadata.title,
       description: post.metadata.summary,
       url: `/blog/${post.slug}`,
-      images: `/og?title=${post.metadata.title}`,
+      publishedTime: post.metadata.publishedAt,
+      authors: [SITE_NAME],
+      images: [
+        {
+          url: imageUrl,
+          width: 1920,
+          height: 1080,
+          alt: post.metadata.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.metadata.title,
+      description: post.metadata.summary,
+      images: [imageUrl],
     },
     alternates: {
       canonical: `/blog/${post.slug}`,
@@ -47,11 +71,18 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: `${HOST}/og?title=${post.metadata.title}`,
-            url: `${HOST}/blog/${post.slug}`,
+            image: absoluteUrl(`/og?title=${encodeURIComponent(post.metadata.title)}`),
+            url: absoluteUrl(`/blog/${post.slug}`),
+            mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+            inLanguage: 'en',
             author: {
               '@type': 'Person',
-              name: 'Dede Ariansya',
+              name: SITE_NAME,
+              url: absoluteUrl('/about'),
+            },
+            publisher: {
+              '@type': 'Person',
+              name: SITE_NAME,
             },
           }),
         }}

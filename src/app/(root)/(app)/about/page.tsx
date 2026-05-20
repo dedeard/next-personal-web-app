@@ -5,12 +5,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import PageTitle from '../components/PageTitle'
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = {
-  title: 'About - Dede Ariansya',
+  title: 'About',
+  description: 'Learn more about Dede Ariansya, a Full Stack Web Developer based in Makassar, Indonesia.',
   openGraph: {
-    title: 'About - Dede Ariansya',
+    title: 'About Dede Ariansya',
+    description: 'Learn more about Dede Ariansya, a Full Stack Web Developer based in Makassar, Indonesia.',
     url: '/about',
   },
   alternates: {

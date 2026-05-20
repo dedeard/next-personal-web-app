@@ -9,9 +9,11 @@ import GuestbookMessages from './components/GuestbookMessages'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Guestbook - Dede Ariansya',
+  title: 'Guestbook',
+  description: 'Leave a short message for Dede Ariansya in the guestbook.',
   openGraph: {
     title: 'Guestbook - Dede Ariansya',
+    description: 'Leave a short message for Dede Ariansya in the guestbook.',
     url: '/guestbook',
   },
   alternates: {

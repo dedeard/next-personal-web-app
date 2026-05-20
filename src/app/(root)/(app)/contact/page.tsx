@@ -3,12 +3,12 @@ import type { Metadata } from 'next'
 import PageTitle from '../components/PageTitle'
 import ContactForm from './components/ContactForm'
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = {
-  title: 'Contact - Dede Ariansya',
+  title: 'Contact',
+  description: 'Contact Dede Ariansya for web development, software engineering, and collaboration opportunities.',
   openGraph: {
-    title: 'Contact - Dede Ariansya',
+    title: 'Contact Dede Ariansya',
+    description: 'Contact Dede Ariansya for web development, software engineering, and collaboration opportunities.',
     url: '/contact',
   },
   alternates: {

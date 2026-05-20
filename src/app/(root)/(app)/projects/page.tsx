@@ -6,9 +6,11 @@ import getProjects from './getProjects'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Projects - Dede Ariansya',
+  title: 'Projects',
+  description: 'Selected software projects, experiments, and open-source work by Dede Ariansya.',
   openGraph: {
-    title: 'Projects - Dede Ariansya',
+    title: 'Projects by Dede Ariansya',
+    description: 'Selected software projects, experiments, and open-source work by Dede Ariansya.',
     url: '/projects',
   },
   alternates: {

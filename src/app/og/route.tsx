@@ -1,4 +1,4 @@
-import { HOST } from '@/constans/common'
+import { SITE_NAME, absoluteUrl } from '@/constans/site'
 import { ImageResponse } from 'next/og'
 import { NextRequest } from 'next/server'
 
@@ -6,7 +6,7 @@ export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
-  const postTitle = searchParams.get('title')
+  const postTitle = searchParams.get('title') || SITE_NAME
   const fontData = await fetch(new URL('../../../public/fonts/Lato-Bold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
@@ -18,7 +18,7 @@ export async function GET(req: NextRequest) {
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        backgroundImage: `url(${HOST}/media/og-bg.jpg)`,
+        backgroundImage: `url(${absoluteUrl('/media/og-bg.jpg')})`,
       }}
     >
       <div

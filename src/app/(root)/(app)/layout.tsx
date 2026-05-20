@@ -1,14 +1,17 @@
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME } from '@/constans/site'
 import type { Metadata } from 'next'
 import PageTitleAnimation from './components/PageTitleAnimation'
 import RootBackground from './components/RootBackground'
 
 export const metadata: Metadata = {
-  title: 'Dede Ariansya',
-  description: 'I’m Dede Ariansya, Full Stack Web Developer based in Makassar, Indonesia.',
+  title: {
+    absolute: SITE_NAME,
+  },
+  description: SITE_DESCRIPTION,
   openGraph: {
-    images: '/media/poster.jpg',
-    title: 'Dede Ariansya',
-    description: 'I’m Dede Ariansya, Full Stack Web Developer based in Makassar, Indonesia.',
+    images: DEFAULT_OG_IMAGE,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
     url: '/',
   },
   alternates: {
