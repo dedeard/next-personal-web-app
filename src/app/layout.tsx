@@ -3,15 +3,16 @@ import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/const
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
-import { Lato } from 'next/font/google'
+import localFont from 'next/font/local'
 import Providers from './Providers'
 import CursorFollower from './components/CursorFollower'
 import './globals.css'
 
-const lato = Lato({
-  weight: ['400', '700'],
-  subsets: ['latin'],
+const lato = localFont({
+  src: '../../public/fonts/Lato-Bold.ttf',
+  weight: '700',
   display: 'swap',
+  fallback: ['Arial', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
