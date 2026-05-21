@@ -1,6 +1,6 @@
 import { FiBookOpen, FiClipboard, FiGlobe, FiHome, FiMail, FiUser } from 'react-icons/fi'
 
-export { absoluteUrl, DEFAULT_OG_IMAGE, HOST, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from './site'
+export { absoluteUrl, DEFAULT_OG_IMAGE, HOST, SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_URL } from './site'
 
 export const NAV_ITEMS = [
   { path: '/', label: 'Home', Icon: FiHome },

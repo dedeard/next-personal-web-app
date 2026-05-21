@@ -1,16 +1,16 @@
-import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME } from '@/constans/site'
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from '@/constans/site'
 import type { Metadata } from 'next'
 import PageTitleAnimation from './components/PageTitleAnimation'
 import RootBackground from './components/RootBackground'
 
 export const metadata: Metadata = {
   title: {
-    absolute: SITE_NAME,
+    absolute: SITE_TITLE,
   },
   description: SITE_DESCRIPTION,
   openGraph: {
     images: DEFAULT_OG_IMAGE,
-    title: SITE_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: '/',
   },

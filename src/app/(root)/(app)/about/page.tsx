@@ -24,14 +24,14 @@ export default function AboutPage() {
       <PageTitle title="About" />
       <div className="md:flex">
         <div className="mb-5 md:w-56">
-          <Image src={dedeard} alt="Foto dede ariansya" className="block w-full" placeholder="blur" />
+          <Image src={dedeard} alt="Dede Ariansya, also known as Dede Ard" className="block w-full" placeholder="blur" />
         </div>
         <div className="md:flex-1 md:pl-6">
           <h2 className="mb-2 text-xl font-bold">I’m Dede Ariansya</h2>
           <div className="mb-6">
             <p className="mb-1">
-              Pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia. <br />I build polished interfaces, practical
-              backends, and AI-assisted workflows while keeping code easy to read and understand.
+              I also go by Dede Ard. I’m a pixel-perfect prompter and full-stack web developer based in Makassar, Indonesia. <br />I build
+              polished interfaces, practical backends, and AI-assisted workflows while keeping code easy to read and understand.
             </p>
           </div>
           <h2 className="mb-2 text-xl font-bold">Saya Dede Ariansya</h2>

@@ -1,5 +1,5 @@
 import noise from '@/assets/noise.gif'
-import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/constans/site'
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/constans/site'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
@@ -18,8 +18,8 @@ const lato = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`,
+    default: SITE_TITLE,
+    template: `%s | ${SITE_TITLE}`,
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   publisher: SITE_NAME,
   keywords: [
     'Dede Ariansya',
+    'Dede Ard',
+    'dedeard',
     'Pixel Perfect Prompter',
     'Full Stack Web Developer',
     'Makassar developer',
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: SITE_NAME,
-    title: SITE_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [
       {
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SITE_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
   },
