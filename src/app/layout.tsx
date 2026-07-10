@@ -5,13 +5,14 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Providers from './Providers'
-import CursorFollower from './components/CursorFollower'
+import TargetCursor from './components/TargetCursor'
 import './globals.css'
 
 const lato = localFont({
   src: '../../public/fonts/Lato-Bold.ttf',
   weight: '700',
   display: 'swap',
+  variable: '--font-lato',
   fallback: ['Arial', 'sans-serif'],
 })
 
@@ -94,15 +95,15 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={'h-full w-full ' + lato.className}>
+    <html lang="en" className={`h-full w-full ${lato.variable} ${lato.className}`}>
       <body className="flex min-h-full w-full bg-white text-black antialiased selection:bg-yellow-600 dark:bg-black dark:text-white">
         <i
           aria-hidden="true"
-          className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-[150] hidden h-full w-full opacity-5 md:block"
+          className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 z-150 hidden h-full w-full opacity-5 md:block"
           style={{ backgroundImage: `url(${noise.src})` }}
         />
         <Providers>
-          <CursorFollower />
+          <TargetCursor spinDuration={3} hideDefaultCursor parallaxOn />
           {children}
         </Providers>
         <Analytics />

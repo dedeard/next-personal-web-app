@@ -1,9 +1,8 @@
 import React from 'react'
 import { highlight } from 'sugar-high'
 
-interface CodeProps {
+interface CodeProps extends React.HTMLAttributes<HTMLElement> {
   children: string
-  [key: string]: any
 }
 
 const Code: React.FC<CodeProps> = ({ children, ...props }) => {

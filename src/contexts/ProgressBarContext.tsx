@@ -122,7 +122,7 @@ export const ProgressBarProvider: React.FC<{ children: React.ReactNode }> = ({ c
   return (
     <ProgressBarContext.Provider value={{ ...router, push, back }}>
       {width ? (
-        <i className="fixed left-0 top-0 z-[9999] block h-[2px] w-full">
+        <i className="fixed left-0 top-0 z-9999 block h-[2px] w-full">
           <i className="block h-full bg-yellow-600 transition-all duration-300 ease-in-out" style={{ width: `${width}%` }} />
         </i>
       ) : null}

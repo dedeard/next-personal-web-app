@@ -24,7 +24,7 @@ export const SOCIALS = {
   GH: 'https://github.com/dedeard',
   IG: 'https://www.instagram.com/dcode.js',
   IN: 'https://www.linkedin.com/in/dedeard/',
-  WA: 'https://api.whatsapp.com/send?phone=6285343854343&text=%3CChatMe%20%2F%3E',
+  WA: 'https://api.whatsapp.com/send?phone=6281343912883&text=%3CChatMe%20%2F%3E',
 }
 
 export const RESUME_URL = 'https://drive.google.com/file/d/17EnrWbKObHNKFj4scsZM0R9JOX96uRJ3/view?usp=drive_link'

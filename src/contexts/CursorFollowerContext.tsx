@@ -24,7 +24,7 @@ export const CursorFollowerProvider: React.FC<React.PropsWithChildren> = ({ chil
     const mousemove = (e: MouseEvent) => {
       setStart(true)
       setCircle({ x: e.clientX, y: e.clientY })
-      // @ts-expect-error
+      // @ts-expect-error e.target is EventTarget; closest() exists on the Element at runtime
       setScaling(e.target?.closest('a') || e.target?.closest('button') ? true : false)
     }
 

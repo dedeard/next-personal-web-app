@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 }
 
 export default async function ProjectsPage() {
-  let repositories = await getProjects()
+  const repositories = await getProjects()
   return (
     <>
       <PageTitle title="Projects" />
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:mb-5 md:grid-cols-2">
         {repositories.map((repo, i) => (
-          <RepositoryCard key={i} repo={repo} />
+          <RepositoryCard key={i} index={i} repo={repo} />
         ))}
       </div>
     </>

@@ -51,12 +51,13 @@ const GuestbookMessages: React.FC<{ initialMessages: string }> = ({ initialMessa
   }
 
   return (
-    <div className="border border-black/5 bg-white/30 backdrop-blur dark:border-white/5 dark:bg-black/30">
+    <div className="border border-black/5 bg-white/30 backdrop-blur-sm dark:border-white/5 dark:bg-black/30">
       <div className="divide-y">
-        {messages.map((message) => (
+        {messages.map((message, index) => (
           <p
             key={message._id}
-            className="flex flex-col items-start gap-x-3 gap-y-1 border-black/5 p-3 text-xs dark:border-white/5 md:!text-sm lg:flex-row lg:py-2"
+            style={{ animationDelay: `${0.2 + Math.min(index, 15) * 0.04}s` }}
+            className="animate-fade-in-up flex flex-col items-start gap-x-3 gap-y-1 border-black/5 p-3 text-xs dark:border-white/5 md:text-sm! lg:flex-row lg:py-2"
           >
             <span className="flex w-full shrink-0 items-center justify-between gap-x-2 truncate opacity-75 lg:w-36">
               {message.name.substring(0, 20)}

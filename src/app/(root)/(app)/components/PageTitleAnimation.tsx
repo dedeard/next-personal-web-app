@@ -13,7 +13,7 @@ const PageTitleAnimation: React.FC = () => {
   const mounted = useMount()
 
   useEffect(() => {
-    // @ts-expect-error
+    // @ts-expect-error PAGE_TITLES is keyed by known route pathnames
     setTitle(PAGE_TITLES[pathname] || '')
   }, [pathname, mounted])
 

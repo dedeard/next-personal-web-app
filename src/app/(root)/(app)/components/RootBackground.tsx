@@ -14,7 +14,7 @@ const RootBackground: React.FC = () => {
       <button
         aria-label="Audio toggle"
         type="button"
-        className="fixed right-0 top-0 z-[120] mr-3 mt-3 leading-none md:mr-5 md:mt-5 lg:mr-10"
+        className="cursor-target fixed right-0 top-0 z-120 mr-1 mt-1 p-2 leading-none md:mr-3 md:mt-3 lg:mr-8"
         onClick={() => toggleVideo()}
       >
         {isVideoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}

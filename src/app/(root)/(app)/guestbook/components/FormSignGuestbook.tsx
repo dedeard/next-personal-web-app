@@ -27,15 +27,15 @@ const FormSignGuestbook = () => {
       }
       setValue('')
       await addDoc(collection(db, 'guestbook'), data)
-    } catch (e: any) {
-      setFormError(e.message)
+    } catch (e) {
+      setFormError(e instanceof Error ? e.message : 'Failed to sign the guestbook.')
       setValue(message)
     }
   }
 
   return (
     <>
-      <p className="mb-3 text-sm font-light md:text-base">
+      <p className="animate-fade-in-up mb-3 text-sm font-light md:text-base" style={{ animationDelay: '0.1s' }}>
         {isInitLoading && 'Loading...'}
         {!isInitLoading &&
           (!user ? (
@@ -43,7 +43,7 @@ const FormSignGuestbook = () => {
               Welcome! Please sign in to leave a message.{' '}
               <button
                 type="button"
-                className="text-blue-600 dark:text-blue-500"
+                className="cursor-target text-blue-600 dark:text-blue-500"
                 disabled={isAuthLoading}
                 onClick={() => login('google.com')}
               >
@@ -52,7 +52,7 @@ const FormSignGuestbook = () => {
               or{' '}
               <button
                 type="button"
-                className="text-blue-600 dark:text-blue-500"
+                className="cursor-target text-blue-600 dark:text-blue-500"
                 disabled={isAuthLoading}
                 onClick={() => login('github.com')}
               >
@@ -62,7 +62,12 @@ const FormSignGuestbook = () => {
           ) : (
             <>
               Signed In as <span className="font-semibold">{user?.displayName}</span>!{' '}
-              <button type="button" className="text-red-600 dark:text-red-500" disabled={isAuthLoading} onClick={() => logout()}>
+              <button
+                type="button"
+                className="cursor-target text-red-600 dark:text-red-500"
+                disabled={isAuthLoading}
+                onClick={() => logout()}
+              >
                 Sign Out
               </button>
             </>
@@ -73,8 +78,8 @@ const FormSignGuestbook = () => {
         <div className="mb-3 border-l-4 border-red-500 bg-red-500/10 px-3 py-4 font-bold backdrop-blur-lg">{error || formError}</div>
       )}
 
-      <form className="mb-3 flex gap-3" onSubmit={handleSubmit}>
-        <div className="flex-1 backdrop-blur">
+      <form className="animate-fade-in-up mb-3 flex gap-3" style={{ animationDelay: '0.15s' }} onSubmit={handleSubmit}>
+        <div className="flex-1 backdrop-blur-sm">
           <input
             type="text"
             name="message"
@@ -86,10 +91,10 @@ const FormSignGuestbook = () => {
             onChange={(e) => setValue(e.currentTarget.value)}
           />
         </div>
-        <div className="backdrop-blur">
+        <div className="backdrop-blur-sm">
           <button
             type="submit"
-            className="flex h-14 items-center gap-3 border border-black/10 bg-white px-3 font-bold uppercase opacity-75 dark:border-white/10 dark:bg-black hover:[&:not(:disabled)]:opacity-100"
+            className="cursor-target flex h-14 items-center gap-3 border border-black/10 bg-white px-3 font-bold uppercase opacity-75 dark:border-white/10 dark:bg-black hover:not-disabled:opacity-100"
             disabled={!user}
           >
             Submit

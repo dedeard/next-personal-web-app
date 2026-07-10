@@ -6,7 +6,6 @@ import Link from './Link'
 import Table from './Table'
 
 const MDX: React.FC<MDXRemoteProps> = (props) => {
-  // @ts-expect-error
   return <MDXRemote {...props} components={{ Image, a: Link, code: Code, Table, ...(props.components || {}) }} />
 }
 

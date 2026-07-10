@@ -29,10 +29,10 @@ export default async function BlogPage() {
   return (
     <>
       <PageTitle title="Blog" />
-      <ul className="grid grid-cols-1 gap-3 md:mb-5">
-        {blogs.map((post) => (
+      <ul className="grid grid-cols-1 divide-y divide-black/10 md:mb-5 dark:divide-white/10">
+        {blogs.map((post, index) => (
           <li key={post.slug}>
-            <BlogPostItem post={post} />
+            <BlogPostItem index={index} post={post} />
           </li>
         ))}
       </ul>

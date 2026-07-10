@@ -1,4 +1,4 @@
-const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_HOST || 'https://dedeard.my.id'
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_HOST || 'https://deard.dev'
 
 export const SITE_URL = (rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`).replace(/\/$/, '')
 export const HOST = SITE_URL

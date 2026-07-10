@@ -40,8 +40,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       await signInWithPopup(auth, getProviderById(id))
-    } catch (error: any) {
-      setError(FIREBASE_ERRORS[error.code] || error.message)
+    } catch (error) {
+      const err = error as { code?: string; message?: string }
+      setError(FIREBASE_ERRORS[err.code ?? ''] || err.message || 'Something went wrong.')
     }
 
     setIsAuthLoading(false)
@@ -53,8 +54,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       await signOut(auth)
-    } catch (error: any) {
-      setError(FIREBASE_ERRORS[error.code] || error.message)
+    } catch (error) {
+      const err = error as { code?: string; message?: string }
+      setError(FIREBASE_ERRORS[err.code ?? ''] || err.message || 'Something went wrong.')
     }
 
     setIsAuthLoading(false)

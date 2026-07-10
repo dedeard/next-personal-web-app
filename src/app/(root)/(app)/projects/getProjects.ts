@@ -2,6 +2,31 @@ import { IRepository } from '@/types'
 import timeFromNow from '@/utils/time-from-now'
 import 'server-only'
 
+type GitHubApiRepo = {
+  id: number
+  node_id: string
+  name: string
+  full_name: string
+  description: string | null
+  html_url: string
+  stargazers_url: string
+  forks_url: string
+  homepage: string | null
+  license: IRepository['license']
+  stargazers_count: number
+  watchers_count: number
+  forks_count: number
+  topics: string[]
+  languages_url: string
+  created_at: string
+  updated_at: string
+  pushed_at: string
+}
+
+type GitHubApiCommit = {
+  commit?: { committer?: { date?: string } }
+}
+
 const username = process.env.GH_USERNAME || 'dedeard'
 const apiKey = process.env.GH_API_KEY
 
@@ -18,12 +43,12 @@ const fetchOptions: RequestInit = {
 }
 
 const getProjects = async (): Promise<IRepository[]> => {
-  let repositories: any[] = []
+  let repositories: GitHubApiRepo[] = []
 
   try {
     const response = await fetch(repositoriesUrl, fetchOptions)
     if (!response.ok) return []
-    repositories = (await response.json()) as any[]
+    repositories = (await response.json()) as GitHubApiRepo[]
   } catch {
     return []
   }
@@ -46,7 +71,7 @@ const getProjects = async (): Promise<IRepository[]> => {
       size: totalSize ? (size / totalSize) * 100 : 0,
     }))
 
-    const commitsData = commitsResponse ? ((await commitsResponse.json()) as [any]) : []
+    const commitsData = commitsResponse ? ((await commitsResponse.json()) as GitHubApiCommit[]) : []
     const lastCommit = commitsData[0]
     const lastCommitDate = lastCommit?.commit?.committer?.date
 
@@ -55,11 +80,11 @@ const getProjects = async (): Promise<IRepository[]> => {
       node_id: repo.node_id,
       name: repo.name,
       full_name: repo.full_name,
-      description: repo.description,
+      description: repo.description ?? '',
       html_url: repo.html_url,
       stargazers_url: repo.stargazers_url,
       forks_url: repo.forks_url,
-      homepage: repo.homepage,
+      homepage: repo.homepage ?? undefined,
       license: repo.license,
       stargazers_count: repo.stargazers_count,
       watchers_count: repo.watchers_count,

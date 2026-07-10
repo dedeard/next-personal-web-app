@@ -23,7 +23,6 @@ export const NavigationProvider: React.FC<React.PropsWithChildren> = ({ children
     const pageIndexMap = Object.fromEntries(NAV_ITEMS.map((item, index) => [item.path, index]))
     const index = Object.entries(pageIndexMap).findIndex(([path]) => path === indexName)
     setIndex(index >= 0 ? index : -1)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   return <NavigationContext.Provider value={{ index }}>{children}</NavigationContext.Provider>
