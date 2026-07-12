@@ -1,11 +1,20 @@
+import 'server-only'
+
 import type { IMetadata, IPost } from '@/types'
 import fs from 'fs'
 import path from 'path'
 
-function parseFrontmatter(fileContent: string) {
+const REQUIRED_METADATA_KEYS: (keyof IMetadata)[] = ['title', 'publishedAt', 'summary']
+
+function parseFrontmatter(fileContent: string, source: string) {
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   const match = frontmatterRegex.exec(fileContent)
-  const frontMatterBlock = match![1]
+
+  if (!match) {
+    throw new Error(`Missing frontmatter block in "${source}".`)
+  }
+
+  const frontMatterBlock = match[1]
   const content = fileContent.replace(frontmatterRegex, '').trim()
   const frontMatterLines = frontMatterBlock.trim().split('\n')
   const metadata: Partial<IMetadata> = {}
@@ -17,6 +26,11 @@ function parseFrontmatter(fileContent: string) {
     metadata[key.trim() as keyof IMetadata] = value
   })
 
+  const missing = REQUIRED_METADATA_KEYS.filter((key) => !metadata[key])
+  if (missing.length > 0) {
+    throw new Error(`Missing required frontmatter (${missing.join(', ')}) in "${source}".`)
+  }
+
   return { metadata: metadata as IMetadata, content }
 }
 
@@ -24,9 +38,9 @@ function getMDXFiles(dir: fs.PathLike) {
   return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
 }
 
-function readMDXFile(filePath: fs.PathOrFileDescriptor) {
+function readMDXFile(filePath: string) {
   const rawContent = fs.readFileSync(filePath, 'utf-8')
-  return parseFrontmatter(rawContent)
+  return parseFrontmatter(rawContent, path.basename(filePath))
 }
 
 function getMDXData(dir: string): IPost[] {

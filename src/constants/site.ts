@@ -1,7 +1,6 @@
 const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_HOST || 'https://deard.dev'
 
 export const SITE_URL = (rawSiteUrl.startsWith('http') ? rawSiteUrl : `https://${rawSiteUrl}`).replace(/\/$/, '')
-export const HOST = SITE_URL
 export const SITE_NAME = 'Dede Ariansya'
 export const SITE_ALIAS = 'Dede Ard'
 export const SITE_HANDLE = 'dedeard'

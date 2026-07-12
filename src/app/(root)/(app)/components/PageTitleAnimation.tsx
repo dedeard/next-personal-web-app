@@ -1,7 +1,7 @@
 'use client'
 
 import TextTransition from '@/app/components/TextTransition'
-import { PAGE_TITLES } from '@/constans/common'
+import { PAGE_TITLES } from '@/constants/common'
 import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
 import { usePathname } from 'next/navigation'

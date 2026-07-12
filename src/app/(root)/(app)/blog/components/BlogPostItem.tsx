@@ -2,11 +2,10 @@
 
 import type { IPost } from '@/types'
 import formatDate from '@/utils/format-date'
+import readingTime from '@/utils/reading-time'
 import Link from 'next/link'
 import React from 'react'
 import { FiArrowUpRight } from 'react-icons/fi'
-
-const readingTime = (content: string) => Math.max(1, Math.round(content.trim().split(/\s+/).length / 200))
 
 const BlogPostItem: React.FC<{ post: IPost; index?: number }> = ({ post, index = 0 }) => {
   return (

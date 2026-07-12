@@ -17,7 +17,23 @@ const RootBackground: React.FC = () => {
         className="cursor-target fixed right-0 top-0 z-120 mr-1 mt-1 p-2 leading-none md:mr-3 md:mt-3 lg:mr-8"
         onClick={() => toggleVideo()}
       >
-        {isVideoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}
+        <span className="relative inline-flex items-center justify-center">
+          {!isVideoPlayed && (
+            <>
+              <span
+                aria-hidden
+                className="animate-attention-ring pointer-events-none absolute inset-0 m-auto h-6 w-6 rounded-full border border-current"
+              />
+              <span
+                aria-hidden
+                className="animate-attention-ring pointer-events-none absolute inset-0 m-auto h-6 w-6 rounded-full border border-current [animation-delay:0.8s]"
+              />
+            </>
+          )}
+          <span className={isVideoPlayed ? 'relative inline-flex' : 'animate-attention-icon relative inline-flex origin-center'}>
+            {isVideoPlayed ? <FiVolume2 size={18} /> : <FiVolumeX size={18} />}
+          </span>
+        </span>
       </button>
       <div aria-hidden="true" className="fixed left-0 top-0 h-full w-full overflow-hidden bg-white dark:bg-black">
         <Image src={background} alt="" className={'block h-full w-full object-cover'} />

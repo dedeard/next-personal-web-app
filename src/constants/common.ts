@@ -1,6 +1,6 @@
 import { FiBookOpen, FiClipboard, FiGlobe, FiHome, FiMail, FiUser } from 'react-icons/fi'
 
-export { absoluteUrl, DEFAULT_OG_IMAGE, HOST, SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_URL } from './site'
+export { absoluteUrl, DEFAULT_OG_IMAGE, SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_URL } from './site'
 
 export const NAV_ITEMS = [
   { path: '/', label: 'Home', Icon: FiHome },
@@ -29,15 +29,4 @@ export const SOCIALS = {
 
 export const RESUME_URL = 'https://drive.google.com/file/d/17EnrWbKObHNKFj4scsZM0R9JOX96uRJ3/view?usp=drive_link'
 
-export const FORMSPREE_KEY = 'xoqyaqqe'
-
-export const FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyCVXW6MTdRVtYPTOoV92ruBQ3ZQcF5Ho0g',
-  authDomain: 'dede-ard.firebaseapp.com',
-  databaseURL: 'https://dede-ard.firebaseio.com',
-  projectId: 'dede-ard',
-  storageBucket: 'dede-ard.appspot.com',
-  messagingSenderId: '120930847292',
-  appId: '1:120930847292:web:eb77034f59e9ee37b65139',
-  measurementId: 'G-KJRFL3X06T',
-}
+export const FORMSPREE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_KEY || ''

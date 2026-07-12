@@ -1,4 +1,5 @@
-import { RESUME_URL } from '@/constans/common'
+import { RESUME_URL } from '@/constants/common'
+import { SKILL_GROUPS } from '@/constants/skills'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { FiArrowUpRight, FiDownload, FiMapPin } from 'react-icons/fi'
@@ -17,13 +18,6 @@ export const metadata: Metadata = {
     canonical: '/about',
   },
 }
-
-const skillGroups = [
-  { label: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MDX', 'Vite'] },
-  { label: 'Backend', items: ['Node.js', 'NestJS', 'Express', 'Laravel', 'Firebase', 'MongoDB', 'MySQL'] },
-  { label: 'Cloud & DevOps', items: ['AWS', 'Serverless', 'Docker', 'REST APIs'] },
-  { label: 'Workflow', items: ['AI Prompting', 'SEO', 'Git'] },
-]
 
 export default function AboutPage() {
   return (
@@ -80,7 +74,7 @@ export default function AboutPage() {
           <div className="animate-fade-in-up mt-8 border-t border-black/10 pt-6 dark:border-white/10" style={{ animationDelay: '0.35s' }}>
             <h2 className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-black/50 dark:text-white/50">Skills</h2>
             <div className="space-y-4">
-              {skillGroups.map(({ label, items }) => (
+              {SKILL_GROUPS.map(({ label, items }) => (
                 <div key={label} className="sm:flex sm:items-start sm:gap-4">
                   <span className="mb-2 block text-xs font-bold uppercase tracking-wider text-black/40 sm:mb-0 sm:w-32 sm:shrink-0 sm:pt-1.5 dark:text-white/40">
                     {label}

@@ -1,28 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { AppRouterInstance, NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime'
-import { useRouter as useNextRouter, usePathname } from 'next/navigation'
-import { createContext, useCallback, useContext, useEffect, useState } from 'react'
-
-interface ProgressBarContextProps extends AppRouterInstance {
-  back(disableProgress?: boolean): void
-  push(href: string, options?: NavigateOptions, disableProgress?: boolean): void
-}
-
-const ProgressBarContext = createContext<ProgressBarContextProps>({
-  back() {},
-  forward() {},
-  refresh() {},
-  push() {},
-  replace() {},
-  prefetch() {},
-})
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 export const ProgressBarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [timeout, setNodeTimeout] = useState<NodeJS.Timeout | null>(null)
   const [width, setWidth] = useState(0)
 
   const pathname = usePathname()
-  const router = useNextRouter()
 
   const isSameURL = (target: URL, current: URL) => {
     const cleanTarget = target.protocol + '//' + target.host + target.pathname + target.search
@@ -97,38 +81,14 @@ export const ProgressBarProvider: React.FC<{ children: React.ReactNode }> = ({ c
     }
   }, [])
 
-  const push = useCallback(
-    (href: string, options?: NavigateOptions, disableProgress?: boolean) => {
-      if (disableProgress) return router.push(href, options)
-
-      const currentUrl = new URL(pathname, location.href)
-      const targetUrl = new URL(href, location.href)
-
-      if (isSameURL(targetUrl, currentUrl) || href === pathname) return router.push(href, options)
-
-      start()
-
-      return router.push(href, options)
-    },
-    [pathname],
-  )
-
-  const back = useCallback((disableProgress?: boolean) => {
-    if (disableProgress) return router.back()
-    start()
-    return router.back()
-  }, [])
-
   return (
-    <ProgressBarContext.Provider value={{ ...router, push, back }}>
+    <>
       {width ? (
         <i className="fixed left-0 top-0 z-9999 block h-[2px] w-full">
           <i className="block h-full bg-yellow-600 transition-all duration-300 ease-in-out" style={{ width: `${width}%` }} />
         </i>
       ) : null}
       {children}
-    </ProgressBarContext.Provider>
+    </>
   )
 }
-
-export const useRouter = () => useContext(ProgressBarContext)

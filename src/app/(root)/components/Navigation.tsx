@@ -1,5 +1,5 @@
 import Logo from '@/app/components/Logo'
-import { NAV_ITEMS } from '@/constans/common'
+import { NAV_ITEMS } from '@/constants/common'
 import Link from 'next/link'
 import DarkModeToggle from './DarkModeToggle'
 import NavigationPointer from './NavigationPointer'

@@ -1,6 +1,7 @@
+import 'server-only'
+
 import { IRepository } from '@/types'
 import timeFromNow from '@/utils/time-from-now'
-import 'server-only'
 
 type GitHubApiRepo = {
   id: number
@@ -91,11 +92,11 @@ const getProjects = async (): Promise<IRepository[]> => {
       forks_count: repo.forks_count,
       topics: repo.topics,
       languages: languages,
-      created_at: timeFromNow(repo.created_at),
-      updated_at: timeFromNow(repo.updated_at),
-      pushed_at: timeFromNow(repo.pushed_at),
-      last_commit_at: lastCommitDate ? timeFromNow(lastCommitDate) : 'N/A',
+      created_at: repo.created_at,
+      updated_at: repo.updated_at,
+      pushed_at: repo.pushed_at,
       last_commit_date: lastCommitDate,
+      last_commit_relative: lastCommitDate ? timeFromNow(lastCommitDate) : 'N/A',
     }
 
     return repository

@@ -61,6 +61,39 @@
   }
 }
 
+@keyframes attention-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes attention-icon {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  15% {
+    transform: rotate(-14deg) scale(1.2);
+  }
+  30% {
+    transform: rotate(13deg) scale(1.2);
+  }
+  45% {
+    transform: rotate(-9deg) scale(1.12);
+  }
+  60% {
+    transform: rotate(7deg) scale(1.12);
+  }
+  75% {
+    transform: rotate(0deg) scale(1.06);
+  }
+}
+
 @layer utilities {
   .animate-fade-in-up {
     animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -68,11 +101,19 @@
   .animate-fade-in {
     animation: fade-in 0.7s ease-out both;
   }
+  .animate-attention-ring {
+    animation: attention-ring 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  .animate-attention-icon {
+    animation: attention-icon 2s ease-in-out infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
-  .animate-fade-in {
+  .animate-fade-in,
+  .animate-attention-ring,
+  .animate-attention-icon {
     animation: none;
   }
 }

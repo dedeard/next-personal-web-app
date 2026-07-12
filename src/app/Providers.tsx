@@ -1,7 +1,6 @@
 'use client'
 
 import { AuthProvider } from '@/contexts/AuthContext'
-import { CursorFollowerProvider } from '@/contexts/CursorFollowerContext'
 import { MountProvider } from '@/contexts/MountContext'
 import { NavigationProvider } from '@/contexts/NavigationContext'
 import { ProgressBarProvider } from '@/contexts/ProgressBarContext'
@@ -14,11 +13,9 @@ const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
       <ProgressBarProvider>
         <MountProvider>
           <NavigationProvider>
-            <CursorFollowerProvider>
-              <ThemeProvider defaultDark>
-                <RootBackgroundProvider>{children}</RootBackgroundProvider>
-              </ThemeProvider>
-            </CursorFollowerProvider>
+            <ThemeProvider defaultDark>
+              <RootBackgroundProvider>{children}</RootBackgroundProvider>
+            </ThemeProvider>
           </NavigationProvider>
         </MountProvider>
       </ProgressBarProvider>

@@ -1,6 +1,6 @@
-import { SITE_NAME, absoluteUrl } from '@/constans/site'
+import { SITE_NAME, absoluteUrl } from '@/constants/site'
+import { getBlogPosts } from '@/lib/blog'
 import formatDate from '@/utils/format-date'
-import { getBlogPosts } from '@/utils/get-blog-posts'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import MDX from './components/MDX'

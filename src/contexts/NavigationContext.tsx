@@ -1,5 +1,5 @@
 // NavigationContext.tsx
-import { NAV_ITEMS } from '@/constans/common'
+import { NAV_ITEMS } from '@/constants/common'
 import { usePathname } from 'next/navigation'
 import React, { createContext, useContext, useEffect, useState } from 'react'
 

@@ -1,4 +1,4 @@
-import { getBlogPosts } from '@/utils/get-blog-posts'
+import { getBlogPosts } from '@/lib/blog'
 import type { Metadata } from 'next'
 import PageTitle from '../components/PageTitle'
 import BlogPostItem from './components/BlogPostItem'

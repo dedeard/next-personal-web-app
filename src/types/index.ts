@@ -16,8 +16,8 @@ export interface IRepository {
   created_at: string
   updated_at: string
   pushed_at: string
-  last_commit_at: string
   last_commit_date?: string
+  last_commit_relative: string
   languages: { name: string; size: number }[]
   topics: string[]
   license?: { key: string; name: string; spdx_id: string; url: string; node_id: string }
@@ -39,5 +39,6 @@ export interface IGuestbookMessage {
   _id: string
   name: string
   message: string
+  userId?: string
   createdAt?: Timestamp
 }

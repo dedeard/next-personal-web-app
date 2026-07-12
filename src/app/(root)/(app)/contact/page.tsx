@@ -1,4 +1,4 @@
-import { FORMSPREE_KEY, SOCIALS } from '@/constans/common'
+import { FORMSPREE_KEY, SOCIALS } from '@/constants/common'
 import type { Metadata } from 'next'
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi'
 import PageTitle from '../components/PageTitle'

@@ -1,22 +1,9 @@
 import CurvedLoop from '@/app/components/CurvedLoop'
-import { SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_URL, SOCIALS } from '@/constans/common'
+import { SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_URL, SOCIALS } from '@/constants/common'
+import { FEATURED_SKILLS } from '@/constants/skills'
 import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 
-const skills = [
-  'Next.js',
-  'React',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'NestJS',
-  'Laravel',
-  'Firebase',
-  'MongoDB',
-  'AWS',
-  'Docker',
-  'AI Prompting',
-]
-const skillsMarquee = skills.join(' - ') + ' - '
+const skillsMarquee = FEATURED_SKILLS.join(' - ') + ' - '
 
 const socialLinks = [
   { href: SOCIALS.IG, label: 'Instagram', Icon: FaInstagram, rel: 'me noopener' },
@@ -35,7 +22,7 @@ const structuredData = [
     url: SITE_URL,
     jobTitle: 'Pixel-perfect prompter and full-stack web developer',
     description: SITE_DESCRIPTION,
-    knowsAbout: skills,
+    knowsAbout: FEATURED_SKILLS,
     sameAs: [SOCIALS.GH, SOCIALS.IN, SOCIALS.IG],
   },
   {

@@ -1,5 +1,5 @@
 'use client'
-import langColors from '@/constans/langColors'
+import langColors from '@/constants/langColors'
 import { IRepository } from '@/types'
 import { memo } from 'react'
 import { FiArrowUpRight, FiGlobe, FiStar } from 'react-icons/fi'
@@ -24,7 +24,7 @@ const RepositoryCard: React.FC<{ repo: IRepository; index?: number }> = ({ repo,
         </a>
 
         <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold text-black/50 dark:text-white/50">
-          <span>Updated {repo.last_commit_at}</span>
+          <span>Updated {repo.last_commit_relative}</span>
           {repo.homepage && (
             <a
               href={repo.homepage}
