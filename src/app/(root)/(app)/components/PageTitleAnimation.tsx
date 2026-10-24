@@ -1,7 +1,7 @@
 'use client'
 
 import TextTransition from '@/app/components/TextTransition'
-import { PAGE_TITLES } from '@/constans/common'
+import { PAGE_TITLES } from '@/constants/common'
 import { useMount } from '@/contexts/MountContext'
 import { config } from '@react-spring/web'
 import { usePathname } from 'next/navigation'
@@ -13,7 +13,7 @@ const PageTitleAnimation: React.FC = () => {
   const mounted = useMount()
 
   useEffect(() => {
-    // @ts-expect-error
+    // @ts-expect-error PAGE_TITLES is keyed by known route pathnames
     setTitle(PAGE_TITLES[pathname] || '')
   }, [pathname, mounted])
 

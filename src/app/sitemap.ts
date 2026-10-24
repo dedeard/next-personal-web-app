@@ -1,5 +1,5 @@
-import { SITE_URL } from '@/constans/site'
-import { getBlogPosts } from '@/utils/get-blog-posts'
+import { SITE_URL } from '@/constants/site'
+import { getBlogPosts } from '@/lib/blog'
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,4 +1,4 @@
-import { SITE_NAME, absoluteUrl } from '@/constans/site'
+import { SITE_NAME, absoluteUrl } from '@/constants/site'
 import { ImageResponse } from 'next/og'
 import { NextRequest } from 'next/server'
 

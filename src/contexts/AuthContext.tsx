@@ -1,4 +1,4 @@
-import FIREBASE_ERRORS from '@/constans/firebase-errors'
+import FIREBASE_ERRORS from '@/constants/firebase-errors'
 import { auth, getProviderById } from '@/utils/firebase'
 import { User, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
 import React from 'react'
@@ -40,8 +40,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       await signInWithPopup(auth, getProviderById(id))
-    } catch (error: any) {
-      setError(FIREBASE_ERRORS[error.code] || error.message)
+    } catch (error) {
+      const err = error as { code?: string; message?: string }
+      setError(FIREBASE_ERRORS[err.code ?? ''] || err.message || 'Something went wrong.')
     }
 
     setIsAuthLoading(false)
@@ -53,8 +54,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     try {
       await signOut(auth)
-    } catch (error: any) {
-      setError(FIREBASE_ERRORS[error.code] || error.message)
+    } catch (error) {
+      const err = error as { code?: string; message?: string }
+      setError(FIREBASE_ERRORS[err.code ?? ''] || err.message || 'Something went wrong.')
     }
 
     setIsAuthLoading(false)
@@ -65,8 +67,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 export const useAuth = () => React.useContext(AuthContext)
 
+const ADMIN_EMAILS = (process.env.NEXT_PUBLIC_ADMIN_EMAILS || '')
+  .split(',')
+  .map((email) => email.trim().toLowerCase())
+  .filter(Boolean)
+
 export const useAuthIsAdmin = () => {
   const auth = useAuth()
-  if (auth.user?.email === 'me@dedeard.my.id' || auth.user?.email === 'dedeariansya1@gmail.com') return true
-  return false
+  const email = auth.user?.email?.toLowerCase()
+  return email ? ADMIN_EMAILS.includes(email) : false
 }

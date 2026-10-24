@@ -58,7 +58,7 @@ const TextTransition: React.FC<PropsWithChildren<TextTransitionProps>> = (props)
     leave: {
       opacity: 0,
       transform: `translateY(${leaveTransform})`,
-      position: 'absolute',
+      position: 'absolute' as const,
     },
     config: springConfig,
     immediate: initialRun.current,
@@ -101,7 +101,7 @@ const TextTransition: React.FC<PropsWithChildren<TextTransitionProps>> = (props)
       }}
     >
       {transitions((styles, item) => (
-        <animated.div style={{ ...styles }} ref={item === children ? currentRef : undefined}>
+        <animated.div style={styles} ref={item === children ? currentRef : undefined}>
           {item}
         </animated.div>
       ))}
