@@ -22,6 +22,7 @@ type GitHubApiRepo = {
   created_at: string
   updated_at: string
   pushed_at: string
+  fork: boolean
 }
 
 type GitHubApiCommit = {
@@ -54,7 +55,8 @@ const getProjects = async (): Promise<IRepository[]> => {
     return []
   }
 
-  repositories = repositories.filter((repo) => repo.description && repo.languages_url)
+  // forks are other people's projects, so only show repositories that are my own work
+  repositories = repositories.filter((repo) => !repo.fork && repo.description && repo.languages_url)
 
   const promises = repositories.map(async (repo) => {
     const [languagesRes, commitsRes] = await Promise.allSettled([
