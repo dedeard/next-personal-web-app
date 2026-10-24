@@ -17,6 +17,7 @@ const RootBackground: React.FC = () => {
       <button
         aria-label={isVideoPlayed ? 'Disable audio-reactive background' : 'Enable audio-reactive background'}
         type="button"
+        data-bg-audio-toggle
         className="cursor-target fixed right-0 top-0 z-120 mr-1 mt-1 p-2 leading-none md:mr-3 md:mt-3 lg:mr-8"
         onClick={() => toggle()}
       >

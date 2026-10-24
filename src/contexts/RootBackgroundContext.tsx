@@ -1,8 +1,11 @@
+import { usePathname } from 'next/navigation'
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
 export const EFFECT_COUNT = 8
-const MIN_INTERVAL_MS = 3000
-const MAX_INTERVAL_MS = 15000
+/** Remembers that the visitor switched the music off, so the first click doesn't turn it back on. */
+const OFF_KEY = 'bg-audio-off'
+/** The on/off button carries this attribute; its own click must not also count as the "first click" auto-start. */
+const TOGGLE_SELECTOR = '[data-bg-audio-toggle]'
 
 interface RootBackgroundContextType {
   /** 0 = off, 1..EFFECT_COUNT = the currently displayed effect. */
@@ -28,40 +31,53 @@ function randomEffect(exclude: number): number {
   return next
 }
 
+function rememberOff(off: boolean) {
+  try {
+    if (off) localStorage.setItem(OFF_KEY, '1')
+    else localStorage.removeItem(OFF_KEY)
+  } catch {}
+}
+
 export const RootBackgroundProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [effectIndex, setEffectIndex] = useState<number>(0)
-  const timerRef = useRef<number | null>(null)
   const isActive = effectIndex > 0
+  const pathname = usePathname()
+  const lastPathname = useRef(pathname)
 
   const toggle = useCallback((on?: boolean) => {
     setEffectIndex((prev) => {
       const shouldBeOn = on !== undefined ? on : prev === 0
+      rememberOff(!shouldBeOn)
       if (!shouldBeOn) return 0
       if (prev > 0) return prev
       return randomEffect(0)
     })
   }, [])
 
-  // While active, jump to a random effect every 3-15s.
+  // Browsers block audio until the visitor interacts, so start the music on their first click anywhere
+  // (unless they turned it off on an earlier visit, or the click is on the on/off button itself).
   useEffect(() => {
-    if (!isActive) return
+    let off = false
+    try {
+      off = localStorage.getItem(OFF_KEY) === '1'
+    } catch {}
+    if (off) return
 
-    const schedule = () => {
-      const delay = MIN_INTERVAL_MS + Math.random() * (MAX_INTERVAL_MS - MIN_INTERVAL_MS)
-      timerRef.current = window.setTimeout(() => {
-        setEffectIndex((prev) => (prev > 0 ? randomEffect(prev) : prev))
-        schedule()
-      }, delay)
+    const onFirstPointer = (e: PointerEvent) => {
+      window.removeEventListener('pointerdown', onFirstPointer)
+      if (e.target instanceof Element && e.target.closest(TOGGLE_SELECTOR)) return
+      setEffectIndex((prev) => (prev > 0 ? prev : randomEffect(0)))
     }
-    schedule()
+    window.addEventListener('pointerdown', onFirstPointer)
+    return () => window.removeEventListener('pointerdown', onFirstPointer)
+  }, [])
 
-    return () => {
-      if (timerRef.current !== null) {
-        clearTimeout(timerRef.current)
-        timerRef.current = null
-      }
-    }
-  }, [isActive])
+  // While active, every page change switches to a different effect (and its track).
+  useEffect(() => {
+    if (pathname === lastPathname.current) return
+    lastPathname.current = pathname
+    setEffectIndex((prev) => (prev > 0 ? randomEffect(prev) : prev))
+  }, [pathname])
 
   const toggleVideo = useCallback(
     (play?: boolean) => {
