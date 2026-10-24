@@ -6,7 +6,7 @@ export const SITE_ALIAS = 'Dede Ard'
 export const SITE_HANDLE = 'dedeard'
 export const SITE_TITLE = `${SITE_NAME} (${SITE_ALIAS})`
 export const SITE_DESCRIPTION =
-  'Dede Ariansya, also known as Dede Ard, is a pixel-perfect prompter and full-stack web developer building polished interfaces, practical backends, serverless systems, and AI-assisted workflows.'
+  'Dede Ariansya, also known as Dede Ard, is a full-stack web developer building web products end to end, from AI-powered platforms with visual workflow editors and 3D previews to serverless SaaS on AWS.'
 export const DEFAULT_OG_IMAGE = '/media/poster.jpg'
 
 export function absoluteUrl(path = '/') {

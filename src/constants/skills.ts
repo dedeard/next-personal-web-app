@@ -11,16 +11,17 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ]
 
 export const FEATURED_SKILLS = [
-  'Next.js',
   'React',
+  'Next.js',
   'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
   'NestJS',
-  'Laravel',
-  'Firebase',
+  'Node.js',
+  'Tailwind CSS',
+  'Three.js',
+  'Supabase',
+  'PostgreSQL',
   'MongoDB',
-  'AWS',
+  'AWS Serverless',
+  'Laravel',
   'Docker',
-  'AI Prompting',
 ]

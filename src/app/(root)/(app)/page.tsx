@@ -20,7 +20,7 @@ const structuredData = [
     name: SITE_NAME,
     alternateName: [SITE_ALIAS, SITE_HANDLE, 'Dede'],
     url: SITE_URL,
-    jobTitle: 'Pixel-perfect prompter and full-stack web developer',
+    jobTitle: 'Full Stack Web Developer',
     description: SITE_DESCRIPTION,
     knowsAbout: FEATURED_SKILLS,
     sameAs: [SOCIALS.GH, SOCIALS.IN, SOCIALS.IG],
@@ -61,9 +61,9 @@ export default function HomePage() {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <div className="mt-6 flex items-center justify-center gap-3 text-[11px] font-bold uppercase tracking-[0.25em] opacity-70 md:gap-4 md:text-xs">
               <span aria-hidden className="hidden h-px w-6 bg-current opacity-30 sm:block md:w-10" />
-              <span>Pixel-Perfect Prompter</span>
-              <span aria-hidden className="h-3 w-px bg-current opacity-30" />
               <span>Full-Stack Web Dev</span>
+              <span aria-hidden className="h-3 w-px bg-current opacity-30" />
+              <span>Founder of Cirsqu</span>
               <span aria-hidden className="hidden h-px w-6 bg-current opacity-30 sm:block md:w-10" />
             </div>
           </div>
@@ -72,8 +72,8 @@ export default function HomePage() {
             className="animate-fade-in-up mt-7 max-w-xl text-base font-normal leading-8 text-black/95 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-lg dark:text-white/75"
             style={{ animationDelay: '0.4s' }}
           >
-            {SITE_NAME}, also known as {SITE_ALIAS}, builds pixel-perfect web interfaces, practical backend systems, and AI-assisted
-            workflows for real products.
+            {SITE_NAME}, also known as {SITE_ALIAS}, builds web products end to end, most recently AI-powered platforms with real-time job
+            tracking, visual workflow editors, and 3D previews.
           </p>
 
           <div className="animate-fade-in-up mt-6 w-full" style={{ animationDelay: '0.5s' }}>
