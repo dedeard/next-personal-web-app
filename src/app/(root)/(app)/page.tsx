@@ -20,7 +20,7 @@ const structuredData = [
     name: SITE_NAME,
     alternateName: [SITE_ALIAS, SITE_HANDLE, 'Dede'],
     url: SITE_URL,
-    jobTitle: 'Full Stack Web Developer',
+    jobTitle: 'Pixel-perfect prompter and full-stack web developer',
     description: SITE_DESCRIPTION,
     knowsAbout: FEATURED_SKILLS,
     sameAs: [SOCIALS.GH, SOCIALS.IN, SOCIALS.IG],

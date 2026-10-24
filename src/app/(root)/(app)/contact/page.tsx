@@ -47,9 +47,6 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-black/40 dark:text-white/40">Email</h2>
                 <p className="mt-1 flex flex-col text-sm leading-6 text-black/70 dark:text-white/70">
-                  <a href="mailto:me@deard.dev" rel="noopener" className={linkClass}>
-                    me@deard.dev
-                  </a>
                   <a href="mailto:me@dedeard.my.id" rel="noopener" className={linkClass}>
                     me@dedeard.my.id
                   </a>
