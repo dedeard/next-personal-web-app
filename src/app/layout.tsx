@@ -90,7 +90,12 @@ export const metadata: Metadata = {
         url: '/favicon-white.ico',
         media: '(prefers-color-scheme: dark)',
       },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
     ],
+    apple: '/apple-touch-icon.png',
   },
 }
 
