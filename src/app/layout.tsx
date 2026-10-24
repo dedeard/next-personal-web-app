@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import Providers from './Providers'
 import TargetCursor from './components/TargetCursor'
+import ShipLayer from './components/ship/ShipLayer'
 import './globals.css'
 
 const lato = localFont({
@@ -104,6 +105,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <Providers>
           <TargetCursor spinDuration={3} hideDefaultCursor parallaxOn />
+          <ShipLayer />
           {children}
         </Providers>
         <Analytics />
