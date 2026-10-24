@@ -2,7 +2,21 @@ import { SITE_ALIAS, SITE_DESCRIPTION, SITE_HANDLE, SITE_NAME, SITE_TITLE, SITE_
 import Link from 'next/link'
 import { FaGithub, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 
-const skills = ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'NestJS', 'Laravel', 'Firebase', 'MongoDB', 'AWS Lambda', 'AI prompting']
+const skills = [
+  'Next.js',
+  'React',
+  'TypeScript',
+  'Tailwind CSS',
+  'NestJS',
+  'Laravel',
+  'Java Spring',
+  'Supabase',
+  'Firebase',
+  'MongoDB',
+  'PostgreSQL',
+  'AWS Serverless',
+  'AI prompting',
+]
 
 const structuredData = [
   {
@@ -12,7 +26,7 @@ const structuredData = [
     name: SITE_NAME,
     alternateName: [SITE_ALIAS, SITE_HANDLE, 'Dede'],
     url: SITE_URL,
-    jobTitle: 'Pixel-perfect prompter and full-stack web developer',
+    jobTitle: 'Full Stack Web Developer',
     description: SITE_DESCRIPTION,
     knowsAbout: skills,
     sameAs: [SOCIALS.GH, SOCIALS.IN, SOCIALS.IG],
