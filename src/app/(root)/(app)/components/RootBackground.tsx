@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React, { memo } from 'react'
 import { FiVolume2, FiVolumeX } from 'react-icons/fi'
 
-import background from '@/assets/background.webp'
+import background from '@/assets/milky-way.webp'
 import { useRootBackground } from '@/contexts/RootBackgroundContext'
 
 import AudioDistortionBackground from './AudioDistortionBackground'
