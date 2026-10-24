@@ -4,10 +4,19 @@ export interface SkillGroup {
 }
 
 export const SKILL_GROUPS: SkillGroup[] = [
-  { label: 'Frontend', items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MDX', 'Vite'] },
-  { label: 'Backend', items: ['Node.js', 'NestJS', 'Express', 'Laravel', 'Firebase', 'MongoDB', 'MySQL'] },
-  { label: 'Cloud & DevOps', items: ['AWS', 'Serverless', 'Docker', 'REST APIs'] },
-  { label: 'Workflow', items: ['AI Prompting', 'SEO', 'Git'] },
+  { label: 'Languages', items: ['JavaScript', 'TypeScript', 'PHP', 'Java'] },
+  {
+    label: 'Frontend',
+    items: ['React', 'Next.js', 'Vue/Nuxt.js', 'Tailwind CSS', 'Zustand', 'Styled Components', 'Turborepo', 'webpack'],
+  },
+  {
+    label: 'AI & 3D',
+    items: ['tldraw', 'Reaflow', 'React Three Fiber', 'Three.js', 'WebGPU', 'Streaming AI chat', 'Multi-provider AI (RunPod, OpenRouter)'],
+  },
+  { label: 'Backend', items: ['Node.js', 'Express.js', 'NestJS', 'Laravel', 'Spring', 'Firebase', 'Supabase'] },
+  { label: 'Cloud & DevOps', items: ['AWS (Lambda, SNS, SQS, S3, EC2)', 'Google Cloud', 'Serverless'] },
+  { label: 'Databases', items: ['PostgreSQL', 'MySQL', 'MongoDB'] },
+  { label: 'Tools', items: ['Git', 'Docker'] },
 ]
 
 export const FEATURED_SKILLS = [
@@ -18,9 +27,11 @@ export const FEATURED_SKILLS = [
   'Node.js',
   'NestJS',
   'Laravel',
-  'Firebase',
+  'Supabase',
+  'PostgreSQL',
   'MongoDB',
   'AWS',
+  'Three.js',
   'Docker',
   'AI Prompting',
 ]

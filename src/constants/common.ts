@@ -27,6 +27,6 @@ export const SOCIALS = {
   WA: 'https://api.whatsapp.com/send?phone=6281343912883&text=%3CChatMe%20%2F%3E',
 }
 
-export const RESUME_URL = 'https://drive.google.com/file/d/17EnrWbKObHNKFj4scsZM0R9JOX96uRJ3/view?usp=drive_link'
+export const RESUME_URL = '/dede-ariansya-resume.pdf'
 
 export const FORMSPREE_KEY = process.env.NEXT_PUBLIC_FORMSPREE_KEY || ''
